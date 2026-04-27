@@ -8,15 +8,40 @@ const state = {
 
 const els = {
   filters: document.querySelector('#filters'),
+  categoryFolders: document.querySelector('#categoryFolders'),
   searchInput: document.querySelector('#searchInput'),
   sortSelect: document.querySelector('#sortSelect'),
   viewButtons: document.querySelectorAll('.view-button'),
   termList: document.querySelector('#termList'),
+  termsTopline: document.querySelector('#termsTopline'),
   empty: document.querySelector('#empty'),
   count: document.querySelector('#count')
 };
 
 const categoryOrder = ['összes', 'kötésmód', 'gerincszerkezet', 'könyvforma', 'tárolóelem'];
+
+const categoryMeta = {
+  'kötésmód': {
+    title: 'Kötésmód',
+    description: 'A lapok, ívek vagy könyvtestek technikai összekapcsolásának módja.',
+    examples: ['kopt kötés', 'japán fűzés', 'spirálkötés']
+  },
+  'gerincszerkezet': {
+    title: 'Gerincszerkezet',
+    description: 'A könyvtest hátoldali kialakítása és a fűzés láthatósága.',
+    examples: ['nyitott gerinc', 'fedett gerinc', 'üreges gerinc']
+  },
+  'könyvforma': {
+    title: 'Könyvforma',
+    description: 'A mű egészének tárgyi, használati és olvasási logikája.',
+    examples: ['leporelló', 'dos-à-dos', 'alagútkönyv']
+  },
+  'tárolóelem': {
+    title: 'Tárolóelem',
+    description: 'A műhöz tartozó tok, doboz, mappa vagy más védőegység.',
+    examples: ['tok', 'doboz', 'archiváló doboz']
+  }
+};
 
 function escapeHtml(value) {
   return String(value || '')
@@ -86,6 +111,17 @@ function getCategoryCount(category) {
   return state.terms.filter(term => displayCategory(term.category) === category).length;
 }
 
+function setCategory(category, shouldScroll = false) {
+  state.selectedCategory = category;
+  renderFilters();
+  renderCategoryFolders();
+  renderCards();
+
+  if (shouldScroll && els.termsTopline) {
+    els.termsTopline.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 function renderFilters() {
   els.filters.innerHTML = categoryOrder.map(category => `
     <button class="filter ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${escapeHtml(category)}">
@@ -95,11 +131,31 @@ function renderFilters() {
   `).join('');
 
   els.filters.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-      state.selectedCategory = button.dataset.category;
-      renderFilters();
-      renderCards();
-    });
+    button.addEventListener('click', () => setCategory(button.dataset.category));
+  });
+}
+
+function renderCategoryFolders() {
+  if (!els.categoryFolders) return;
+
+  const categories = categoryOrder.filter(category => category !== 'összes');
+  els.categoryFolders.innerHTML = categories.map(category => {
+    const meta = categoryMeta[category];
+    const count = getCategoryCount(category);
+    return `
+      <button class="folder-card ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${escapeHtml(category)}">
+        <span class="folder-tab"></span>
+        <span class="folder-category" data-category="${escapeHtml(category)}">${escapeHtml(meta.title)}</span>
+        <strong>${escapeHtml(meta.description)}</strong>
+        <span class="folder-count">${count} szócikk</span>
+        <span class="folder-examples">pl. ${meta.examples.map(escapeHtml).join(', ')}</span>
+        <span class="folder-open">Megnyitás →</span>
+      </button>
+    `;
+  }).join('');
+
+  els.categoryFolders.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => setCategory(button.dataset.category, true));
   });
 }
 
@@ -184,6 +240,7 @@ async function init() {
     const response = await fetch('data/terms.json');
     state.terms = await response.json();
     renderFilters();
+    renderCategoryFolders();
     renderViewButtons();
     renderCards();
   } catch (error) {
@@ -219,9 +276,7 @@ els.termList.addEventListener('click', event => {
   if (tag) {
     state.search = tag.dataset.tag || '';
     els.searchInput.value = state.search;
-    state.selectedCategory = 'összes';
-    renderFilters();
-    renderCards();
+    setCategory('összes');
     els.searchInput.focus();
     return;
   }
