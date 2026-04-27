@@ -2,15 +2,14 @@ const state = {
   terms: [],
   selectedCategory: 'összes',
   search: '',
-  sort: 'abc',
-  view: 'cards'
+  view: 'cards',
+  openCategories: new Set(['kötésmód'])
 };
 
 const els = {
   filters: document.querySelector('#filters'),
   categoryFolders: document.querySelector('#categoryFolders'),
   searchInput: document.querySelector('#searchInput'),
-  sortSelect: document.querySelector('#sortSelect'),
   viewButtons: document.querySelectorAll('.view-button'),
   termList: document.querySelector('#termList'),
   termsTopline: document.querySelector('#termsTopline'),
@@ -18,28 +17,24 @@ const els = {
   count: document.querySelector('#count')
 };
 
-const categoryOrder = ['összes', 'kötésmód', 'gerincszerkezet', 'könyvforma', 'tárolóelem'];
+const categoryOrder = ['kötésmód', 'gerincszerkezet', 'könyvforma', 'tárolóelem'];
 
 const categoryMeta = {
   'kötésmód': {
     title: 'Kötésmód',
-    description: 'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',
-    examples: ['kopt kötés', 'japán fűzés', 'spirálkötés']
+    description: 'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.'
   },
   'gerincszerkezet': {
     title: 'Gerincszerkezet',
-    description: 'A könyvtest hátoldalának kialakítása, valamint a fűzés láthatósága vagy fedettsége.',
-    examples: ['nyitott gerinc', 'fedett gerinc', 'üreges gerinc']
+    description: 'A könyvtest hátoldali szerkezeti kialakítása.'
   },
   'könyvforma': {
     title: 'Könyvforma',
-    description: 'A könyvtárgy formai, térbeli és használati működése.',
-    examples: ['leporelló', 'dos-à-dos', 'alagútkönyv']
+    description: 'A mű egészének tárgyi, használati és olvasási logikája.'
   },
   'tárolóelem': {
     title: 'Tárolóelem',
-    description: 'A könyvhöz kapcsolódó védő, tároló vagy bemutató egység.',
-    examples: ['tok', 'doboz', 'archiváló doboz']
+    description: 'A műhöz tartozó védő vagy tárolóelem típusa.'
   }
 };
 
@@ -87,23 +82,25 @@ function getSearchText(term) {
 
 function sortTerms(terms) {
   return [...terms].sort((a, b) => {
-    if (state.sort === 'id') return a.id.localeCompare(b.id, 'hu');
-    if (state.sort === 'category') {
-      const categoryDiff = categoryOrder.indexOf(displayCategory(a.category)) - categoryOrder.indexOf(displayCategory(b.category));
-      return categoryDiff || byHuLabel(a, b);
-    }
-    return byHuLabel(a, b);
+    const categoryDiff = categoryOrder.indexOf(displayCategory(a.category)) - categoryOrder.indexOf(displayCategory(b.category));
+    return categoryDiff || byHuLabel(a, b);
   });
 }
 
-function getFilteredTerms() {
+function getVisibleTerms() {
   const query = normalize(state.search.trim());
-  const filtered = state.terms.filter(term => {
-    const categoryMatch = state.selectedCategory === 'összes' || displayCategory(term.category) === state.selectedCategory;
-    const queryMatch = !query || getSearchText(term).includes(query);
-    return categoryMatch && queryMatch;
-  });
+  const filtered = state.terms.filter(term => !query || getSearchText(term).includes(query));
   return sortTerms(filtered);
+}
+
+function getFilteredTerms() {
+  const visible = getVisibleTerms();
+  if (state.selectedCategory === 'összes') return visible;
+  return visible.filter(term => displayCategory(term.category) === state.selectedCategory);
+}
+
+function getCategoryTerms(category) {
+  return getVisibleTerms().filter(term => displayCategory(term.category) === category);
 }
 
 function getCategoryCount(category) {
@@ -113,7 +110,8 @@ function getCategoryCount(category) {
 
 function setCategory(category, shouldScroll = false) {
   state.selectedCategory = category;
-  renderFilters();
+  if (category !== 'összes') state.openCategories.add(category);
+  renderCategoryBrowse();
   renderCategoryPanels();
   renderCards();
 
@@ -122,24 +120,65 @@ function setCategory(category, shouldScroll = false) {
   }
 }
 
-function renderFilters() {
-  els.filters.innerHTML = categoryOrder.map(category => `
-    <button class="filter ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${escapeHtml(category)}">
-      <span class="filter-name">${escapeHtml(category)}</span>
-      <span class="count">${getCategoryCount(category)}</span>
-    </button>
-  `).join('');
+function renderCategoryBrowse() {
+  els.filters.innerHTML = categoryOrder.map(category => {
+    const isOpen = state.openCategories.has(category);
+    const terms = getCategoryTerms(category);
+    const meta = categoryMeta[category];
+    return `
+      <section class="browse-group">
+        <button class="browse-toggle ${isOpen ? 'open' : ''}" type="button" data-category="${escapeHtml(category)}" aria-expanded="${isOpen}">
+          <span>${isOpen ? '▾' : '▸'} ${escapeHtml(meta.title)}</span>
+          <span class="count">${terms.length}</span>
+        </button>
+        <div class="browse-terms ${isOpen ? 'open' : ''}">
+          ${terms.map(term => `
+            <button class="browse-term ${displayCategory(term.category) === state.selectedCategory ? 'active' : ''}" type="button" data-id="${escapeHtml(term.id)}">
+              ${escapeHtml(term.prefLabelHu)}
+            </button>
+          `).join('')}
+        </div>
+      </section>
+    `;
+  }).join('');
 
-  els.filters.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => setCategory(button.dataset.category));
+  els.filters.querySelectorAll('.browse-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category;
+      if (state.openCategories.has(category)) {
+        state.openCategories.delete(category);
+      } else {
+        state.openCategories.add(category);
+      }
+      renderCategoryBrowse();
+    });
+  });
+
+  els.filters.querySelectorAll('.browse-term').forEach(button => {
+    button.addEventListener('click', () => {
+      const term = state.terms.find(item => item.id === button.dataset.id);
+      if (!term) return;
+      state.selectedCategory = displayCategory(term.category);
+      renderCategoryBrowse();
+      renderCategoryPanels();
+      renderCards();
+      requestAnimationFrame(() => {
+        const card = document.querySelector(`[data-term-id="${CSS.escape(term.id)}"]`);
+        if (card) {
+          const details = card.querySelector('details');
+          if (details) details.open = true;
+          card.classList.add('is-open');
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
   });
 }
 
 function renderCategoryPanels() {
   if (!els.categoryFolders) return;
 
-  const categories = categoryOrder.filter(category => category !== 'összes');
-  els.categoryFolders.innerHTML = categories.map(category => {
+  els.categoryFolders.innerHTML = categoryOrder.map(category => {
     const meta = categoryMeta[category];
     const count = getCategoryCount(category);
     return `
@@ -147,8 +186,7 @@ function renderCategoryPanels() {
         <span class="category-panel-accent" data-category="${escapeHtml(category)}"></span>
         <h3 class="category-panel-title">${escapeHtml(meta.title)}</h3>
         <p class="category-panel-description">${escapeHtml(meta.description)}</p>
-        <span class="category-panel-meta">${count} szócikk · pl. ${meta.examples.map(escapeHtml).join(', ')}</span>
-        <span class="category-panel-action">Szócikkek mutatása →</span>
+        <span class="category-panel-action">${count} szócikk →</span>
       </button>
     `;
   }).join('');
@@ -200,7 +238,7 @@ function technicalGroup(title, content) {
 function getCardMarkup(term) {
   const category = displayCategory(term.category);
   return `
-    <article class="card" data-category="${escapeHtml(category)}">
+    <article class="card" data-category="${escapeHtml(category)}" data-term-id="${escapeHtml(term.id)}">
       <div class="card-top">
         <span class="category" data-category="${escapeHtml(category)}">${escapeHtml(category)}</span>
         <h3>${escapeHtml(term.prefLabelHu)}</h3>
@@ -280,7 +318,7 @@ async function init() {
       definition: definitionOverrides[term.id] || term.definition
     }));
 
-    renderFilters();
+    renderCategoryBrowse();
     renderCategoryPanels();
     renderViewButtons();
     renderCards();
@@ -293,11 +331,12 @@ async function init() {
 
 els.searchInput.addEventListener('input', event => {
   state.search = event.target.value;
-  renderCards();
-});
-
-els.sortSelect.addEventListener('change', event => {
-  state.sort = event.target.value;
+  if (state.search.trim()) {
+    state.selectedCategory = 'összes';
+    state.openCategories = new Set(categoryOrder);
+  }
+  renderCategoryBrowse();
+  renderCategoryPanels();
   renderCards();
 });
 
@@ -316,8 +355,12 @@ els.termList.addEventListener('click', event => {
 
   if (tag) {
     state.search = tag.dataset.tag || '';
+    state.selectedCategory = 'összes';
+    state.openCategories = new Set(categoryOrder);
     els.searchInput.value = state.search;
-    setCategory('összes');
+    renderCategoryBrowse();
+    renderCategoryPanels();
+    renderCards();
     els.searchInput.focus();
     return;
   }
