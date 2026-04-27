@@ -182,7 +182,7 @@ function sourceField(label, values) {
 }
 
 function statusField(label, value) {
-  return `<div class="field"><strong>${escapeHtml(label)}</strong><span class="status-badge">${escapeHtml(value || 'pilot')}</span></div>`;
+  return `<div class="field technical-field"><strong>${escapeHtml(label)}</strong><span class="status-badge">${escapeHtml(value || 'pilot')}</span></div>`;
 }
 
 function getCardMarkup(term) {
@@ -199,18 +199,23 @@ function getCardMarkup(term) {
         <details>
           <summary>Részletek</summary>
           <div class="detail-block">
-            ${field('Azonosító', term.id)}
-            ${tagField('Alternatív címkék', term.altLabels)}
             ${field('Használati megjegyzés', term.usage)}
             ${field('Forma–jelentés kapcsolat', term.meaning)}
-            <div class="ontology-row">
-              ${field('MAMBO-osztály', term.class)}
-              ${field('MAMBO-property', term.property)}
-            </div>
-            ${field('CIDOC', term.cidoc)}
             ${tagField('Kapcsolódó fogalmak', term.relatedTerms)}
             ${sourceField('Forrás', term.sources)}
-            ${statusField('Demo-státusz', term.demoStatus)}
+            ${tagField('Alternatív címkék', term.altLabels)}
+            <div class="technical-data">
+              <div class="technical-heading">Technikai adatok</div>
+              <div class="ontology-row">
+                ${field('Azonosító', term.id)}
+                ${field('MAMBO-osztály', term.class)}
+              </div>
+              <div class="ontology-row">
+                ${field('MAMBO-property', term.property)}
+                ${field('CIDOC', term.cidoc)}
+              </div>
+              ${statusField('Demo-státusz', term.demoStatus)}
+            </div>
           </div>
         </details>
       </div>
