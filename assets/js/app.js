@@ -1,8 +1,7 @@
 const state = {
   terms: [],
-  selectedCategory: 'Összes',
+  selectedCategory: 'összes',
   search: '',
-  selectedId: null,
   sort: 'abc',
   view: 'cards'
 };
@@ -13,17 +12,29 @@ const els = {
   sortSelect: document.querySelector('#sortSelect'),
   viewButtons: document.querySelectorAll('.view-button'),
   termList: document.querySelector('#termList'),
-  termDetail: document.querySelector('#termDetail'),
+  empty: document.querySelector('#empty'),
   count: document.querySelector('#count')
 };
 
-const categoryOrder = ['Kötésmód', 'Gerincszerkezet', 'Könyvforma', 'Tárolóelem'];
+const categoryOrder = ['összes', 'kötésmód', 'gerincszerkezet', 'könyvforma', 'tárolóelem'];
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
 
 function normalize(value) {
   return String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '');
+}
+
+function displayCategory(category) {
+  return String(category || '').toLowerCase();
 }
 
 function byHuLabel(a, b) {
@@ -53,7 +64,7 @@ function sortTerms(terms) {
   return [...terms].sort((a, b) => {
     if (state.sort === 'id') return a.id.localeCompare(b.id, 'hu');
     if (state.sort === 'category') {
-      const categoryDiff = categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category);
+      const categoryDiff = categoryOrder.indexOf(displayCategory(a.category)) - categoryOrder.indexOf(displayCategory(b.category));
       return categoryDiff || byHuLabel(a, b);
     }
     return byHuLabel(a, b);
@@ -63,136 +74,103 @@ function sortTerms(terms) {
 function getFilteredTerms() {
   const query = normalize(state.search.trim());
   const filtered = state.terms.filter(term => {
-    const categoryMatch = state.selectedCategory === 'Összes' || term.category === state.selectedCategory;
+    const categoryMatch = state.selectedCategory === 'összes' || displayCategory(term.category) === state.selectedCategory;
     const queryMatch = !query || getSearchText(term).includes(query);
     return categoryMatch && queryMatch;
   });
   return sortTerms(filtered);
 }
 
+function getCategoryCount(category) {
+  if (category === 'összes') return state.terms.length;
+  return state.terms.filter(term => displayCategory(term.category) === category).length;
+}
+
 function renderFilters() {
-  const categories = ['Összes', ...categoryOrder.filter(category => state.terms.some(term => term.category === category))];
-  els.filters.innerHTML = categories.map(category => `
-    <button class="filter-button ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${category}">
-      ${category}
+  els.filters.innerHTML = categoryOrder.map(category => `
+    <button class="filter ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${escapeHtml(category)}">
+      <span class="filter-name">${escapeHtml(category)}</span>
+      <span class="count">${getCategoryCount(category)}</span>
     </button>
   `).join('');
 
   els.filters.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
       state.selectedCategory = button.dataset.category;
-      state.selectedId = null;
-      render();
-    });
-  });
-}
-
-function getCardMarkup(term) {
-  return `
-    <button class="term-card ${term.id === state.selectedId ? 'active' : ''}" type="button" data-id="${term.id}">
-      <span class="card-kicker">${term.category}</span>
-      <strong>${term.prefLabelHu}</strong>
-      <span class="card-en">${term.prefLabelEn}</span>
-      <span class="card-definition">${term.definition}</span>
-      <span class="card-id">${term.id}</span>
-    </button>
-  `;
-}
-
-function getListMarkup(term) {
-  return `
-    <button class="term-button ${term.id === state.selectedId ? 'active' : ''}" type="button" data-id="${term.id}">
-      <span class="term-title">${term.prefLabelHu}</span>
-      <span class="term-meta">${term.prefLabelEn} · ${term.category} · ${term.id}</span>
-    </button>
-  `;
-}
-
-function renderList() {
-  const terms = getFilteredTerms();
-  els.count.textContent = `${terms.length} elem`;
-  els.termList.className = state.view === 'cards' ? 'term-cards' : 'term-list-flat';
-
-  if (!terms.length) {
-    els.termList.innerHTML = '<p class="empty-state">Nincs találat.</p>';
-    return;
-  }
-
-  els.termList.innerHTML = terms.map(term => state.view === 'cards' ? getCardMarkup(term) : getListMarkup(term)).join('');
-
-  els.termList.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-      state.selectedId = button.dataset.id;
-      renderDetail();
-      renderList();
-      history.replaceState(null, '', `#${encodeURIComponent(state.selectedId)}`);
-      els.termDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      renderFilters();
+      renderCards();
     });
   });
 }
 
 function renderTags(items) {
   if (!items || !items.length) return '<span class="tag muted-tag">nincs megadva</span>';
-  return items.map(item => `<span class="tag">${item}</span>`).join('');
+  return items.map(item => `<button class="tag" type="button" data-tag="${escapeHtml(item)}">${escapeHtml(item)}</button>`).join('');
 }
 
-function renderDetail() {
-  const terms = getFilteredTerms();
-  const hashId = decodeURIComponent(location.hash.replace('#', ''));
-  const selected = state.terms.find(term => term.id === state.selectedId)
-    || state.terms.find(term => term.id === hashId)
-    || terms[0];
+function renderSourceItems(items) {
+  if (!items || !items.length) return '<span class="source-item">—</span>';
+  return items.map(item => `<span class="source-item">${escapeHtml(item)}</span>`).join('');
+}
 
-  if (!selected) {
-    els.termDetail.innerHTML = '<p class="empty-state">Nincs megjeleníthető szócikk.</p>';
-    return;
-  }
+function field(label, value) {
+  return `<div class="field"><strong>${escapeHtml(label)}</strong>${escapeHtml(value || '—')}</div>`;
+}
 
-  state.selectedId = selected.id;
+function tagField(label, values) {
+  return `<div class="field"><strong>${escapeHtml(label)}</strong><div class="tag-list">${renderTags(values)}</div></div>`;
+}
 
-  els.termDetail.innerHTML = `
-    <div class="detail-kicker">${selected.category}</div>
-    <h2>${selected.prefLabelHu}</h2>
-    <div class="en-label">${selected.prefLabelEn}</div>
+function sourceField(label, values) {
+  return `<div class="field"><strong>${escapeHtml(label)}</strong><div class="source-list">${renderSourceItems(values)}</div></div>`;
+}
 
-    <div class="field-grid">
-      <div class="field"><span>Azonosító</span><strong>${selected.id}</strong></div>
-      <div class="field"><span>MAMBO-osztály / típus</span><strong>${selected.class}</strong></div>
-      <div class="field"><span>Javasolt property</span><strong>${selected.property}</strong></div>
-      <div class="field"><span>CIDOC-kapcsolás</span><strong>${selected.cidoc}</strong></div>
-      <div class="field"><span>Demo-státusz</span><strong>${selected.demoStatus || 'pilot'}</strong></div>
-    </div>
+function statusField(label, value) {
+  return `<div class="field"><strong>${escapeHtml(label)}</strong><span class="status-badge">${escapeHtml(value || 'pilot')}</span></div>`;
+}
 
-    <section class="detail-section">
-      <h3>Definíció</h3>
-      <p>${selected.definition}</p>
-    </section>
-
-    <section class="detail-section">
-      <h3>Használati megjegyzés</h3>
-      <p>${selected.usage}</p>
-    </section>
-
-    <section class="detail-section">
-      <h3>Forma–jelentés kapcsolat</h3>
-      <p>${selected.meaning}</p>
-    </section>
-
-    <section class="detail-section">
-      <h3>Kapcsolódó fogalmak</h3>
-      <div class="tags">${renderTags(selected.relatedTerms)}</div>
-    </section>
-
-    <section class="detail-section">
-      <h3>Alternatív címkék</h3>
-      <div class="tags">${renderTags(selected.altLabels)}</div>
-    </section>
-
-    <section class="detail-section">
-      <h3>Források</h3>
-      <div class="tags">${renderTags(selected.sources)}</div>
-    </section>
+function getCardMarkup(term) {
+  const category = displayCategory(term.category);
+  return `
+    <article class="card" data-category="${escapeHtml(category)}">
+      <div class="card-top">
+        <h3>${escapeHtml(term.prefLabelHu)}</h3>
+        <div class="en">${escapeHtml(term.prefLabelEn)}</div>
+        <div class="meta-line">
+          <span class="category" data-category="${escapeHtml(category)}">${escapeHtml(category)}</span>
+          <span class="term-id">${escapeHtml(term.id)}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="definition">${escapeHtml(term.definition)}</p>
+        <details>
+          <summary>Részletek</summary>
+          <div class="detail-block">
+            ${tagField('Alternatív címkék', term.altLabels)}
+            ${field('Használati megjegyzés', term.usage)}
+            ${field('Forma–jelentés kapcsolat', term.meaning)}
+            <div class="ontology-row">
+              ${field('MAMBO-osztály', term.class)}
+              ${field('MAMBO-property', term.property)}
+            </div>
+            ${field('CIDOC', term.cidoc)}
+            ${tagField('Kapcsolódó fogalmak', term.relatedTerms)}
+            ${sourceField('Forrás', term.sources)}
+            ${statusField('Demo-státusz', term.demoStatus)}
+          </div>
+        </details>
+      </div>
+    </article>
   `;
+}
+
+function renderCards() {
+  const terms = getFilteredTerms();
+  els.count.textContent = `${terms.length} / ${state.terms.length} szócikk`;
+  els.termList.classList.toggle('list-view', state.view === 'list');
+  els.empty.classList.toggle('show', terms.length === 0);
+
+  els.termList.innerHTML = terms.map(getCardMarkup).join('');
 }
 
 function renderViewButtons() {
@@ -201,45 +179,70 @@ function renderViewButtons() {
   });
 }
 
-function render() {
-  renderFilters();
-  renderViewButtons();
-  renderList();
-  renderDetail();
-}
-
 async function init() {
   try {
     const response = await fetch('data/terms.json');
     state.terms = await response.json();
-    const hashId = decodeURIComponent(location.hash.replace('#', ''));
-    state.selectedId = state.terms.find(term => term.id === hashId)?.id || state.terms[0]?.id || null;
-    render();
+    renderFilters();
+    renderViewButtons();
+    renderCards();
   } catch (error) {
-    els.termDetail.innerHTML = '<p class="empty-state">A szótáradat nem tölthető be.</p>';
+    els.empty.textContent = 'A szótáradat nem tölthető be.';
+    els.empty.classList.add('show');
     console.error(error);
   }
 }
 
 els.searchInput.addEventListener('input', event => {
   state.search = event.target.value;
-  state.selectedId = null;
-  renderList();
-  renderDetail();
+  renderCards();
 });
 
 els.sortSelect.addEventListener('change', event => {
   state.sort = event.target.value;
-  renderList();
-  renderDetail();
+  renderCards();
 });
 
 els.viewButtons.forEach(button => {
   button.addEventListener('click', () => {
     state.view = button.dataset.view;
     renderViewButtons();
-    renderList();
+    renderCards();
   });
+});
+
+els.termList.addEventListener('click', event => {
+  const tag = event.target.closest('.tag');
+  const summary = event.target.closest('summary');
+  const card = event.target.closest('.card');
+
+  if (tag) {
+    state.search = tag.dataset.tag || '';
+    els.searchInput.value = state.search;
+    state.selectedCategory = 'összes';
+    renderFilters();
+    renderCards();
+    els.searchInput.focus();
+    return;
+  }
+
+  if (!card) return;
+  const details = card.querySelector('details');
+  if (!details) return;
+
+  if (summary) event.preventDefault();
+  const shouldOpen = !details.open;
+
+  els.termList.querySelectorAll('.card.is-open').forEach(openCard => {
+    if (openCard !== card) {
+      const openDetails = openCard.querySelector('details');
+      if (openDetails) openDetails.open = false;
+      openCard.classList.remove('is-open');
+    }
+  });
+
+  details.open = shouldOpen;
+  card.classList.toggle('is-open', shouldOpen);
 });
 
 init();
