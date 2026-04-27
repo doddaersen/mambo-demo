@@ -4,16 +4,16 @@
   --card:#ffffff;
   --text:#111111;
   --muted:#6b6b6b;
-  --line:#e7e7e7;
-  --line-dark:#d4d4d4;
-  --accent:#F72564;
-  --accent-soft:#fff0f5;
-  --accent-dark:#c9154c;
-  --binding:#3348ff;
-  --spine:#1d9f9b;
-  --form:#d95a82;
-  --storage:#e47b00;
-  --shadow:0 18px 50px rgba(0,0,0,.045);
+  --line:#e8e8e8;
+  --line-dark:#d6d6d6;
+  --accent:#111111;
+  --accent-soft:#f4f4f4;
+  --accent-dark:#111111;
+  --binding:#4e63d7;
+  --spine:#2f9b96;
+  --form:#c96886;
+  --storage:#d88a34;
+  --shadow:0 18px 50px rgba(0,0,0,.04);
 }
 
 *{box-sizing:border-box;}
@@ -56,7 +56,7 @@ header{
   content:"";
   width:7px;
   height:7px;
-  background:var(--accent);
+  background:#111;
   display:block;
 }
 
@@ -73,8 +73,8 @@ h1::after{
   content:"";
   display:block;
   width:88px;
-  height:3px;
-  background:var(--accent);
+  height:2px;
+  background:#111;
   margin-top:14px;
 }
 
@@ -114,7 +114,6 @@ aside{
   top:18px;
   background:#fff;
   border:1px solid var(--line-dark);
-  border-top:3px solid var(--accent);
   padding:14px;
   box-shadow:var(--shadow);
 }
@@ -142,8 +141,8 @@ aside{
 }
 
 .search:focus{
-  border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(247,36,100,.11);
+  border-color:#9b9b9b;
+  box-shadow:0 0 0 3px rgba(0,0,0,.06);
 }
 
 .filters,
@@ -177,11 +176,11 @@ aside{
 
 .browse-toggle:hover,
 .browse-toggle.open{
-  background:#fff;
+  background:#fafafa;
 }
 
 .browse-toggle.open{
-  box-shadow:inset 4px 0 0 var(--accent);
+  font-weight:680;
 }
 
 .browse-terms{
@@ -197,7 +196,7 @@ aside{
   display:block;
   width:100%;
   border:0;
-  background:#fff;
+  background:transparent;
   text-align:left;
   padding:7px 7px;
   color:#252525;
@@ -448,7 +447,7 @@ summary::before{
   position:absolute;
   left:-10px;
   top:4px;
-  color:var(--accent);
+  color:#111;
   font-weight:800;
 }
 details[open] summary::before{content:"↓";}
@@ -512,9 +511,9 @@ details[open] summary::before{content:"↓";}
 .tag{cursor:pointer;}
 
 .tag:hover{
-  border-color:var(--accent);
+  border-color:#999;
   background:var(--accent-soft);
-  color:var(--accent-dark);
+  color:#111;
 }
 
 .source-list{
