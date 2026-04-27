@@ -5,36 +5,66 @@
 }
 
 .card{
-  height:224px;
-  min-height:224px;
+  height:198px;
+  min-height:198px;
   border-color:#c4bfbc;
+  display:grid;
+  grid-template-rows:auto 1fr;
   transition:border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
 }
 
 .card-top{
   display:flex;
   flex-direction:column;
-  gap:8px;
-  padding:16px 16px 14px;
+  gap:5px;
+  padding:14px 14px 9px;
+}
+
+.card-top .category{
+  align-self:flex-start;
+  font-size:9.5px;
+  padding:2px 5px;
 }
 
 .card-top h3{
-  margin-top:2px;
-  min-height:38px;
+  margin:1px 0 0;
+  min-height:0;
+  font-size:15.5px;
+  line-height:1.15;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.en{
+  margin:0;
+  font-size:12px;
+  line-height:1.25;
+  color:var(--muted);
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
 }
 
 .card-body{
-  padding:0 16px 12px;
-  gap:10px;
+  padding:0 14px 0;
+  gap:6px;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
 }
 
 .definition{
   display:-webkit-box;
-  -webkit-line-clamp:3;
+  -webkit-line-clamp:2;
   -webkit-box-orient:vertical;
   overflow:hidden;
-  margin-top:12px;
-  min-height:56px;
+  margin:7px 0 0;
+  min-height:36px;
+  font-size:12.8px;
+  line-height:1.36;
 }
 
 .card.is-open .definition,
@@ -51,13 +81,14 @@ details{
 }
 
 summary{
-  min-height:36px;
-  padding:10px 0 0 16px;
+  min-height:31px;
+  padding:8px 0 7px 14px;
+  line-height:1.1;
 }
 
 summary::before{
   left:0;
-  top:10px;
+  top:8px;
 }
 
 .detail-block{
@@ -133,7 +164,7 @@ summary::before{
 .card.is-open,
 .card:has(details[open]){
   height:auto;
-  min-height:224px;
+  min-height:198px;
   border-color:var(--accent);
   box-shadow:0 0 0 2px rgba(247,36,100,.09), 0 2px 12px rgba(0,0,0,.07);
   background:#fff;
@@ -167,6 +198,14 @@ summary::before{
 .grid.list-view .card-top h3,
 .grid.list-view .definition{
   min-height:0;
+}
+
+.grid.list-view .card-top h3,
+.grid.list-view .en,
+.grid.list-view .definition{
+  display:block;
+  -webkit-line-clamp:unset;
+  overflow:visible;
 }
 
 @media (max-width:560px){
