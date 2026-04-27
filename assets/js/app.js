@@ -193,6 +193,10 @@ function detailSection(title, content) {
   return `<section class="detail-section"><h4>${escapeHtml(title)}</h4>${content}</section>`;
 }
 
+function technicalGroup(title, content) {
+  return `<div class="technical-group"><div class="technical-subheading">${escapeHtml(title)}</div>${content}</div>`;
+}
+
 function getCardMarkup(term) {
   const category = displayCategory(term.category);
   return `
@@ -207,7 +211,7 @@ function getCardMarkup(term) {
         <details>
           <summary><span>Részletes nézet</span><span class="summary-icon" aria-hidden="true">↓</span></summary>
           <div class="detail-block">
-            ${detailSection('Használati megjegyzés', `
+            ${detailSection('Használat és értelmezés', `
               ${noteParagraph(term.usage)}
               ${noteParagraph(term.meaning)}
             `)}
@@ -217,16 +221,20 @@ function getCardMarkup(term) {
             `)}
             <section class="detail-section technical-data">
               <h4>Technikai adatok</h4>
-              ${sourceField('Források', term.sources)}
-              <div class="ontology-row">
-                ${field('Azonosító', term.id)}
-                ${field('MAMBO-osztály', term.class)}
-              </div>
-              <div class="ontology-row">
-                ${field('MAMBO-property', term.property)}
+              ${technicalGroup('Rekord', `
+                <div class="ontology-row">
+                  ${field('Azonosító', term.id)}
+                  ${statusField('Státusz', term.demoStatus)}
+                </div>
+              `)}
+              ${technicalGroup('Ontológiai kapcsolás', `
+                <div class="ontology-row">
+                  ${field('MAMBO-osztály', term.class)}
+                  ${field('MAMBO-property', term.property)}
+                </div>
                 ${field('CIDOC', term.cidoc)}
-              </div>
-              ${statusField('Demo-státusz', term.demoStatus)}
+              `)}
+              ${technicalGroup('Leírás forrásai', sourceField('Források', term.sources))}
             </section>
           </div>
         </details>
