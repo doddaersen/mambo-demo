@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAMBO-szótár demo</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">MAMBO · MOME Artists’ Book Ontology</div>
+    <h1>MAMBO-szótár demo</h1>
+    <p>
+      A művészkönyvek formai-szerkezeti leírásának első, szűkített pilotja.
+      A demo azt mutatja meg, hogy a kötésmód, a gerincszerkezet, a könyvforma és a tárolóelem
+      nem ugyanannak az egyetlen „kötéstípus” mezőnek a változatai.
+    </p>
+  </header>
+
+  <main>
+    <section class="model-note" aria-labelledby="model-heading">
+      <div>
+        <h2 id="model-heading">Demo-logika</h2>
+        <p>
+          A formai-szerkezeti szótárréteg kontrollált fogalmi egységekkel dolgozik.
+          A tartalmi-értelmező réteg azt jelzi, hogyan válhat egy szerkezeti megoldás
+          olvasási, használati vagy narratív jelentéshordozóvá.
+        </p>
+      </div>
+      <div class="diagram" aria-label="A MAMBO-demo két fő rétege">
+        <div class="diagram-root">MAMBO-DEMO</div>
+        <div class="diagram-grid">
+          <div>
+            <strong>Formai-szerkezeti szótárréteg</strong>
+            <span>kötésmód · gerinc · könyvforma · tároló</span>
+          </div>
+          <div>
+            <strong>Tartalmi-értelmező kapcsolati réteg</strong>
+            <span>olvasási irány · használat · narratíva · forma–jelentés</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Szűrés és keresés">
+      <label class="search-label" for="searchInput">Keresés a szótárban</label>
+      <input id="searchInput" type="search" placeholder="pl. leporelló, nyitott gerinc, FormType…" />
+      <div class="filters" id="filters"></div>
+    </section>
+
+    <section class="content-grid">
+      <aside class="term-list" aria-label="Szócikklista">
+        <div class="list-header">
+          <h2>Szócikkek</h2>
+          <span id="count"></span>
+        </div>
+        <div id="termList"></div>
+      </aside>
+
+      <article class="term-detail" id="termDetail" aria-live="polite">
+        <p class="empty-state">Válassz egy szócikket a listából.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Munkaállapotú demonstráció · MAMBO-szótár · GitHub Pages</p>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
