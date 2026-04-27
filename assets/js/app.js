@@ -190,18 +190,16 @@ function getCardMarkup(term) {
   return `
     <article class="card" data-category="${escapeHtml(category)}">
       <div class="card-top">
+        <span class="category" data-category="${escapeHtml(category)}">${escapeHtml(category)}</span>
         <h3>${escapeHtml(term.prefLabelHu)}</h3>
         <div class="en">${escapeHtml(term.prefLabelEn)}</div>
-        <div class="meta-line">
-          <span class="category" data-category="${escapeHtml(category)}">${escapeHtml(category)}</span>
-          <span class="term-id">${escapeHtml(term.id)}</span>
-        </div>
       </div>
       <div class="card-body">
         <p class="definition">${escapeHtml(term.definition)}</p>
         <details>
           <summary>Részletek</summary>
           <div class="detail-block">
+            ${field('Azonosító', term.id)}
             ${tagField('Alternatív címkék', term.altLabels)}
             ${field('Használati megjegyzés', term.usage)}
             ${field('Forma–jelentés kapcsolat', term.meaning)}
