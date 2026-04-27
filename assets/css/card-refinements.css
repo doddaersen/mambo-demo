@@ -77,8 +77,8 @@ summary{
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  color:#3f3a3d;
-  background:#faf9f6;
+  color:#424242;
+  background:#f7f7f7;
 }
 
 summary::before{
@@ -86,7 +86,7 @@ summary::before{
 }
 
 .summary-icon{
-  color:var(--accent-dark);
+  color:#424242;
   font-size:13px;
   line-height:1;
 }
@@ -114,7 +114,7 @@ details[open] .summary-icon{
 .detail-section h4,
 .technical-data h4{
   margin:0 0 8px;
-  color:#292527;
+  color:#292929;
   font-size:11px;
   line-height:1.2;
   letter-spacing:.07em;
@@ -134,7 +134,7 @@ details[open] .summary-icon{
 }
 
 .detail-section .field{
-  border-top:1px solid #ebe7e4;
+  border-top:1px solid #e8e8e8;
   padding-top:7px;
   margin-top:7px;
 }
@@ -151,9 +151,9 @@ details[open] .summary-icon{
 
 .tag,
 .status-badge{
-  border-color:#dedbd8;
-  background:#fafaf7;
-  color:#5b5658;
+  border-color:#dedede;
+  background:#fafafa;
+  color:#555;
   padding:2px 6px;
   font-size:10.5px;
   font-weight:500;
@@ -165,23 +165,23 @@ details[open] .summary-icon{
 }
 
 .tag:hover{
-  border-color:#d7d3d0;
-  background:#fafaf7;
-  color:#5b5658;
+  border-color:#d2d2d2;
+  background:#f7f7f7;
+  color:#424242;
 }
 
 .detail-section:nth-child(2) .tag,
 .detail-section:nth-child(2) .tag:hover{
-  border-color:#d8cbd0;
-  background:#fff7fa;
-  color:#7b3e51;
+  border-color:#dcdcdc;
+  background:#f8f8f8;
+  color:#424242;
 }
 
 .technical-data{
   border-top:1px solid var(--line-dark);
   margin-top:0;
   padding:10px 0 0;
-  background:#fafaf7;
+  background:#fafafa;
 }
 
 .technical-data h4{
@@ -190,7 +190,7 @@ details[open] .summary-icon{
 }
 
 .technical-group{
-  border-top:1px solid #e2dedb;
+  border-top:1px solid #e2e2e2;
   padding:8px 10px 0;
   margin-top:8px;
 }
@@ -204,7 +204,7 @@ details[open] .summary-icon{
 .technical-subheading,
 .technical-heading{
   margin-bottom:6px;
-  color:#6b6568;
+  color:#666;
   font-size:10px;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -212,11 +212,11 @@ details[open] .summary-icon{
 }
 
 .technical-data .field{
-  color:#4d4a4c;
+  color:#4d4d4d;
 }
 
 .technical-data .field strong{
-  color:#595457;
+  color:#595959;
 }
 
 .technical-data .source-list{
@@ -225,42 +225,42 @@ details[open] .summary-icon{
 }
 
 .card:hover{
-  border-color:#7f7a77;
+  border-color:#8a8a8a;
   box-shadow:0 1px 8px rgba(0,0,0,.055);
-  background-color:#fffdfd;
+  background-color:#fff;
 }
 
 .card:hover summary{
-  background:#fff7fa;
-  color:var(--accent-dark);
+  background:#f1f1f1;
+  color:#242424;
 }
 
 .card:hover .card-top{
-  background:#fbfaf7;
+  background:#fff;
 }
 
 .card.is-open,
 .card:has(details[open]){
   height:auto;
-  border-color:var(--accent);
-  box-shadow:0 0 0 2px rgba(247,36,100,.09), 0 2px 12px rgba(0,0,0,.07);
+  border-color:#9b9b9b;
+  box-shadow:0 0 0 2px rgba(0,0,0,.045), 0 2px 12px rgba(0,0,0,.055);
   background:#fff;
 }
 
 .card.is-open .card-top,
 .card:has(details[open]) .card-top{
-  background:#fff7fa;
-  border-bottom-color:#e8cbd4;
+  background:#fff;
+  border-bottom-color:#e2e2e2;
 }
 
 .card.is-open summary,
 .card:has(details[open]) summary{
-  color:var(--accent-dark);
-  background:#fff1f6;
+  color:#242424;
+  background:#f1f1f1;
 }
 
 .card:focus-within{
-  outline:2px solid rgba(247,36,100,.28);
+  outline:2px solid rgba(0,0,0,.16);
   outline-offset:2px;
 }
 
