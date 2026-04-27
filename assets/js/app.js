@@ -260,8 +260,19 @@ function renderViewButtons() {
 
 async function init() {
   try {
-    const response = await fetch('data/terms.json');
-    state.terms = await response.json();
+    const [termsResponse, overridesResponse] = await Promise.all([
+      fetch('data/terms.json'),
+      fetch('data/definition-overrides.json')
+    ]);
+
+    const terms = await termsResponse.json();
+    const definitionOverrides = overridesResponse.ok ? await overridesResponse.json() : {};
+
+    state.terms = terms.map(term => ({
+      ...term,
+      definition: definitionOverrides[term.id] || term.definition
+    }));
+
     renderFilters();
     renderCategoryPanels();
     renderViewButtons();
