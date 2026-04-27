@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAMBO-szótár</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=folder-copy-1" />
+  <link rel="stylesheet" href="assets/css/style.css?v=browse-ui-2" />
   <link rel="stylesheet" href="assets/css/folder-overrides.css?v=folder-title-1" />
   <link rel="stylesheet" href="assets/css/card-refinements.css?v=card-preview-1" />
-  <link rel="stylesheet" href="assets/css/category-panels.css?v=category-panels-1" />
+  <link rel="stylesheet" href="assets/css/category-panels.css?v=browse-ui-2" />
   <link rel="stylesheet" href="assets/css/category-colors.css?v=category-colors-1" />
 </head>
 <body>
@@ -25,17 +25,9 @@
   <main>
     <div class="wrap layout">
       <aside>
-        <p class="panel-title">Szűrés</p>
+        <p class="panel-title">Böngészés kategória szerint</p>
         <input id="searchInput" class="search" type="search" placeholder="Keresés névre, definícióra…" />
-        <div id="filters" class="filters"></div>
-        <div class="sort-block">
-          <label for="sortSelect">Rendezés</label>
-          <select id="sortSelect" class="sort-select">
-            <option value="abc">ABC szerint</option>
-            <option value="category">Kategória szerint</option>
-            <option value="id">MAMBO ID szerint</option>
-          </select>
-        </div>
+        <div id="filters" class="filters browse-list"></div>
       </aside>
 
       <section>
@@ -70,6 +62,6 @@
     <div class="wrap">MAMBO-szótár · művészkönyvek formai és szerkezeti leírása</div>
   </footer>
 
-  <script src="assets/js/app.js?v=category-panels-1"></script>
+  <script src="assets/js/app.js?v=browse-ui-2"></script>
 </body>
 </html>
