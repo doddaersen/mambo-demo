@@ -1,14 +1,14 @@
 .grid{
   grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
   gap:16px;
-  align-items:start;
+  align-items:stretch;
 }
 
 .card{
-  min-height:190px;
   border-color:#c4bfbc;
   display:grid;
   grid-template-rows:auto 1fr;
+  height:100%;
   transition:border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
 }
 
@@ -31,10 +31,6 @@
   min-height:0;
   font-size:15.5px;
   line-height:1.15;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
 }
 
 .en{
@@ -42,10 +38,6 @@
   font-size:12px;
   line-height:1.25;
   color:var(--muted);
-  display:-webkit-box;
-  -webkit-line-clamp:1;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
 }
 
 .card-body{
@@ -56,12 +48,10 @@
 }
 
 .definition{
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+  display:block;
+  overflow:visible;
   margin:0;
-  padding:6px 14px 10px;
+  padding:6px 14px 12px;
   min-height:0;
   font-size:12.8px;
   line-height:1.36;
@@ -70,7 +60,6 @@
 .card.is-open .definition,
 .card:has(details[open]) .definition{
   display:block;
-  -webkit-line-clamp:unset;
   overflow:visible;
   min-height:0;
 }
@@ -184,7 +173,6 @@ details[open] .summary-icon{
 .card.is-open,
 .card:has(details[open]){
   height:auto;
-  min-height:190px;
   border-color:var(--accent);
   box-shadow:0 0 0 2px rgba(247,36,100,.09), 0 2px 12px rgba(0,0,0,.07);
   background:#fff;
@@ -209,24 +197,12 @@ details[open] .summary-icon{
 
 .grid.list-view{
   grid-template-columns:1fr;
+  align-items:start;
 }
 
 .grid.list-view .card{
   height:auto;
   min-height:0;
-}
-
-.grid.list-view .card-top h3,
-.grid.list-view .definition{
-  min-height:0;
-}
-
-.grid.list-view .card-top h3,
-.grid.list-view .en,
-.grid.list-view .definition{
-  display:block;
-  -webkit-line-clamp:unset;
-  overflow:visible;
 }
 
 @media (max-width:560px){
@@ -236,11 +212,6 @@ details[open] .summary-icon{
 
   .card{
     height:auto;
-    min-height:0;
-  }
-
-  .card-top h3,
-  .definition{
     min-height:0;
   }
 }
