@@ -60,6 +60,59 @@ main {
   padding: 0 24px 48px;
 }
 
+.explainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  gap: 24px;
+  align-items: stretch;
+  background: var(--dark);
+  color: #fff;
+  border-radius: 28px;
+  padding: 26px;
+  margin: 0 0 24px;
+}
+
+.explainer p {
+  color: #d8d8d4;
+  margin: 14px 0 0;
+}
+
+.section-label {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #111;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.explainer h2 { font-size: clamp(26px, 4vw, 42px); letter-spacing: -0.04em; }
+
+.explainer-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.explainer-cards article {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.explainer-cards strong,
+.explainer-cards span { display: block; }
+
+.explainer-cards span {
+  color: #d8d8d4;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
 .model-note {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
@@ -118,7 +171,7 @@ main {
   margin-bottom: 8px;
 }
 
-#searchInput {
+#searchInput, #sortSelect {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -127,9 +180,21 @@ main {
   background: #fafafa;
 }
 
-#searchInput:focus {
+#searchInput:focus, #sortSelect:focus {
   outline: 3px solid var(--accent-soft);
   border-color: #a9bd39;
+}
+
+.control-row {
+  max-width: 320px;
+  margin-top: 14px;
+}
+
+.control-row label {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 6px;
 }
 
 .filters {
@@ -279,6 +344,8 @@ main {
   background: #fff;
 }
 
+.muted-tag { opacity: .7; }
+
 .empty-state {
   color: var(--muted);
   margin: 0;
@@ -293,11 +360,14 @@ footer {
 }
 
 @media (max-width: 860px) {
+  .explainer,
   .model-note,
   .content-grid,
   .field-grid {
     grid-template-columns: 1fr;
   }
+
+  .explainer-cards { grid-template-columns: 1fr; }
 
   .term-list {
     position: static;
