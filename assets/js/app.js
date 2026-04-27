@@ -3,7 +3,7 @@ const state = {
   selectedCategory: 'összes',
   search: '',
   view: 'cards',
-  openCategories: new Set(['kötésmód'])
+  openCategories: new Set(['könyvforma'])
 };
 
 const els = {
@@ -17,7 +17,7 @@ const els = {
   count: document.querySelector('#count')
 };
 
-const categoryOrder = ['kötésmód', 'gerincszerkezet', 'könyvforma', 'tárolóelem'];
+const categoryOrder = ['könyvforma', 'kötésmód', 'gerincszerkezet', 'tárolóelem'];
 
 const categoryMeta = {
   'kötésmód': {
@@ -41,7 +41,7 @@ const categoryMeta = {
 function escapeHtml(value) {
   return String(value || '')
     .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
+    .replace(/\"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 }
