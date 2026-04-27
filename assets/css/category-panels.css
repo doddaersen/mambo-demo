@@ -50,11 +50,26 @@
 
 .category-panel-action{
   margin-top:auto;
-  color:#242424;
-  font-size:15px;
-  font-weight:820;
-  letter-spacing:-.01em;
+  display:inline-flex;
+  align-items:baseline;
+  gap:6px;
+  color:#4a4a4a;
   text-transform:uppercase;
+}
+
+.category-panel-count{
+  font-size:25px;
+  line-height:1;
+  font-weight:820;
+  letter-spacing:-.045em;
+  color:#242424;
+}
+
+.category-panel-label{
+  font-size:11.5px;
+  line-height:1;
+  font-weight:650;
+  letter-spacing:.045em;
 }
 
 .category-panel:hover{
