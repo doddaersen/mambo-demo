@@ -258,15 +258,22 @@ function renderViewButtons() {
   });
 }
 
+async function loadDefinitionOverrides() {
+  try {
+    const response = await fetch('data/definition-overrides.json');
+    if (!response.ok) return {};
+    return await response.json();
+  } catch (error) {
+    console.warn('Definition overrides could not be loaded; using base terms.json definitions.', error);
+    return {};
+  }
+}
+
 async function init() {
   try {
-    const [termsResponse, overridesResponse] = await Promise.all([
-      fetch('data/terms.json'),
-      fetch('data/definition-overrides.json')
-    ]);
-
+    const termsResponse = await fetch('data/terms.json');
     const terms = await termsResponse.json();
-    const definitionOverrides = overridesResponse.ok ? await overridesResponse.json() : {};
+    const definitionOverrides = await loadDefinitionOverrides();
 
     state.terms = terms.map(term => ({
       ...term,
