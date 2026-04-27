@@ -23,22 +23,22 @@ const categoryOrder = ['összes', 'kötésmód', 'gerincszerkezet', 'könyvforma
 const categoryMeta = {
   'kötésmód': {
     title: 'Kötésmód',
-    description: 'Azt mutatja meg, hogyan kapcsolódnak egymáshoz a lapok, ívek vagy könyvtestek.',
+    description: 'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',
     examples: ['kopt kötés', 'japán fűzés', 'spirálkötés']
   },
   'gerincszerkezet': {
     title: 'Gerincszerkezet',
-    description: 'A könyv hátoldalának kialakítása: például látszik-e a fűzés, vagy fedve van.',
+    description: 'A könyvtest hátoldalának kialakítása, valamint a fűzés láthatósága vagy fedettsége.',
     examples: ['nyitott gerinc', 'fedett gerinc', 'üreges gerinc']
   },
   'könyvforma': {
     title: 'Könyvforma',
-    description: 'A könyvtárgy alakja és használati módja: hogyan nyílik, mozog vagy olvasható.',
+    description: 'A könyvtárgy formai, térbeli és használati működése.',
     examples: ['leporelló', 'dos-à-dos', 'alagútkönyv']
   },
   'tárolóelem': {
     title: 'Tárolóelem',
-    description: 'A könyvhöz tartozó tok, doboz, mappa vagy más védő és bemutató egység.',
+    description: 'A könyvhöz kapcsolódó védő, tároló vagy bemutató egység.',
     examples: ['tok', 'doboz', 'archiváló doboz']
   }
 };
@@ -114,7 +114,7 @@ function getCategoryCount(category) {
 function setCategory(category, shouldScroll = false) {
   state.selectedCategory = category;
   renderFilters();
-  renderCategoryFolders();
+  renderCategoryPanels();
   renderCards();
 
   if (shouldScroll && els.termsTopline) {
@@ -135,7 +135,7 @@ function renderFilters() {
   });
 }
 
-function renderCategoryFolders() {
+function renderCategoryPanels() {
   if (!els.categoryFolders) return;
 
   const categories = categoryOrder.filter(category => category !== 'összes');
@@ -143,13 +143,12 @@ function renderCategoryFolders() {
     const meta = categoryMeta[category];
     const count = getCategoryCount(category);
     return `
-      <button class="folder-card ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${escapeHtml(category)}">
-        <span class="folder-tab"></span>
-        <h3 class="folder-title" data-category="${escapeHtml(category)}">${escapeHtml(meta.title)}</h3>
-        <p class="folder-description">${escapeHtml(meta.description)}</p>
-        <span class="folder-count">${count} szócikk</span>
-        <span class="folder-examples">pl. ${meta.examples.map(escapeHtml).join(', ')}</span>
-        <span class="folder-open">Megnyitás →</span>
+      <button class="category-panel ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${escapeHtml(category)}">
+        <span class="category-panel-accent" data-category="${escapeHtml(category)}"></span>
+        <h3 class="category-panel-title">${escapeHtml(meta.title)}</h3>
+        <p class="category-panel-description">${escapeHtml(meta.description)}</p>
+        <span class="category-panel-meta">${count} szócikk · pl. ${meta.examples.map(escapeHtml).join(', ')}</span>
+        <span class="category-panel-action">Szócikkek mutatása →</span>
       </button>
     `;
   }).join('');
@@ -243,7 +242,7 @@ async function init() {
     const response = await fetch('data/terms.json');
     state.terms = await response.json();
     renderFilters();
-    renderCategoryFolders();
+    renderCategoryPanels();
     renderViewButtons();
     renderCards();
   } catch (error) {
