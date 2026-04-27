@@ -1,0 +1,91 @@
+:root{
+  --cat-binding:#332FD0;
+  --cat-spine:#008B8B;
+  --cat-form:#C75B7A;
+  --cat-storage:#D97706;
+}
+
+.category[data-category="kötésmód"],
+.folder-category[data-category="kötésmód"],
+.folder-title[data-category="kötésmód"]{
+  color:var(--cat-binding);
+}
+
+.category[data-category="gerincszerkezet"],
+.folder-category[data-category="gerincszerkezet"],
+.folder-title[data-category="gerincszerkezet"]{
+  color:var(--cat-spine);
+}
+
+.category[data-category="könyvforma"],
+.folder-category[data-category="könyvforma"],
+.folder-title[data-category="könyvforma"]{
+  color:var(--cat-form);
+}
+
+.category[data-category="tárolóelem"],
+.folder-category[data-category="tárolóelem"],
+.folder-title[data-category="tárolóelem"]{
+  color:var(--cat-storage);
+}
+
+.category-panel-accent[data-category="kötésmód"]{background:var(--cat-binding);}
+.category-panel-accent[data-category="gerincszerkezet"]{background:var(--cat-spine);}
+.category-panel-accent[data-category="könyvforma"]{background:var(--cat-form);}
+.category-panel-accent[data-category="tárolóelem"]{background:var(--cat-storage);}
+
+.card[data-category="kötésmód"]{
+  border-top:3px solid var(--cat-binding);
+}
+
+.card[data-category="gerincszerkezet"]{
+  border-top:3px solid var(--cat-spine);
+}
+
+.card[data-category="könyvforma"]{
+  border-top:3px solid var(--cat-form);
+}
+
+.card[data-category="tárolóelem"]{
+  border-top:3px solid var(--cat-storage);
+}
+
+.filter[data-category="kötésmód"]{
+  border-left:4px solid var(--cat-binding);
+}
+
+.filter[data-category="gerincszerkezet"]{
+  border-left:4px solid var(--cat-spine);
+}
+
+.filter[data-category="könyvforma"]{
+  border-left:4px solid var(--cat-form);
+}
+
+.filter[data-category="tárolóelem"]{
+  border-left:4px solid var(--cat-storage);
+}
+
+.category-panel[data-category="kötésmód"].active,
+.category-panel[data-category="kötésmód"]:hover{
+  border-color:var(--cat-binding);
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-binding) 14%, transparent);
+}
+
+.category-panel[data-category="gerincszerkezet"].active,
+.category-panel[data-category="gerincszerkezet"]:hover{
+  border-color:var(--cat-spine);
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-spine) 14%, transparent);
+}
+
+.category-panel[data-category="könyvforma"].active,
+.category-panel[data-category="könyvforma"]:hover{
+  border-color:var(--cat-form);
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-form) 14%, transparent);
+}
+
+.category-panel[data-category="tárolóelem"].active,
+.category-panel[data-category="tárolóelem"]:hover{
+  border-color:var(--cat-storage);
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-storage) 14%, transparent);
+}
