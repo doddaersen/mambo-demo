@@ -53,30 +53,37 @@
     <section class="controls" aria-label="Szűrés, rendezés és keresés">
       <label class="search-label" for="searchInput">Keresés a szótárban</label>
       <input id="searchInput" type="search" placeholder="pl. leporelló, nyitott gerinc, FormType…" />
-      <div class="control-row">
-        <label for="sortSelect">Rendezés</label>
-        <select id="sortSelect">
-          <option value="abc">ABC szerint</option>
-          <option value="category">Kategória szerint</option>
-          <option value="id">MAMBO ID szerint</option>
-        </select>
+      <div class="control-panel">
+        <div class="control-row">
+          <label for="sortSelect">Rendezés</label>
+          <select id="sortSelect">
+            <option value="abc">ABC szerint</option>
+            <option value="category">Kategória szerint</option>
+            <option value="id">MAMBO ID szerint</option>
+          </select>
+        </div>
+        <div class="control-row">
+          <span class="control-label">Nézet</span>
+          <div class="view-toggle" role="group" aria-label="Nézetváltás">
+            <button class="view-button active" type="button" data-view="cards">Kártyák</button>
+            <button class="view-button" type="button" data-view="list">Lista</button>
+          </div>
+        </div>
       </div>
       <div class="filters" id="filters"></div>
     </section>
 
-    <section class="content-grid">
-      <aside class="term-list" aria-label="Szócikklista">
-        <div class="list-header">
-          <h2>Szócikkek</h2>
-          <span id="count"></span>
-        </div>
-        <div id="termList"></div>
-      </aside>
-
-      <article class="term-detail" id="termDetail" aria-live="polite">
-        <p class="empty-state">Válassz egy szócikket a listából.</p>
-      </article>
+    <section class="browser" aria-label="Szótárböngésző">
+      <div class="browser-header">
+        <h2>Szócikkek</h2>
+        <span id="count"></span>
+      </div>
+      <div id="termList" class="term-cards"></div>
     </section>
+
+    <article class="term-detail" id="termDetail" aria-live="polite">
+      <p class="empty-state">Válassz egy szócikket a listából.</p>
+    </article>
   </main>
 
   <footer>
