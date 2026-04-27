@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAMBO-szótár demo</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=compact-cards-2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=category-folders-1" />
 </head>
 <body>
   <header>
@@ -43,7 +43,18 @@
       </aside>
 
       <section>
-        <div class="topline">
+        <section class="category-overview" aria-labelledby="category-overview-heading">
+          <div class="overview-head">
+            <div>
+              <p class="panel-title">Belépés a szótárba</p>
+              <h2 id="category-overview-heading">A demo fő kategóriái</h2>
+            </div>
+            <p>Először válassz egy leírási réteget, majd azon belül böngészd a szócikkeket.</p>
+          </div>
+          <div id="categoryFolders" class="folder-grid"></div>
+        </section>
+
+        <div class="topline" id="termsTopline">
           <h2>Demo-szócikkek</h2>
           <div class="tools">
             <div id="count" class="result-count"></div>
@@ -63,6 +74,6 @@
     <div class="wrap">MAMBO pilot · statikus HTML-prototípus · adatforrás: data/terms.json</div>
   </footer>
 
-  <script src="assets/js/app.js?v=compact-cards-2"></script>
+  <script src="assets/js/app.js?v=category-folders-1"></script>
 </body>
 </html>
