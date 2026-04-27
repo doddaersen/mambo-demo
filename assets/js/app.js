@@ -206,13 +206,13 @@ function getCardMarkup(term) {
               ${field('Használati megjegyzés', term.usage)}
               ${field('Forma–jelentés kapcsolat', term.meaning)}
             `)}
-            ${detailSection('Kapcsolatok és források', `
+            ${detailSection('Terminológiai kapcsolatok', `
+              ${tagField('Más megnevezések', term.altLabels)}
               ${tagField('Kapcsolódó fogalmak', term.relatedTerms)}
-              ${sourceField('Források', term.sources)}
-              ${tagField('Alternatív címkék', term.altLabels)}
             `)}
             <section class="detail-section technical-data">
               <h4>Technikai adatok</h4>
+              ${sourceField('Források', term.sources)}
               <div class="ontology-row">
                 ${field('Azonosító', term.id)}
                 ${field('MAMBO-osztály', term.class)}
