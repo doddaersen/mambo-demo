@@ -52,9 +52,10 @@
   margin-top:auto;
   display:inline-flex;
   align-items:baseline;
-  gap:6px;
+  gap:10px;
   color:#4a4a4a;
   text-transform:uppercase;
+  white-space:nowrap;
 }
 
 .category-panel-count{
@@ -63,6 +64,7 @@
   font-weight:820;
   letter-spacing:-.045em;
   color:#242424;
+  flex:0 0 auto;
 }
 
 .category-panel-label{
@@ -70,6 +72,7 @@
   line-height:1;
   font-weight:650;
   letter-spacing:.045em;
+  flex:0 0 auto;
 }
 
 .category-panel:hover{
@@ -103,4 +106,5 @@
 @media (max-width:560px){
   .category-panel-grid{grid-template-columns:1fr;}
   .category-panel{min-height:0;}
+  .category-panel-action{gap:12px;}
 }
