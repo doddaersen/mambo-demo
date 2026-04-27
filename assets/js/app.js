@@ -172,6 +172,11 @@ function field(label, value) {
   return `<div class="field"><strong>${escapeHtml(label)}</strong>${escapeHtml(value || '—')}</div>`;
 }
 
+function noteParagraph(value) {
+  if (!value) return '';
+  return `<p class="detail-paragraph">${escapeHtml(value)}</p>`;
+}
+
 function tagField(label, values) {
   return `<div class="field"><strong>${escapeHtml(label)}</strong><div class="tag-list">${renderTags(values)}</div></div>`;
 }
@@ -202,9 +207,9 @@ function getCardMarkup(term) {
         <details>
           <summary><span>Részletes nézet</span><span class="summary-icon" aria-hidden="true">↓</span></summary>
           <div class="detail-block">
-            ${detailSection('Használat és értelmezés', `
-              ${field('Használati megjegyzés', term.usage)}
-              ${field('Forma–jelentés kapcsolat', term.meaning)}
+            ${detailSection('Használati megjegyzés', `
+              ${noteParagraph(term.usage)}
+              ${noteParagraph(term.meaning)}
             `)}
             ${detailSection('Terminológiai kapcsolatok', `
               ${tagField('Más megnevezések', term.altLabels)}
