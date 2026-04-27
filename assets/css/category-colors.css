@@ -1,91 +1,143 @@
 :root{
-  --cat-binding:#332FD0;
-  --cat-spine:#008B8B;
-  --cat-form:#C75B7A;
-  --cat-storage:#D97706;
+  --cat-binding:#4e63d7;
+  --cat-spine:#2f9b96;
+  --cat-form:#c96886;
+  --cat-storage:#d88a34;
+  --cat-binding-soft:#f1f3ff;
+  --cat-spine-soft:#eef9f8;
+  --cat-form-soft:#fbf1f5;
+  --cat-storage-soft:#fff5ea;
 }
 
 .category[data-category="kötésmód"],
 .folder-category[data-category="kötésmód"],
 .folder-title[data-category="kötésmód"]{
-  color:var(--cat-binding);
+  color:#3348b8;
+  background:var(--cat-binding-soft);
 }
 
 .category[data-category="gerincszerkezet"],
 .folder-category[data-category="gerincszerkezet"],
 .folder-title[data-category="gerincszerkezet"]{
-  color:var(--cat-spine);
+  color:#237d78;
+  background:var(--cat-spine-soft);
 }
 
 .category[data-category="könyvforma"],
 .folder-category[data-category="könyvforma"],
 .folder-title[data-category="könyvforma"]{
-  color:var(--cat-form);
+  color:#a8526c;
+  background:var(--cat-form-soft);
 }
 
 .category[data-category="tárolóelem"],
 .folder-category[data-category="tárolóelem"],
 .folder-title[data-category="tárolóelem"]{
-  color:var(--cat-storage);
+  color:#aa641e;
+  background:var(--cat-storage-soft);
 }
 
-.category-panel-accent[data-category="kötésmód"]{background:var(--cat-binding);}
-.category-panel-accent[data-category="gerincszerkezet"]{background:var(--cat-spine);}
-.category-panel-accent[data-category="könyvforma"]{background:var(--cat-form);}
-.category-panel-accent[data-category="tárolóelem"]{background:var(--cat-storage);}
-
-.card[data-category="kötésmód"]{
-  border-top:3px solid var(--cat-binding);
+.category-panel[data-category="kötésmód"]{
+  background:var(--cat-binding-soft);
+  border-color:#dce2ff;
 }
 
-.card[data-category="gerincszerkezet"]{
-  border-top:3px solid var(--cat-spine);
+.category-panel[data-category="gerincszerkezet"]{
+  background:var(--cat-spine-soft);
+  border-color:#d7eeee;
 }
 
-.card[data-category="könyvforma"]{
-  border-top:3px solid var(--cat-form);
+.category-panel[data-category="könyvforma"]{
+  background:var(--cat-form-soft);
+  border-color:#f0d9e2;
 }
 
-.card[data-category="tárolóelem"]{
-  border-top:3px solid var(--cat-storage);
-}
-
-.filter[data-category="kötésmód"]{
-  border-left:4px solid var(--cat-binding);
-}
-
-.filter[data-category="gerincszerkezet"]{
-  border-left:4px solid var(--cat-spine);
-}
-
-.filter[data-category="könyvforma"]{
-  border-left:4px solid var(--cat-form);
-}
-
-.filter[data-category="tárolóelem"]{
-  border-left:4px solid var(--cat-storage);
+.category-panel[data-category="tárolóelem"]{
+  background:var(--cat-storage-soft);
+  border-color:#f3dfc9;
 }
 
 .category-panel[data-category="kötésmód"].active,
 .category-panel[data-category="kötésmód"]:hover{
-  border-color:var(--cat-binding);
-  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-binding) 14%, transparent);
+  border-color:#c8d1ff;
+  box-shadow:0 0 0 2px rgba(78,99,215,.08);
 }
 
 .category-panel[data-category="gerincszerkezet"].active,
 .category-panel[data-category="gerincszerkezet"]:hover{
-  border-color:var(--cat-spine);
-  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-spine) 14%, transparent);
+  border-color:#c2e5e3;
+  box-shadow:0 0 0 2px rgba(47,155,150,.08);
 }
 
 .category-panel[data-category="könyvforma"].active,
 .category-panel[data-category="könyvforma"]:hover{
-  border-color:var(--cat-form);
-  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-form) 14%, transparent);
+  border-color:#e8c9d5;
+  box-shadow:0 0 0 2px rgba(201,104,134,.08);
 }
 
 .category-panel[data-category="tárolóelem"].active,
 .category-panel[data-category="tárolóelem"]:hover{
-  border-color:var(--cat-storage);
-  box-shadow:0 0 0 2px color-mix(in srgb, var(--cat-storage) 14%, transparent);
+  border-color:#edcfaa;
+  box-shadow:0 0 0 2px rgba(216,138,52,.08);
+}
+
+.card[data-category="kötésmód"] .card-top{
+  background:var(--cat-binding-soft);
+}
+
+.card[data-category="gerincszerkezet"] .card-top{
+  background:var(--cat-spine-soft);
+}
+
+.card[data-category="könyvforma"] .card-top{
+  background:var(--cat-form-soft);
+}
+
+.card[data-category="tárolóelem"] .card-top{
+  background:var(--cat-storage-soft);
+}
+
+.browse-group:has(.browse-toggle[data-category="kötésmód"]){
+  background:var(--cat-binding-soft);
+  border-color:#dce2ff;
+}
+
+.browse-group:has(.browse-toggle[data-category="gerincszerkezet"]){
+  background:var(--cat-spine-soft);
+  border-color:#d7eeee;
+}
+
+.browse-group:has(.browse-toggle[data-category="könyvforma"]){
+  background:var(--cat-form-soft);
+  border-color:#f0d9e2;
+}
+
+.browse-group:has(.browse-toggle[data-category="tárolóelem"]){
+  background:var(--cat-storage-soft);
+  border-color:#f3dfc9;
+}
+
+.browse-group:has(.browse-toggle[data-category="kötésmód"]) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="kötésmód"]) .browse-terms{
+  background:var(--cat-binding-soft);
+}
+
+.browse-group:has(.browse-toggle[data-category="gerincszerkezet"]) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="gerincszerkezet"]) .browse-terms{
+  background:var(--cat-spine-soft);
+}
+
+.browse-group:has(.browse-toggle[data-category="könyvforma"]) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="könyvforma"]) .browse-terms{
+  background:var(--cat-form-soft);
+}
+
+.browse-group:has(.browse-toggle[data-category="tárolóelem"]) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="tárolóelem"]) .browse-terms{
+  background:var(--cat-storage-soft);
+}
+
+.browse-term:hover,
+.browse-term.active{
+  background:rgba(255,255,255,.68);
 }
