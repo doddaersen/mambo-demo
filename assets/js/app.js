@@ -23,22 +23,22 @@ const categoryOrder = ['összes', 'kötésmód', 'gerincszerkezet', 'könyvforma
 const categoryMeta = {
   'kötésmód': {
     title: 'Kötésmód',
-    description: 'A lapok, ívek vagy könyvtestek technikai összekapcsolásának módja.',
+    description: 'Azt mutatja meg, hogyan kapcsolódnak egymáshoz a lapok, ívek vagy könyvtestek.',
     examples: ['kopt kötés', 'japán fűzés', 'spirálkötés']
   },
   'gerincszerkezet': {
     title: 'Gerincszerkezet',
-    description: 'A könyvtest hátoldali kialakítása és a fűzés láthatósága.',
+    description: 'A könyv hátoldalának kialakítása: például látszik-e a fűzés, vagy fedve van.',
     examples: ['nyitott gerinc', 'fedett gerinc', 'üreges gerinc']
   },
   'könyvforma': {
     title: 'Könyvforma',
-    description: 'A mű egészének tárgyi, használati és olvasási logikája.',
+    description: 'A könyvtárgy alakja és használati módja: hogyan nyílik, mozog vagy olvasható.',
     examples: ['leporelló', 'dos-à-dos', 'alagútkönyv']
   },
   'tárolóelem': {
     title: 'Tárolóelem',
-    description: 'A műhöz tartozó tok, doboz, mappa vagy más védőegység.',
+    description: 'A könyvhöz tartozó tok, doboz, mappa vagy más védő és bemutató egység.',
     examples: ['tok', 'doboz', 'archiváló doboz']
   }
 };
@@ -145,8 +145,8 @@ function renderCategoryFolders() {
     return `
       <button class="folder-card ${category === state.selectedCategory ? 'active' : ''}" type="button" data-category="${escapeHtml(category)}">
         <span class="folder-tab"></span>
-        <span class="folder-category" data-category="${escapeHtml(category)}">${escapeHtml(meta.title)}</span>
-        <strong>${escapeHtml(meta.description)}</strong>
+        <h3 class="folder-title" data-category="${escapeHtml(category)}">${escapeHtml(meta.title)}</h3>
+        <p class="folder-description">${escapeHtml(meta.description)}</p>
         <span class="folder-count">${count} szócikk</span>
         <span class="folder-examples">pl. ${meta.examples.map(escapeHtml).join(', ')}</span>
         <span class="folder-open">Megnyitás →</span>
