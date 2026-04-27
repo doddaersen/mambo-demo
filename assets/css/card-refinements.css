@@ -64,6 +64,38 @@ summary::before{
   padding-top:12px;
 }
 
+.tag-list{
+  gap:5px;
+}
+
+.tag,
+.status-badge{
+  border-color:#dedbd8;
+  background:#fafaf7;
+  color:#5b5658;
+  padding:2px 6px;
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:.01em;
+}
+
+.tag{
+  cursor:default;
+}
+
+.tag:hover{
+  border-color:#d7d3d0;
+  background:#fafaf7;
+  color:#5b5658;
+}
+
+.field:nth-child(3) .tag,
+.field:nth-child(3) .tag:hover{
+  border-color:#d8cbd0;
+  background:#fff7fa;
+  color:#7b3e51;
+}
+
 .technical-data{
   border-top:1px solid var(--line-dark);
   margin-top:6px;
