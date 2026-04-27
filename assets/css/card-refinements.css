@@ -8,6 +8,7 @@
   height:224px;
   min-height:224px;
   border-color:#c4bfbc;
+  transition:border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
 }
 
 .card-top{
@@ -88,15 +89,38 @@ summary::before{
 }
 
 .card:hover{
-  border-color:#777;
-  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  border-color:#7f7a77;
+  box-shadow:0 1px 8px rgba(0,0,0,.055);
+  background-color:#fffdfd;
+}
+
+.card:hover .card-top{
+  background:#fbfaf7;
 }
 
 .card.is-open,
 .card:has(details[open]){
   height:auto;
   min-height:224px;
-  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  border-color:var(--accent);
+  box-shadow:0 0 0 2px rgba(247,36,100,.09), 0 2px 12px rgba(0,0,0,.07);
+  background:#fff;
+}
+
+.card.is-open .card-top,
+.card:has(details[open]) .card-top{
+  background:#fff7fa;
+  border-bottom-color:#e8cbd4;
+}
+
+.card.is-open summary,
+.card:has(details[open]) summary{
+  color:var(--accent-dark);
+}
+
+.card:focus-within{
+  outline:2px solid rgba(247,36,100,.28);
+  outline-offset:2px;
 }
 
 .grid.list-view{
