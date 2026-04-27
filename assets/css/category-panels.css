@@ -22,18 +22,8 @@
 }
 
 .category-panel-accent{
-  display:block;
-  width:100%;
-  height:3px;
-  margin:-16px -14px 4px;
-  width:calc(100% + 28px);
-  background:var(--line-dark);
+  display:none;
 }
-
-.category-panel-accent[data-category="kötésmód"]{background:var(--binding);}
-.category-panel-accent[data-category="gerincszerkezet"]{background:var(--spine);}
-.category-panel-accent[data-category="könyvforma"]{background:#a93428;}
-.category-panel-accent[data-category="tárolóelem"]{background:#8f5626;}
 
 .category-panel-title{
   margin:0;
@@ -60,7 +50,7 @@
 
 .category-panel-action{
   margin-top:auto;
-  color:var(--accent-dark);
+  color:#222;
   font-size:11.5px;
   font-weight:700;
   letter-spacing:.045em;
@@ -68,15 +58,13 @@
 }
 
 .category-panel:hover{
-  border-color:#7f7a77;
-  box-shadow:0 1px 8px rgba(0,0,0,.055);
-  background:#fffdfd;
+  border-color:#9b9b9b;
+  box-shadow:0 1px 8px rgba(0,0,0,.04);
 }
 
 .category-panel.active{
-  border-color:var(--accent);
-  box-shadow:0 0 0 2px rgba(247,36,100,.08);
-  background:#fffafa;
+  border-color:#9b9b9b;
+  box-shadow:0 0 0 2px rgba(0,0,0,.04);
 }
 
 .folder-tab,
