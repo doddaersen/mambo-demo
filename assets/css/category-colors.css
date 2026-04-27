@@ -1,4 +1,7 @@
 :root{
+  --text:#242424;
+  --accent:#242424;
+  --accent-dark:#242424;
   --cat-binding:#4e63d7;
   --cat-spine:#2f9b96;
   --cat-form:#c96886;
@@ -7,6 +10,36 @@
   --cat-spine-soft:#eef9f8;
   --cat-form-soft:#fbf1f5;
   --cat-storage-soft:#fff5ea;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+.card,
+.browse-toggle,
+.browse-term,
+.category-panel,
+.definition,
+.field,
+.source-item{
+  color:#242424;
+}
+
+.eyebrow::before,
+h1::after{
+  background:#242424;
+}
+
+summary,
+summary::before,
+.view-button.active,
+.view-button:hover,
+.browse-term:hover,
+.browse-term.active,
+.tag:hover{
+  color:#242424;
 }
 
 .category[data-category="kötésmód"],
