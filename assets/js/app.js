@@ -184,6 +184,10 @@ function statusField(label, value) {
   return `<div class="field technical-field"><strong>${escapeHtml(label)}</strong><span class="status-badge">${escapeHtml(value || 'pilot')}</span></div>`;
 }
 
+function detailSection(title, content) {
+  return `<section class="detail-section"><h4>${escapeHtml(title)}</h4>${content}</section>`;
+}
+
 function getCardMarkup(term) {
   const category = displayCategory(term.category);
   return `
@@ -198,13 +202,17 @@ function getCardMarkup(term) {
         <details>
           <summary><span>Részletes nézet</span><span class="summary-icon" aria-hidden="true">↓</span></summary>
           <div class="detail-block">
-            ${field('Használati megjegyzés', term.usage)}
-            ${field('Forma–jelentés kapcsolat', term.meaning)}
-            ${tagField('Kapcsolódó fogalmak', term.relatedTerms)}
-            ${sourceField('Forrás', term.sources)}
-            ${tagField('Alternatív címkék', term.altLabels)}
-            <div class="technical-data">
-              <div class="technical-heading">Technikai adatok</div>
+            ${detailSection('Használat és értelmezés', `
+              ${field('Használati megjegyzés', term.usage)}
+              ${field('Forma–jelentés kapcsolat', term.meaning)}
+            `)}
+            ${detailSection('Kapcsolatok és források', `
+              ${tagField('Kapcsolódó fogalmak', term.relatedTerms)}
+              ${sourceField('Források', term.sources)}
+              ${tagField('Alternatív címkék', term.altLabels)}
+            `)}
+            <section class="detail-section technical-data">
+              <h4>Technikai adatok</h4>
               <div class="ontology-row">
                 ${field('Azonosító', term.id)}
                 ${field('MAMBO-osztály', term.class)}
@@ -214,7 +222,7 @@ function getCardMarkup(term) {
                 ${field('CIDOC', term.cidoc)}
               </div>
               ${statusField('Demo-státusz', term.demoStatus)}
-            </div>
+            </section>
           </div>
         </details>
       </div>
