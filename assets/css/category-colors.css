@@ -71,22 +71,22 @@ summary::before,
 }
 
 .category-panel[data-category="kötésmód"]{
-  background:var(--cat-binding-soft);
+  background:linear-gradient(180deg, var(--cat-binding-soft) 0, #fff 68%);
   border-color:#dce2ff;
 }
 
 .category-panel[data-category="gerincszerkezet"]{
-  background:var(--cat-spine-soft);
+  background:linear-gradient(180deg, var(--cat-spine-soft) 0, #fff 68%);
   border-color:#d7eeee;
 }
 
 .category-panel[data-category="könyvforma"]{
-  background:var(--cat-form-soft);
+  background:linear-gradient(180deg, var(--cat-form-soft) 0, #fff 68%);
   border-color:#f0d9e2;
 }
 
 .category-panel[data-category="tárolóelem"]{
-  background:var(--cat-storage-soft);
+  background:linear-gradient(180deg, var(--cat-storage-soft) 0, #fff 68%);
   border-color:#f3dfc9;
 }
 
@@ -114,63 +114,80 @@ summary::before,
   box-shadow:0 0 0 2px rgba(216,138,52,.08);
 }
 
-.card[data-category="kötésmód"] .card-top{
+.card .card-top{
+  background:#fff;
+}
+
+.card[data-category="kötésmód"]:hover .card-top,
+.card[data-category="kötésmód"].is-open .card-top,
+.card[data-category="kötésmód"]:has(details[open]) .card-top{
   background:var(--cat-binding-soft);
 }
 
-.card[data-category="gerincszerkezet"] .card-top{
+.card[data-category="gerincszerkezet"]:hover .card-top,
+.card[data-category="gerincszerkezet"].is-open .card-top,
+.card[data-category="gerincszerkezet"]:has(details[open]) .card-top{
   background:var(--cat-spine-soft);
 }
 
-.card[data-category="könyvforma"] .card-top{
+.card[data-category="könyvforma"]:hover .card-top,
+.card[data-category="könyvforma"].is-open .card-top,
+.card[data-category="könyvforma"]:has(details[open]) .card-top{
   background:var(--cat-form-soft);
 }
 
-.card[data-category="tárolóelem"] .card-top{
+.card[data-category="tárolóelem"]:hover .card-top,
+.card[data-category="tárolóelem"].is-open .card-top,
+.card[data-category="tárolóelem"]:has(details[open]) .card-top{
   background:var(--cat-storage-soft);
 }
 
-.browse-group:has(.browse-toggle[data-category="kötésmód"]){
-  background:var(--cat-binding-soft);
+.browse-group{
+  background:#fff;
+}
+
+.browse-group .browse-toggle,
+.browse-group .browse-terms{
+  background:#fff;
+}
+
+.browse-group:has(.browse-toggle[data-category="kötésmód"].open){
   border-color:#dce2ff;
 }
 
-.browse-group:has(.browse-toggle[data-category="gerincszerkezet"]){
-  background:var(--cat-spine-soft);
+.browse-group:has(.browse-toggle[data-category="gerincszerkezet"].open){
   border-color:#d7eeee;
 }
 
-.browse-group:has(.browse-toggle[data-category="könyvforma"]){
-  background:var(--cat-form-soft);
+.browse-group:has(.browse-toggle[data-category="könyvforma"].open){
   border-color:#f0d9e2;
 }
 
-.browse-group:has(.browse-toggle[data-category="tárolóelem"]){
-  background:var(--cat-storage-soft);
+.browse-group:has(.browse-toggle[data-category="tárolóelem"].open){
   border-color:#f3dfc9;
 }
 
-.browse-group:has(.browse-toggle[data-category="kötésmód"]) .browse-toggle,
-.browse-group:has(.browse-toggle[data-category="kötésmód"]) .browse-terms{
+.browse-group:has(.browse-toggle[data-category="kötésmód"].open) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="kötésmód"].open) .browse-terms{
   background:var(--cat-binding-soft);
 }
 
-.browse-group:has(.browse-toggle[data-category="gerincszerkezet"]) .browse-toggle,
-.browse-group:has(.browse-toggle[data-category="gerincszerkezet"]) .browse-terms{
+.browse-group:has(.browse-toggle[data-category="gerincszerkezet"].open) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="gerincszerkezet"].open) .browse-terms{
   background:var(--cat-spine-soft);
 }
 
-.browse-group:has(.browse-toggle[data-category="könyvforma"]) .browse-toggle,
-.browse-group:has(.browse-toggle[data-category="könyvforma"]) .browse-terms{
+.browse-group:has(.browse-toggle[data-category="könyvforma"].open) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="könyvforma"].open) .browse-terms{
   background:var(--cat-form-soft);
 }
 
-.browse-group:has(.browse-toggle[data-category="tárolóelem"]) .browse-toggle,
-.browse-group:has(.browse-toggle[data-category="tárolóelem"]) .browse-terms{
+.browse-group:has(.browse-toggle[data-category="tárolóelem"].open) .browse-toggle,
+.browse-group:has(.browse-toggle[data-category="tárolóelem"].open) .browse-terms{
   background:var(--cat-storage-soft);
 }
 
 .browse-term:hover,
 .browse-term.active{
-  background:rgba(255,255,255,.68);
+  background:rgba(255,255,255,.72);
 }
