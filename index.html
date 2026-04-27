@@ -11,7 +11,7 @@
     <div class="eyebrow">MAMBO · MOME Artists’ Book Ontology</div>
     <h1>MAMBO-szótár demo</h1>
     <p>
-      A művészkönyvek formai-szerkezeti leírásának első, szűkített pilotja.
+      A művészkönyvek formai-szerkezeti leírásának 33 elemű webes pilotja.
       A demo azt mutatja meg, hogy a kötésmód, a gerincszerkezet, a könyvforma és a tárolóelem
       nem ugyanannak az egyetlen „kötéstípus” mezőnek a változatai.
     </p>
@@ -27,24 +27,40 @@
           olvasási, használati vagy narratív jelentéshordozóvá.
         </p>
       </div>
-      <div class="diagram" aria-label="A MAMBO-demo két fő rétege">
-        <div class="diagram-root">MAMBO-DEMO</div>
+      <div class="diagram" aria-label="A MAMBO-demo fő kategóriái">
+        <div class="diagram-root">MAMBO-SZÓTÁR DEMO</div>
         <div class="diagram-grid">
           <div>
-            <strong>Formai-szerkezeti szótárréteg</strong>
-            <span>kötésmód · gerinc · könyvforma · tároló</span>
+            <strong>Kötésmód</strong>
+            <span>lapok, ívek vagy könyvtestek rögzítési módja</span>
           </div>
           <div>
-            <strong>Tartalmi-értelmező kapcsolati réteg</strong>
-            <span>olvasási irány · használat · narratíva · forma–jelentés</span>
+            <strong>Gerincszerkezet</strong>
+            <span>a könyvtest hátoldali kialakítása</span>
+          </div>
+          <div>
+            <strong>Könyvforma</strong>
+            <span>tárgyi, olvasási és térbeli logika</span>
+          </div>
+          <div>
+            <strong>Tárolóelem</strong>
+            <span>védő, hozzáférési vagy megőrzési egység</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="controls" aria-label="Szűrés és keresés">
+    <section class="controls" aria-label="Szűrés, rendezés és keresés">
       <label class="search-label" for="searchInput">Keresés a szótárban</label>
       <input id="searchInput" type="search" placeholder="pl. leporelló, nyitott gerinc, FormType…" />
+      <div class="control-row">
+        <label for="sortSelect">Rendezés</label>
+        <select id="sortSelect">
+          <option value="abc">ABC szerint</option>
+          <option value="category">Kategória szerint</option>
+          <option value="id">MAMBO ID szerint</option>
+        </select>
+      </div>
       <div class="filters" id="filters"></div>
     </section>
 
