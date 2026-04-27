@@ -3,13 +3,15 @@ const state = {
   selectedCategory: 'Összes',
   search: '',
   selectedId: null,
-  sort: 'abc'
+  sort: 'abc',
+  view: 'cards'
 };
 
 const els = {
   filters: document.querySelector('#filters'),
   searchInput: document.querySelector('#searchInput'),
   sortSelect: document.querySelector('#sortSelect'),
+  viewButtons: document.querySelectorAll('.view-button'),
   termList: document.querySelector('#termList'),
   termDetail: document.querySelector('#termDetail'),
   count: document.querySelector('#count')
@@ -85,21 +87,38 @@ function renderFilters() {
   });
 }
 
-function renderList() {
-  const terms = getFilteredTerms();
-  els.count.textContent = `${terms.length} elem`;
+function getCardMarkup(term) {
+  return `
+    <button class="term-card ${term.id === state.selectedId ? 'active' : ''}" type="button" data-id="${term.id}">
+      <span class="card-kicker">${term.category}</span>
+      <strong>${term.prefLabelHu}</strong>
+      <span class="card-en">${term.prefLabelEn}</span>
+      <span class="card-definition">${term.definition}</span>
+      <span class="card-id">${term.id}</span>
+    </button>
+  `;
+}
 
-  if (!terms.length) {
-    els.termList.innerHTML = '<p class="empty-state" style="padding:18px;">Nincs találat.</p>';
-    return;
-  }
-
-  els.termList.innerHTML = terms.map(term => `
+function getListMarkup(term) {
+  return `
     <button class="term-button ${term.id === state.selectedId ? 'active' : ''}" type="button" data-id="${term.id}">
       <span class="term-title">${term.prefLabelHu}</span>
       <span class="term-meta">${term.prefLabelEn} · ${term.category} · ${term.id}</span>
     </button>
-  `).join('');
+  `;
+}
+
+function renderList() {
+  const terms = getFilteredTerms();
+  els.count.textContent = `${terms.length} elem`;
+  els.termList.className = state.view === 'cards' ? 'term-cards' : 'term-list-flat';
+
+  if (!terms.length) {
+    els.termList.innerHTML = '<p class="empty-state">Nincs találat.</p>';
+    return;
+  }
+
+  els.termList.innerHTML = terms.map(term => state.view === 'cards' ? getCardMarkup(term) : getListMarkup(term)).join('');
 
   els.termList.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
@@ -107,6 +126,7 @@ function renderList() {
       renderDetail();
       renderList();
       history.replaceState(null, '', `#${encodeURIComponent(state.selectedId)}`);
+      els.termDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 }
@@ -175,8 +195,15 @@ function renderDetail() {
   `;
 }
 
+function renderViewButtons() {
+  els.viewButtons.forEach(button => {
+    button.classList.toggle('active', button.dataset.view === state.view);
+  });
+}
+
 function render() {
   renderFilters();
+  renderViewButtons();
   renderList();
   renderDetail();
 }
@@ -205,6 +232,14 @@ els.sortSelect.addEventListener('change', event => {
   state.sort = event.target.value;
   renderList();
   renderDetail();
+});
+
+els.viewButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    state.view = button.dataset.view;
+    renderViewButtons();
+    renderList();
+  });
 });
 
 init();
