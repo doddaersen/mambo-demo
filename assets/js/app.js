@@ -196,7 +196,7 @@ function getCardMarkup(term) {
       <div class="card-body">
         <p class="definition">${escapeHtml(term.definition)}</p>
         <details>
-          <summary><span>További adatok</span><span class="summary-icon" aria-hidden="true">↓</span></summary>
+          <summary><span>Részletes nézet</span><span class="summary-icon" aria-hidden="true">↓</span></summary>
           <div class="detail-block">
             ${field('Használati megjegyzés', term.usage)}
             ${field('Forma–jelentés kapcsolat', term.meaning)}
