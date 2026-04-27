@@ -7,87 +7,60 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="eyebrow">MAMBO · MOME Artists’ Book Ontology</div>
-    <h1>MAMBO-szótár demo</h1>
-    <p>
-      A művészkönyvek formai-szerkezeti leírásának 33 elemű webes pilotja.
-      A demo azt mutatja meg, hogy a kötésmód, a gerincszerkezet, a könyvforma és a tárolóelem
-      nem ugyanannak az egyetlen „kötéstípus” mezőnek a változatai.
-    </p>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">MAMBO · PhD research demo</div>
+      <h1>MAMBO-szótár demo</h1>
+      <p class="lead">
+        A 33 elemű pilot a művészkönyvek formai-szerkezeti leírásának fő rétegeit mutatja be:
+        kötésmód, gerincszerkezet, könyvforma és tárolóelem. A cél nem a teljes szótár lezárása,
+        hanem az ontológiai modell használható, böngészhető demonstrációja.
+      </p>
+      <div class="meta-row">
+        <span class="pill">33 pilot-szócikk</span>
+        <span class="pill">4 kategória</span>
+        <span class="pill">CIDOC CRM + MAMBO propertyk</span>
+        <span class="pill">forma–jelentés kapcsolat</span>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="model-note" aria-labelledby="model-heading">
-      <div>
-        <h2 id="model-heading">Demo-logika</h2>
-        <p>
-          A formai-szerkezeti szótárréteg kontrollált fogalmi egységekkel dolgozik.
-          A tartalmi-értelmező réteg azt jelzi, hogyan válhat egy szerkezeti megoldás
-          olvasási, használati vagy narratív jelentéshordozóvá.
-        </p>
-      </div>
-      <div class="diagram" aria-label="A MAMBO-demo fő kategóriái">
-        <div class="diagram-root">MAMBO-SZÓTÁR DEMO</div>
-        <div class="diagram-grid">
-          <div>
-            <strong>Kötésmód</strong>
-            <span>lapok, ívek vagy könyvtestek rögzítési módja</span>
-          </div>
-          <div>
-            <strong>Gerincszerkezet</strong>
-            <span>a könyvtest hátoldali kialakítása</span>
-          </div>
-          <div>
-            <strong>Könyvforma</strong>
-            <span>tárgyi, olvasási és térbeli logika</span>
-          </div>
-          <div>
-            <strong>Tárolóelem</strong>
-            <span>védő, hozzáférési vagy megőrzési egység</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="controls" aria-label="Szűrés, rendezés és keresés">
-      <label class="search-label" for="searchInput">Keresés a szótárban</label>
-      <input id="searchInput" type="search" placeholder="pl. leporelló, nyitott gerinc, FormType…" />
-      <div class="control-panel">
-        <div class="control-row">
+    <div class="wrap layout">
+      <aside>
+        <p class="panel-title">Szűrés</p>
+        <input id="searchInput" class="search" type="search" placeholder="Keresés névre, definícióra…" />
+        <div id="filters" class="filters"></div>
+        <div class="sort-block">
           <label for="sortSelect">Rendezés</label>
-          <select id="sortSelect">
+          <select id="sortSelect" class="sort-select">
             <option value="abc">ABC szerint</option>
             <option value="category">Kategória szerint</option>
             <option value="id">MAMBO ID szerint</option>
           </select>
         </div>
-        <div class="control-row">
-          <span class="control-label">Nézet</span>
-          <div class="view-toggle" role="group" aria-label="Nézetváltás">
-            <button class="view-button active" type="button" data-view="cards">Kártyák</button>
-            <button class="view-button" type="button" data-view="list">Lista</button>
+        <p class="note">A borító és a záródás a teljes MAMBO-szótár későbbi bővítési rétegeként marad meg.</p>
+      </aside>
+
+      <section>
+        <div class="topline">
+          <h2>Demo-szócikkek</h2>
+          <div class="tools">
+            <div id="count" class="result-count"></div>
+            <div class="view-toggle" aria-label="Nézetváltás">
+              <button class="view-button active" type="button" data-view="cards">Grid</button>
+              <button class="view-button" type="button" data-view="list">Lista</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="filters" id="filters"></div>
-    </section>
-
-    <section class="browser" aria-label="Szótárböngésző">
-      <div class="browser-header">
-        <h2>Szócikkek</h2>
-        <span id="count"></span>
-      </div>
-      <div id="termList" class="term-cards"></div>
-    </section>
-
-    <article class="term-detail" id="termDetail" aria-live="polite">
-      <p class="empty-state">Válassz egy szócikket a listából.</p>
-    </article>
+        <div id="termList" class="grid"></div>
+        <div id="empty" class="empty">Nincs találat ebben a szűrésben.</div>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <p>Munkaállapotú demonstráció · MAMBO-szótár · GitHub Pages</p>
+    <div class="wrap">MAMBO pilot · statikus HTML-prototípus · adatforrás: data/terms.json</div>
   </footer>
 
   <script src="assets/js/app.js"></script>
