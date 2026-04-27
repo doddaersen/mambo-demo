@@ -1,0 +1,22 @@
+.folder-title{
+  margin:0;
+  font-size:18px;
+  line-height:1.1;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  font-weight:760;
+}
+
+.folder-title[data-category="kötésmód"]{color:var(--binding);}
+.folder-title[data-category="gerincszerkezet"]{color:var(--spine);}
+.folder-title[data-category="könyvforma"]{color:#a93428;}
+.folder-title[data-category="tárolóelem"]{color:#8f5626;}
+
+.folder-description{
+  margin:0;
+  color:#262626;
+  font-size:13px;
+  line-height:1.35;
+}
+
+.folder-category{display:none;}
