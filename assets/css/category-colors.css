@@ -46,28 +46,28 @@ summary::before,
 .folder-category[data-category="kötésmód"],
 .folder-title[data-category="kötésmód"]{
   color:#3348b8;
-  background:var(--cat-binding-soft);
+  background:#fff;
 }
 
 .category[data-category="gerincszerkezet"],
 .folder-category[data-category="gerincszerkezet"],
 .folder-title[data-category="gerincszerkezet"]{
   color:#237d78;
-  background:var(--cat-spine-soft);
+  background:#fff;
 }
 
 .category[data-category="könyvforma"],
 .folder-category[data-category="könyvforma"],
 .folder-title[data-category="könyvforma"]{
   color:#a8526c;
-  background:var(--cat-form-soft);
+  background:#fff;
 }
 
 .category[data-category="tárolóelem"],
 .folder-category[data-category="tárolóelem"],
 .folder-title[data-category="tárolóelem"]{
   color:#aa641e;
-  background:var(--cat-storage-soft);
+  background:#fff;
 }
 
 .category-panel[data-category="kötésmód"]{
