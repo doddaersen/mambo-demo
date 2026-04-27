@@ -186,7 +186,7 @@ function renderCategoryPanels() {
         <span class="category-panel-accent" data-category="${escapeHtml(category)}"></span>
         <h3 class="category-panel-title">${escapeHtml(meta.title)}</h3>
         <p class="category-panel-description">${escapeHtml(meta.description)}</p>
-        <span class="category-panel-action">${count} szócikk →</span>
+        <span class="category-panel-action"><span class="category-panel-count">${count}</span><span class="category-panel-label">szócikk →</span></span>
       </button>
     `;
   }).join('');
