@@ -1,14 +1,33 @@
 /* Expanded card and detail-toggle cleanup. */
+.grid:has(.card.is-open){
+  column-count:unset !important;
+  column-gap:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  align-items:start;
+}
+.grid:has(.card.is-open) .card{
+  display:flex !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 !important;
+  break-inside:auto !important;
+  -webkit-column-break-inside:auto !important;
+  page-break-inside:auto !important;
+}
 .card{
   transition:box-shadow .18s ease, transform .18s ease, background-color .18s ease, border-color .18s ease;
 }
 .card.is-open{
   position:relative;
   z-index:8;
-  grid-column:span 2;
+  grid-column:1 / -1;
   background:#fbfbfb !important;
   border-color:#8e8e8e !important;
   box-shadow:0 18px 42px rgba(0,0,0,.13) !important;
+  overflow:visible !important;
 }
 .card.is-open .card-top,
 .card.is-open .card-body{
@@ -19,6 +38,7 @@
 }
 .card.is-open .card-body{
   padding-top:10px !important;
+  overflow:visible !important;
 }
 .card.is-open .definition{
   margin-bottom:12px !important;
@@ -116,6 +136,9 @@
   margin-top:0 !important;
 }
 @media (max-width:900px){
+  .grid:has(.card.is-open){
+    grid-template-columns:1fr;
+  }
   .card.is-open{
     grid-column:1 / -1;
   }
