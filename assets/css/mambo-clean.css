@@ -126,7 +126,7 @@ header h1{
 .quick-search{
   width:100%;
   max-width:none;
-  margin:0 0 18px;
+  margin:0 0 22px;
 }
 
 .quick-search-help{
@@ -137,6 +137,11 @@ header h1{
 
 .category-overview{
   overflow:hidden;
+  margin:0 0 24px !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
 }
 
 .overview-head{
