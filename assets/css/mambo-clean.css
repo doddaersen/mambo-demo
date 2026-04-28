@@ -8,6 +8,8 @@
 :root{
   --mambo-text-size:12.5px;
   --mambo-text-line:1.42;
+  --mambo-body-color:#333;
+  --mambo-muted-color:#6f6f6f;
 }
 
 body,
@@ -99,9 +101,22 @@ header h1{
   line-height:var(--mambo-text-line) !important;
 }
 
+.project-intro p:last-child,
+.definition,
+.field,
+.detail-paragraph{
+  color:var(--mambo-body-color) !important;
+}
+
+.quick-search-help,
+.overview-head p,
+.en,
+.result-count{
+  color:var(--mambo-muted-color) !important;
+}
+
 .project-intro p:last-child{
   margin:0;
-  color:var(--muted);
 }
 
 .panel-title{
@@ -116,14 +131,25 @@ header h1{
 
 .quick-search-help{
   max-width:none;
+  margin-top:0;
+  margin-bottom:10px;
 }
 
 .category-overview{
   overflow:hidden;
 }
 
+.overview-head{
+  margin:0 0 16px !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
 .overview-head p{
   margin-top:0;
+  margin-bottom:14px;
 }
 
 .browse-toggle,
@@ -201,7 +227,7 @@ header h1{
   max-width:100%;
   font-size:var(--mambo-text-size) !important;
   line-height:var(--mambo-text-line) !important;
-  color:#404040;
+  color:var(--mambo-body-color) !important;
   overflow-wrap:normal;
   word-break:normal;
   hyphens:none;
