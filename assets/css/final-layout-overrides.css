@@ -1,0 +1,170 @@
+/* Final layout-only corrections for the category-card-icons branch.
+   This restores the stable browse UI structure and leaves the icon/card refinements on top. */
+
+header h1{
+  font-size:clamp(34px,4.8vw,60px);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  font-weight:780;
+  text-transform:none;
+}
+
+.lead-subtitle{
+  font-size:16px;
+  color:#333;
+}
+
+.layout > section{
+  min-width:0;
+}
+
+.project-intro{
+  margin:0 0 18px;
+  padding:0 0 16px;
+  border-bottom:1px solid var(--line);
+}
+
+.project-kicker{
+  margin:0 0 6px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.project-intro h2{
+  margin:0 0 10px;
+  font-size:15px;
+  line-height:1.2;
+  letter-spacing:-.02em;
+  text-transform:none;
+}
+
+.project-intro p:last-child{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.quick-search{
+  width:100%;
+  max-width:none;
+  margin:0 0 18px;
+}
+
+.quick-search-help{
+  max-width:none;
+}
+
+.category-panel{
+  display:grid;
+  grid-template-columns:86px minmax(0,1fr);
+  grid-template-rows:auto 1fr auto;
+  column-gap:17px;
+  align-items:start;
+  min-height:164px;
+}
+
+.category-panel-media{
+  grid-column:1;
+  grid-row:1 / span 3;
+  width:84px;
+  height:84px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+
+.category-panel-media img{
+  width:84px;
+  height:84px;
+  object-fit:contain;
+  display:block;
+  mix-blend-mode:multiply;
+}
+
+.category-panel-text{
+  grid-column:2;
+  grid-row:1 / span 2;
+  min-width:0;
+}
+
+.category-panel-action{
+  grid-column:2;
+  grid-row:3;
+  justify-self:end;
+  align-self:end;
+}
+
+.card .category{
+  color:#333 !important;
+  background:#fff !important;
+  border-color:#bdbdbd !important;
+}
+
+.card[data-category="kötésmód"]{
+  background:var(--cat-binding-soft);
+  border-color:#dce2ff;
+}
+.card[data-category="gerincszerkezet"]{
+  background:var(--cat-spine-soft);
+  border-color:#d7eeee;
+}
+.card[data-category="könyvforma"]{
+  background:var(--cat-form-soft);
+  border-color:#f0d9e2;
+}
+.card[data-category="tárolóelem"]{
+  background:var(--cat-storage-soft);
+  border-color:#f3dfc9;
+}
+
+.card[data-category] .card-top,
+.card[data-category] .card-body,
+.card[data-category] .definition{
+  background:transparent !important;
+}
+
+.card[data-category] summary{
+  background:rgba(255,255,255,.58);
+}
+
+.card[data-category]:hover .card-top,
+.card[data-category].is-open .card-top,
+.card[data-category]:has(details[open]) .card-top{
+  background:transparent !important;
+}
+
+.card[data-category]:hover,
+.card[data-category].is-open,
+.card[data-category]:has(details[open]){
+  background-color:inherit;
+}
+
+@media (max-width:900px){
+  .layout{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .layout > section{
+    order:1;
+  }
+
+  .layout > aside{
+    order:2;
+  }
+}
+
+@media (max-width:760px){
+  .category-panel{
+    grid-template-columns:76px minmax(0,1fr);
+  }
+
+  .category-panel-media,
+  .category-panel-media img{
+    width:72px;
+    height:72px;
+  }
+}
