@@ -4,14 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Könyvművészeti szótár – könyvkötés-szerkezetek</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=layout-final-1" />
-  <link rel="stylesheet" href="assets/css/folder-overrides.css?v=folder-title-1" />
-  <link rel="stylesheet" href="assets/css/card-refinements.css?v=card-preview-1" />
-  <link rel="stylesheet" href="assets/css/category-panels.css?v=browse-ui-2" />
-  <link rel="stylesheet" href="assets/css/category-colors.css?v=category-colors-1" />
-  <link rel="stylesheet" href="assets/css/xls-clean-overrides.css?v=xls-clean-1" />
-  <link rel="stylesheet" href="assets/css/quick-search.css?v=layout-final-1" />
-  <link rel="stylesheet" href="assets/css/mambo-final.css?v=final-clean-4" />
+
+  <!-- Base UI layers kept for backwards compatibility with the current renderer. -->
+  <link rel="stylesheet" href="assets/css/style.css?v=base-1" />
+  <link rel="stylesheet" href="assets/css/folder-overrides.css?v=base-1" />
+  <link rel="stylesheet" href="assets/css/card-refinements.css?v=base-1" />
+  <link rel="stylesheet" href="assets/css/category-panels.css?v=base-1" />
+  <link rel="stylesheet" href="assets/css/category-colors.css?v=base-1" />
+  <link rel="stylesheet" href="assets/css/xls-clean-overrides.css?v=base-1" />
+  <link rel="stylesheet" href="assets/css/quick-search.css?v=base-1" />
+
+  <!-- Clean branch: all current layout/UI decisions should go here. -->
+  <link rel="stylesheet" href="assets/css/mambo-clean.css?v=clean-1" />
 </head>
 <body>
   <header>
@@ -84,8 +88,9 @@
     <div class="wrap">MAMBO · MOME Artists’ Book Ontology · művészkönyvek formai és szerkezeti leírása</div>
   </footer>
 
-  <script src="assets/js/app-xls-clean.js?v=icons-svg-2"></script>
-  <script src="assets/js/category-icon-overrides.js?v=format-double-dot-fix-1"></script>
+  <!-- Data rendering. Do not put layout fixes here. -->
+  <script src="assets/js/app-xls-clean.js?v=renderer-1"></script>
+  <script src="assets/js/category-icon-overrides.js?v=icons-1"></script>
   <script>
     const quickSearchInput = document.querySelector('#quickSearchInput');
     const sidebarSearchInput = document.querySelector('#searchInput');
