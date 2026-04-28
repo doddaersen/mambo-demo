@@ -62,11 +62,23 @@ header h1{
 }
 
 .card h3{
-  margin:8px 0 4px;
+  margin:8px 0 1px;
+}
+
+.card .en{
+  margin-top:0 !important;
+  line-height:1.22 !important;
 }
 
 .layout > section{
   min-width:0;
+}
+
+.layout > aside{
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
 }
 
 .project-intro,
