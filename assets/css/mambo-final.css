@@ -70,7 +70,7 @@ header h1{
 .category-panel{
   width:100%;
   min-width:0;
-  min-height:210px;
+  min-height:280px;
   padding:15px 14px 14px;
   display:flex !important;
   flex-direction:column;
@@ -112,20 +112,21 @@ header h1{
 
 .category-panel-media{
   order:2;
-  width:56px;
-  height:56px;
+  width:100%;
+  height:auto;
   margin:0 0 13px;
   display:flex;
-  align-items:center;
-  justify-content:center;
+  align-items:flex-start;
+  justify-content:flex-start;
 }
 
 .category-panel-media img{
-  width:56px;
-  height:56px;
-  max-width:56px;
-  max-height:56px;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  max-height:112px;
   object-fit:contain;
+  object-position:left center;
   display:block;
   filter:none;
 }
@@ -217,7 +218,7 @@ header h1{
   }
 
   .category-panel{
-    min-height:205px;
+    min-height:300px;
   }
 
   .category-panel-title{
@@ -258,12 +259,8 @@ header h1{
     font-size:19px;
   }
 
-  .category-panel-media,
   .category-panel-media img{
-    width:72px;
-    height:72px;
-    max-width:72px;
-    max-height:72px;
+    max-height:150px;
   }
 
   .category-panel-description{
