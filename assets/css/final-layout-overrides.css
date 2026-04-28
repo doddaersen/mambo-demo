@@ -1,10 +1,8 @@
-header{
-  padding:38px 24px 28px;
-}
+/* Final layout-only corrections for the browse UI branch.
+   Keep the visual skin from the browse-ui-experiment stylesheets. */
 
-h1{
-  margin:18px 0 10px;
-  font-size:clamp(34px,4.6vw,58px);
+header h1{
+  font-size:clamp(34px,4.8vw,60px);
   line-height:1.02;
   letter-spacing:-.055em;
   font-weight:780;
@@ -16,23 +14,14 @@ h1{
   color:#333;
 }
 
-.layout{
-  grid-template-areas:"sidebar content";
-}
-
-.layout > aside{
-  grid-area:sidebar;
-}
-
 .layout > section{
-  grid-area:content;
   min-width:0;
 }
 
 .project-intro{
-  border-bottom:1px solid var(--line);
-  margin:0 0 16px;
+  margin:0 0 18px;
   padding:0 0 16px;
+  border-bottom:1px solid var(--line);
 }
 
 .project-kicker{
@@ -41,7 +30,6 @@ h1{
   font-weight:800;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:#111;
 }
 
 .project-intro h2{
@@ -63,10 +51,6 @@ h1{
   width:100%;
   max-width:none;
   margin:0 0 18px;
-  padding:18px;
-  border:1px solid var(--line-dark);
-  background:#fff;
-  box-shadow:var(--shadow);
 }
 
 .quick-search-help{
@@ -75,13 +59,15 @@ h1{
 
 @media (max-width:900px){
   .layout{
-    grid-template-areas:
-      "content"
-      "sidebar";
+    display:flex;
+    flex-direction:column;
   }
-}
 
-@media (max-width:560px){
-  header{padding-top:30px;}
-  .quick-search{margin-bottom:18px;}
+  .layout > section{
+    order:1;
+  }
+
+  .layout > aside{
+    order:2;
+  }
 }
