@@ -16,6 +16,19 @@ h1{
   color:#333;
 }
 
+.layout{
+  grid-template-areas:"sidebar content";
+}
+
+.layout > aside{
+  grid-area:sidebar;
+}
+
+.layout > section{
+  grid-area:content;
+  min-width:0;
+}
+
 .project-intro{
   border-bottom:1px solid var(--line);
   margin:0 0 16px;
@@ -47,6 +60,7 @@ h1{
 }
 
 .quick-search{
+  width:100%;
   max-width:none;
   margin:0 0 18px;
   padding:18px;
@@ -57,6 +71,14 @@ h1{
 
 .quick-search-help{
   max-width:none;
+}
+
+@media (max-width:900px){
+  .layout{
+    grid-template-areas:
+      "content"
+      "sidebar";
+  }
 }
 
 @media (max-width:560px){
