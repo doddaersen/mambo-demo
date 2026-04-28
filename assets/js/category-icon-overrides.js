@@ -1,25 +1,26 @@
 (() => {
-  const iconVersion = '?v=icons-v2-1';
+  const iconVersion = '?v=icons-v2-2';
+  const iconBase = 'https://raw.githack.com/doddaersen/mambo-demo/main/assets/';
   const categories = {
     'könyvforma': {
       title: 'Könyvformátum',
       description: 'A könyv térbeli, szerkezeti vagy hordozói formája.',
-      icon: 'assets/szotar_ikon_formatum_v2.png' + iconVersion
+      icon: iconBase + 'szotar_ikon_formatum_v2.png' + iconVersion
     },
     'kötésmód': {
       title: 'Kötésmód',
       description: 'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',
-      icon: 'assets/szotar_ikon_kotes_v2.png' + iconVersion
+      icon: iconBase + 'szotar_ikon_kotes_v2.png' + iconVersion
     },
     'gerincszerkezet': {
       title: 'Gerincszerkezet',
       description: 'A könyvgerinc kialakítása, láthatósága és működése.',
-      icon: 'assets/szotar_ikon_gerinc_v2.png' + iconVersion
+      icon: iconBase + 'szotar_ikon_gerinc_v2.png' + iconVersion
     },
     'tárolóelem': {
       title: 'Tárolóelem',
       description: 'A könyvhöz tartozó védő-, hordozó- vagy gyűjteményi elem.',
-      icon: 'assets/szotar_ikon_tarolo_v2.png' + iconVersion
+      icon: iconBase + 'szotar_ikon_tarolo_v2.png' + iconVersion
     }
   };
 
