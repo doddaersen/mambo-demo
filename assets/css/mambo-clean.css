@@ -157,10 +157,15 @@ header h1{
   max-width:620px !important;
 }
 
+.quick-search-box::before{
+  left:14px !important;
+  z-index:1;
+}
+
 .quick-search-input{
   width:100% !important;
   height:42px;
-  padding:10px 13px !important;
+  padding:10px 13px 10px 40px !important;
   border:1px solid var(--line-dark) !important;
   background:#fff !important;
   color:#242424 !important;
