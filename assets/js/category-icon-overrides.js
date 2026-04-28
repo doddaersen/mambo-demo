@@ -1,25 +1,25 @@
 (() => {
-  const iconVersion = '?v=icon-fix-1';
+  const iconVersion = '?v=png-icons-1';
   const categories = {
     'könyvforma': {
       title: 'Könyvformátum',
       description: 'A könyv térbeli, szerkezeti vagy hordozói formája.',
-      icon: 'assets/szotar-ikon_formatum.svg' + iconVersion
+      icon: 'assets/szotar-ikon_formatum.png' + iconVersion
     },
     'kötésmód': {
       title: 'Kötésmód',
       description: 'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',
-      icon: 'assets/szotar-ikon_kotes.svg' + iconVersion
+      icon: 'assets/szotar-ikon_kotes.png' + iconVersion
     },
     'gerincszerkezet': {
       title: 'Gerincszerkezet',
       description: 'A könyvgerinc kialakítása, láthatósága és működése.',
-      icon: 'assets/szotar-ikon_gerinc.svg' + iconVersion
+      icon: 'assets/szotar-ikon_gerinc.png' + iconVersion
     },
     'tárolóelem': {
       title: 'Tárolóelem',
       description: 'A könyvhöz tartozó védő-, hordozó- vagy gyűjteményi elem.',
-      icon: 'assets/szotar-ikon_tarolo.svg' + iconVersion
+      icon: 'assets/szotar-ikon_tarolo.png' + iconVersion
     }
   };
 
