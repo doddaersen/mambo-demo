@@ -37,13 +37,20 @@
         panel.insertBefore(media, title || panel.firstChild);
       }
 
-      media.innerHTML = `<img src="${data.icon}" alt="" loading="lazy" />`;
+      let img = media.querySelector('img');
+      if (!img) {
+        img = document.createElement('img');
+        img.alt = '';
+        img.loading = 'lazy';
+        media.appendChild(img);
+      }
+      if (img.getAttribute('src') !== data.icon) img.setAttribute('src', data.icon);
 
       const title = panel.querySelector('.category-panel-title');
-      if (title) title.textContent = data.title;
+      if (title && title.textContent !== data.title) title.textContent = data.title;
 
       const description = panel.querySelector('.category-panel-description');
-      if (description) description.textContent = data.description;
+      if (description && description.textContent !== data.description) description.textContent = data.description;
     });
   }
 
@@ -53,7 +60,8 @@
       const label = toggle.querySelector('span:first-child');
       if (!data || !label) return;
       const marker = toggle.classList.contains('open') ? '▾' : '▸';
-      label.textContent = `${marker} ${data.title}`;
+      const text = `${marker} ${data.title}`;
+      if (label.textContent !== text) label.textContent = text;
     });
   }
 
@@ -62,15 +70,16 @@
     enhanceBrowseLabels();
   }
 
-  const observer = new MutationObserver(enhance);
-
   window.addEventListener('DOMContentLoaded', () => {
     const panels = document.querySelector('#categoryFolders');
     const filters = document.querySelector('#filters');
-    if (panels) observer.observe(panels, { childList: true, subtree: true });
-    if (filters) observer.observe(filters, { childList: true, subtree: true });
-    enhance();
-  });
+    const observer = new MutationObserver(enhance);
 
-  window.setTimeout(enhance, 500);
+    if (panels) observer.observe(panels, { childList: true });
+    if (filters) observer.observe(filters, { childList: true });
+
+    enhance();
+    window.setTimeout(enhance, 300);
+    window.setTimeout(enhance, 900);
+  });
 })();
