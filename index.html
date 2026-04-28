@@ -3,54 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAMBO nr. 5</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=browse-ui-2" />
+  <title>Könyvművészeti szótár – könyvkötés-szerkezetek</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=layout-final-1" />
   <link rel="stylesheet" href="assets/css/folder-overrides.css?v=folder-title-1" />
   <link rel="stylesheet" href="assets/css/card-refinements.css?v=card-preview-1" />
   <link rel="stylesheet" href="assets/css/category-panels.css?v=browse-ui-2" />
   <link rel="stylesheet" href="assets/css/category-colors.css?v=category-colors-1" />
   <link rel="stylesheet" href="assets/css/xls-clean-overrides.css?v=xls-clean-1" />
-  <link rel="stylesheet" href="assets/css/quick-search.css?v=quick-search-2" />
+  <link rel="stylesheet" href="assets/css/quick-search.css?v=layout-final-1" />
   <link rel="stylesheet" href="assets/css/category-count-refinement.css?v=category-count-1" />
+  <link rel="stylesheet" href="assets/css/final-layout-overrides.css?v=layout-final-icons-1" />
 </head>
 <body>
   <header>
     <div class="wrap">
       <div class="eyebrow">Művészkönyv-szótár</div>
-      <h1>MAMBO nr. 5</h1>
-      <p class="lead lead-subtitle">MOME Artists’ Book Ontology</p>
-      <p class="lead">
-        A művészkönyvek formai és szerkezeti leírásához készült böngészhető fogalmi rendszer.
-        A szócikkek külön leírási rétegekben teszik kereshetővé a könyvtárgy technikai, tárgyi és használati jellemzőit.
-      </p>
-
-      <section class="quick-search" aria-label="Gyorskeresés a MAMBO-szótárban">
-        <label class="quick-search-label" for="quickSearchInput">Gyorskeresés a szótárban</label>
-        <div class="quick-search-box">
-          <input
-            id="quickSearchInput"
-            class="quick-search-input"
-            type="search"
-            placeholder="Keresés: kopt kötés, japán fűzés, leporelló, nyitott gerinc…"
-            autocomplete="off"
-          />
-        </div>
-        <p class="quick-search-help">
-          Magyar és angol megnevezésekre, alternatív címkékre és kapcsolódó fogalmakra is keres.
-        </p>
-      </section>
+      <h1>Könyvművészeti szótár</h1>
+      <p class="lead lead-subtitle">Könyvkötés-szerkezetek / könyvformák / tárolóelemek</p>
     </div>
   </header>
 
   <main>
     <div class="wrap layout">
       <aside>
+        <section class="project-intro" aria-label="Projektleírás">
+          <p class="project-kicker">MAMBO</p>
+          <h2>MOME Artists’ Book Ontology</h2>
+          <p>
+            A művészkönyvek formai és szerkezeti leírásához készült böngészhető fogalmi rendszer.
+            A szócikkek külön leírási rétegekben teszik kereshetővé a könyvtárgy technikai,
+            tárgyi és használati jellemzőit.
+          </p>
+        </section>
+
         <p class="panel-title">Böngészés kategória szerint</p>
         <input id="searchInput" class="search" type="search" placeholder="Keresés névre, definícióra…" />
         <div id="filters" class="filters browse-list"></div>
       </aside>
 
       <section>
+        <section class="quick-search" aria-label="Gyorskeresés a MAMBO-szótárban">
+          <label class="quick-search-label" for="quickSearchInput">Gyorskeresés a szótárban</label>
+          <div class="quick-search-box">
+            <input
+              id="quickSearchInput"
+              class="quick-search-input"
+              type="search"
+              placeholder="Keresés: kopt kötés, japán fűzés, leporelló, nyitott gerinc…"
+              autocomplete="off"
+            />
+          </div>
+          <p class="quick-search-help">
+            Magyar és angol megnevezésekre, alternatív címkékre és kapcsolódó fogalmakra is keres.
+          </p>
+        </section>
+
         <section class="category-overview" aria-label="Kiindulópontok a szótár böngészéséhez">
           <div class="overview-head">
             <p>A kategóriák ugyanannak a könyvtárgynak különböző szerkezeti és használati jellemzőit írják le.</p>
@@ -75,7 +82,7 @@
   </main>
 
   <footer>
-    <div class="wrap">MAMBO nr. 5 · művészkönyvek formai és szerkezeti leírása</div>
+    <div class="wrap">MAMBO · MOME Artists’ Book Ontology · művészkönyvek formai és szerkezeti leírása</div>
   </footer>
 
   <script src="assets/js/app-xls-clean.js?v=xls-clean-1"></script>
