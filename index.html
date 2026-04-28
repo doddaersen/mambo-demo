@@ -78,5 +78,29 @@
   </footer>
 
   <script src="assets/js/app-xls-clean.js?v=xls-clean-1"></script>
+  <script>
+    const quickSearchInput = document.querySelector('#quickSearchInput');
+    const sidebarSearchInput = document.querySelector('#searchInput');
+
+    if (quickSearchInput && sidebarSearchInput) {
+      quickSearchInput.addEventListener('input', () => {
+        sidebarSearchInput.value = quickSearchInput.value;
+        sidebarSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+
+      sidebarSearchInput.addEventListener('input', () => {
+        if (document.activeElement !== quickSearchInput) {
+          quickSearchInput.value = sidebarSearchInput.value;
+        }
+      });
+
+      document.addEventListener('click', event => {
+        if (!event.target.closest('.tag')) return;
+        window.setTimeout(() => {
+          quickSearchInput.value = sidebarSearchInput.value;
+        }, 0);
+      });
+    }
+  </script>
 </body>
 </html>
