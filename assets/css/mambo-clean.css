@@ -20,10 +20,10 @@ button{
 
 header h1{
   margin-top:0;
-  font-size:clamp(38px,5.8vw,76px);
-  line-height:.96;
-  letter-spacing:-.055em;
-  font-weight:820;
+  font-size:clamp(34px,4.8vw,62px);
+  line-height:.98;
+  letter-spacing:-.05em;
+  font-weight:810;
   text-transform:uppercase;
 }
 
@@ -69,10 +69,19 @@ header h1{
   min-width:0;
 }
 
-.project-intro{
+.project-intro,
+.browse-panel{
   margin:0 0 18px;
   padding:0 0 16px;
+}
+
+.project-intro{
   border-bottom:1px solid var(--line);
+}
+
+.browse-panel{
+  border-bottom:0;
+  padding-bottom:0;
 }
 
 .project-kicker{
@@ -108,15 +117,18 @@ header h1{
   color:var(--mambo-body-color) !important;
 }
 
+.project-intro p:last-child{
+  margin:0;
+  padding-left:18px;
+  text-align:justify;
+  text-justify:inter-word;
+}
+
 .quick-search-help,
 .overview-head p,
 .en,
 .result-count{
   color:var(--mambo-muted-color) !important;
-}
-
-.project-intro p:last-child{
-  margin:0;
 }
 
 .panel-title{
@@ -344,7 +356,7 @@ header h1{
 
 @media (max-width:760px){
   header h1{
-    font-size:clamp(34px,11vw,52px);
+    font-size:clamp(30px,10vw,46px);
   }
 
   .quick-search-label,
