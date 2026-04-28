@@ -1,10 +1,10 @@
 (() => {
-  const iconVersion = '?v=png-icons-szines-1';
+  const iconVersion = '?v=png-icons-szines-2';
   const categories = {
     'könyvforma': {
       title: 'Könyvformátum',
       description: 'A könyv térbeli, szerkezeti vagy hordozói formája.',
-      icon: 'assets/szotar_ikon_formatum_szines.png' + iconVersion
+      icon: 'assets/szotar_ikon_formatum_szines..png' + iconVersion
     },
     'kötésmód': {
       title: 'Kötésmód',
