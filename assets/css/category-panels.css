@@ -6,18 +6,18 @@
 
 .category-panel{
   position:relative;
-  min-height:176px;
+  min-height:164px;
   border:1px solid var(--line-dark);
   background:#fff !important;
-  padding:18px 20px 16px;
+  padding:18px 18px 15px;
   text-align:left;
   font:inherit;
   color:var(--text);
   cursor:pointer;
   display:grid;
-  grid-template-columns:92px minmax(0,1fr);
+  grid-template-columns:86px minmax(0,1fr);
   grid-template-rows:auto 1fr auto;
-  column-gap:18px;
+  column-gap:17px;
   row-gap:8px;
   align-items:start;
   border-radius:0;
@@ -33,9 +33,9 @@
 
 .category-panel-media{
   grid-column:1;
-  grid-row:1 / span 2;
-  width:90px;
-  height:90px;
+  grid-row:1 / span 3;
+  width:84px;
+  height:84px;
   display:flex;
   align-items:flex-start;
   justify-content:flex-start;
@@ -43,8 +43,8 @@
 }
 
 .category-panel-media img{
-  width:90px;
-  height:90px;
+  width:84px;
+  height:84px;
   object-fit:contain;
   display:block;
   mix-blend-mode:multiply;
@@ -55,16 +55,16 @@
   grid-row:1 / span 2;
   display:block;
   min-width:0;
-  padding-top:2px;
+  padding-top:1px;
 }
 
 .category-panel-title{
-  margin:0 0 10px;
-  font-size:22px;
+  margin:0 0 8px;
+  font-size:20px;
   line-height:1.04;
-  letter-spacing:-.02em;
+  letter-spacing:-.018em;
   text-transform:uppercase;
-  font-weight:820;
+  font-weight:800;
   color:var(--text);
   white-space:normal;
   overflow-wrap:normal;
@@ -73,10 +73,10 @@
 
 .category-panel-description{
   margin:0;
-  max-width:21em;
-  color:#3a3a3a;
-  font-size:13.5px;
-  line-height:1.38;
+  max-width:24em;
+  color:#404040;
+  font-size:13px;
+  line-height:1.34;
 }
 
 .category-panel-meta{
@@ -88,35 +88,35 @@
 .category-panel-action{
   grid-column:2;
   grid-row:3;
-  justify-self:end;
+  justify-self:start;
   align-self:end;
-  margin-top:6px;
+  margin-top:8px;
   display:inline-flex;
   align-items:baseline;
-  gap:9px;
+  gap:7px;
   color:#4a4a4a;
   text-transform:uppercase;
   white-space:nowrap;
   border:1px solid #aaa;
   background:#fff;
-  padding:7px 12px 6px;
+  padding:6px 10px 5px;
   transition:transform .16s ease, border-color .16s ease;
 }
 
 .category-panel-count{
-  font-size:27px;
+  font-size:21px;
   line-height:1;
-  font-weight:820;
-  letter-spacing:-.045em;
+  font-weight:800;
+  letter-spacing:-.04em;
   color:#242424;
   flex:0 0 auto;
 }
 
 .category-panel-label{
-  font-size:11.5px;
+  font-size:10.5px;
   line-height:1;
   font-weight:650;
-  letter-spacing:.02em;
+  letter-spacing:.03em;
   flex:0 0 auto;
 }
 
@@ -151,23 +151,23 @@
   }
 
   .category-panel{
-    min-height:206px;
+    min-height:202px;
     padding:16px 14px 14px;
     grid-template-columns:1fr;
     grid-template-rows:auto auto 1fr auto;
-    row-gap:8px;
+    row-gap:7px;
   }
 
   .category-panel-media{
     grid-column:1;
     grid-row:1;
-    width:76px;
-    height:76px;
+    width:72px;
+    height:72px;
   }
 
   .category-panel-media img{
-    width:76px;
-    height:76px;
+    width:72px;
+    height:72px;
   }
 
   .category-panel-text{
@@ -177,29 +177,30 @@
   }
 
   .category-panel-title{
-    font-size:18px;
-    line-height:1.04;
-    margin-bottom:8px;
+    font-size:17px;
+    line-height:1.05;
+    margin-bottom:7px;
     overflow-wrap:normal;
   }
 
   .category-panel-description{
-    font-size:12.5px;
-    line-height:1.34;
+    font-size:12.2px;
+    line-height:1.32;
   }
 
   .category-panel-action{
     grid-column:1;
     grid-row:4;
-    justify-self:end;
+    justify-self:start;
+    margin-top:8px;
   }
 
   .category-panel-count{
-    font-size:25px;
+    font-size:20px;
   }
 
   .category-panel-label{
-    font-size:10.8px;
+    font-size:10px;
   }
 }
 
@@ -207,18 +208,19 @@
   .category-panel-grid{grid-template-columns:1fr;}
   .category-panel{
     min-height:0;
-    grid-template-columns:78px minmax(0,1fr);
-    padding:17px;
+    grid-template-columns:76px minmax(0,1fr);
+    padding:16px;
   }
   .category-panel-media,
   .category-panel-media img{
-    width:74px;
-    height:74px;
+    width:72px;
+    height:72px;
   }
-  .category-panel-title{font-size:20px;}
+  .category-panel-title{font-size:19px;}
+  .category-panel-description{font-size:12.8px;}
   .category-panel-action{
-    grid-column:1 / -1;
-    justify-self:end;
-    margin-top:10px;
+    grid-column:2;
+    justify-self:start;
+    margin-top:8px;
   }
 }
