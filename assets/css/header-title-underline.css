@@ -1,0 +1,15 @@
+/* Header title underline refinement. */
+header h1{
+  display:inline-block !important;
+  width:auto !important;
+  max-width:100%;
+}
+
+header h1::after{
+  content:"" !important;
+  display:block !important;
+  width:100% !important;
+  height:2px !important;
+  margin-top:14px !important;
+  background:#111 !important;
+}
