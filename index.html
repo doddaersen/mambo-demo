@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/css/category-panels.css?v=browse-ui-2" />
   <link rel="stylesheet" href="assets/css/category-colors.css?v=category-colors-1" />
   <link rel="stylesheet" href="assets/css/xls-clean-overrides.css?v=xls-clean-1" />
+  <link rel="stylesheet" href="assets/css/quick-search.css?v=quick-search-1" />
 </head>
 <body>
   <header>
@@ -21,6 +22,22 @@
         A művészkönyvek formai és szerkezeti leírásához készült böngészhető fogalmi rendszer.
         A szócikkek külön leírási rétegekben teszik kereshetővé a könyvtárgy technikai, tárgyi és használati jellemzőit.
       </p>
+
+      <section class="quick-search" aria-label="Gyorskeresés a MAMBO-szótárban">
+        <label class="quick-search-label" for="quickSearchInput">Gyorskeresés</label>
+        <div class="quick-search-box">
+          <input
+            id="quickSearchInput"
+            class="quick-search-input"
+            type="search"
+            placeholder="Keresés kötésmódra, könyvformára vagy gerincszerkezetre, pl. kopt kötés, japán fűzés, leporelló…"
+            autocomplete="off"
+          />
+        </div>
+        <p class="quick-search-help">
+          Keress magyar vagy angol megnevezésre, kötésmódra, könyvformára, gerincszerkezetre vagy kapcsolódó fogalomra.
+        </p>
+      </section>
     </div>
   </header>
 
