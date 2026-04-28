@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Könyvművészeti szótár – könyvkötés-szerkezetek</title>
+  <title>Könyvművészeti szótár – MAMBO demo</title>
 
   <!-- Base UI layers kept for backwards compatibility with the current renderer. -->
   <link rel="stylesheet" href="assets/css/style.css?v=base-1" />
@@ -15,32 +15,32 @@
   <link rel="stylesheet" href="assets/css/quick-search.css?v=base-1" />
 
   <!-- Clean branch: all current layout/UI decisions should go here. -->
-  <link rel="stylesheet" href="assets/css/mambo-clean.css?v=clean-6" />
+  <link rel="stylesheet" href="assets/css/mambo-clean.css?v=clean-7" />
 </head>
 <body>
   <header>
     <div class="wrap">
       <h1>Könyvművészeti szótár</h1>
-      <p class="lead lead-subtitle">Könyvkötés-szerkezetek / könyvformák / tárolóelemek</p>
+      <p class="lead lead-subtitle">MAMBO demo / művészkönyv-fogalomtár</p>
     </div>
   </header>
 
   <main>
     <div class="wrap layout">
       <aside>
-        <section class="project-intro" aria-label="Projektleírás">
+        <section class="project-intro" aria-label="MAMBO ismertetés">
           <p class="project-kicker">MAMBO</p>
           <h2>MOME Artists’ Book Ontology</h2>
           <p>
-            A művészkönyvek formai és szerkezeti leírásához készült böngészhető fogalmi rendszer.
-            A szócikkek külön leírási rétegekben teszik kereshetővé a könyvtárgy technikai,
-            tárgyi és használati jellemzőit.
+            Kísérleti fogalomtár a művészkönyvek formai, szerkezeti és használati jellemzőinek böngészéséhez.
           </p>
         </section>
 
-        <p class="panel-title">Böngészés kategória szerint</p>
-        <input id="searchInput" class="search" type="search" placeholder="Keresés névre, definícióra…" />
-        <div id="filters" class="filters browse-list"></div>
+        <section class="browse-panel" aria-label="Böngészés kategória szerint">
+          <p class="panel-title">Böngészés kategória szerint</p>
+          <input id="searchInput" class="search" type="search" placeholder="Keresés névre, definícióra…" />
+          <div id="filters" class="filters browse-list"></div>
+        </section>
       </aside>
 
       <section>
