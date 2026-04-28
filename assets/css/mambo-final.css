@@ -69,6 +69,16 @@ header h1{
   column-gap:17px;
   row-gap:8px;
   align-items:start;
+  background:#fff !important;
+  border-color:var(--line-dark) !important;
+  box-shadow:none !important;
+}
+
+.category-panel:hover,
+.category-panel.active{
+  background:#fff !important;
+  border-color:#9b9b9b !important;
+  box-shadow:none !important;
 }
 
 .category-panel-media{
@@ -103,6 +113,7 @@ header h1{
   line-height:1.04;
   letter-spacing:-.018em;
   font-weight:800;
+  color:#242424 !important;
 }
 
 .category-panel-description{
@@ -125,6 +136,7 @@ header h1{
   border:0;
   padding:0;
   background:transparent;
+  color:#242424 !important;
 }
 
 .category-panel-count{
@@ -132,6 +144,7 @@ header h1{
   line-height:1;
   font-weight:800;
   letter-spacing:-.04em;
+  color:#242424 !important;
 }
 
 .category-panel-label{
@@ -139,6 +152,47 @@ header h1{
   line-height:1;
   font-weight:650;
   letter-spacing:.03em;
+  color:#242424 !important;
+}
+
+.category,
+.category[data-category],
+.folder-category[data-category],
+.folder-title[data-category]{
+  color:#242424 !important;
+  background:#fff !important;
+  border-color:#bdbdbd !important;
+}
+
+.card .card-top,
+.card:hover .card-top,
+.card.is-open .card-top,
+.card:has(details[open]) .card-top,
+.card[data-category]:hover .card-top,
+.card[data-category].is-open .card-top,
+.card[data-category]:has(details[open]) .card-top{
+  background:#fff !important;
+}
+
+.browse-group,
+.browse-group .browse-toggle,
+.browse-group .browse-terms,
+.browse-group:has(.browse-toggle.open),
+.browse-group:has(.browse-toggle.open) .browse-toggle,
+.browse-group:has(.browse-toggle.open) .browse-terms{
+  background:#fff !important;
+  border-color:var(--line-dark) !important;
+}
+
+.browse-toggle.open,
+.browse-toggle:hover,
+.browse-term:hover,
+.browse-term.active,
+.view-button.active,
+.view-button:hover,
+.tag:hover{
+  background:#f4f4f4 !important;
+  color:#242424 !important;
 }
 
 @media (max-width:900px){
