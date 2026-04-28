@@ -5,6 +5,17 @@
   Earlier CSS files provide legacy/base component styles; this file defines the current demo layout.
 */
 
+:root{
+  --mambo-text-size:12.5px;
+  --mambo-text-line:1.42;
+}
+
+body,
+input,
+button{
+  font-size:var(--mambo-text-size);
+}
+
 header h1{
   margin-top:0;
   font-size:clamp(38px,5.8vw,76px);
@@ -15,7 +26,8 @@ header h1{
 }
 
 .lead-subtitle{
-  font-size:15px;
+  font-size:var(--mambo-text-size);
+  line-height:var(--mambo-text-line);
   color:#333;
 }
 
@@ -73,11 +85,23 @@ header h1{
   margin:0 0 10px;
 }
 
+.project-intro p:last-child,
+.overview-head p,
+.quick-search-help,
+.definition,
+.en,
+.field,
+.detail-paragraph,
+.result-count,
+.search,
+.quick-search-input{
+  font-size:var(--mambo-text-size) !important;
+  line-height:var(--mambo-text-line) !important;
+}
+
 .project-intro p:last-child{
   margin:0;
   color:var(--muted);
-  font-size:12px;
-  line-height:1.45;
 }
 
 .panel-title{
@@ -100,6 +124,12 @@ header h1{
 
 .overview-head p{
   margin-top:0;
+}
+
+.browse-toggle,
+.browse-term{
+  font-size:var(--mambo-text-size) !important;
+  line-height:var(--mambo-text-line) !important;
 }
 
 .category-panel-grid{
@@ -169,8 +199,8 @@ header h1{
   order:3;
   margin:0;
   max-width:100%;
-  font-size:11.5px;
-  line-height:1.32;
+  font-size:var(--mambo-text-size) !important;
+  line-height:var(--mambo-text-line) !important;
   color:#404040;
   overflow-wrap:normal;
   word-break:normal;
@@ -199,7 +229,7 @@ header h1{
 }
 
 .category-panel-label{
-  font-size:9.5px;
+  font-size:10.5px;
   line-height:1;
   font-weight:650;
   letter-spacing:.03em;
@@ -209,7 +239,12 @@ header h1{
 .category,
 .category[data-category],
 .folder-category[data-category],
-.folder-title[data-category]{
+.folder-title[data-category],
+.tag,
+.source-item,
+.status-badge{
+  font-size:var(--mambo-text-size) !important;
+  line-height:var(--mambo-text-line) !important;
   color:#242424 !important;
   background:#fff !important;
   border-color:#bdbdbd !important;
@@ -258,10 +293,6 @@ header h1{
   .category-panel-title,
   .card h3{
     font-size:17px;
-  }
-
-  .category-panel-description{
-    font-size:12px;
   }
 }
 
@@ -313,15 +344,11 @@ header h1{
     max-height:160px;
   }
 
-  .category-panel-description{
-    font-size:12.8px;
-  }
-
   .category-panel-count{
     font-size:20px;
   }
 
   .category-panel-label{
-    font-size:10px;
+    font-size:10.5px;
   }
 }
