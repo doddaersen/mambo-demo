@@ -1,9 +1,7 @@
 /* Expanded card and detail-toggle cleanup. */
-
 .card{
   transition:box-shadow .18s ease, transform .18s ease, background-color .18s ease, border-color .18s ease;
 }
-
 .card.is-open{
   position:relative;
   z-index:8;
@@ -12,24 +10,19 @@
   border-color:#8e8e8e !important;
   box-shadow:0 18px 42px rgba(0,0,0,.13) !important;
 }
-
 .card.is-open .card-top,
 .card.is-open .card-body{
   background:#fbfbfb !important;
 }
-
 .card.is-open .card-top{
   padding-bottom:0 !important;
 }
-
 .card.is-open .card-body{
-  padding-top:12px !important;
+  padding-top:10px !important;
 }
-
 .card.is-open .definition{
-  margin-bottom:18px !important;
+  margin-bottom:12px !important;
 }
-
 .card details,
 .card details[open],
 .card .detail-block{
@@ -37,7 +30,6 @@
   height:auto !important;
   overflow:visible !important;
 }
-
 .card details summary,
 .card details[open] summary{
   display:inline-flex !important;
@@ -46,7 +38,7 @@
   gap:8px;
   float:right;
   width:auto !important;
-  margin:14px 0 0 auto !important;
+  margin:10px 0 12px auto !important;
   padding:8px 10px !important;
   border:1px solid #cfcfcf !important;
   background:transparent !important;
@@ -54,15 +46,12 @@
   list-style:none !important;
   cursor:pointer;
 }
-
 .card details summary::-webkit-details-marker{
   display:none !important;
 }
-
 .card details summary::marker{
   content:"" !important;
 }
-
 .card details summary span:first-child{
   font-size:11.5px !important;
   line-height:1 !important;
@@ -71,67 +60,61 @@
   text-transform:uppercase;
   background:transparent !important;
 }
-
 .card details summary .summary-icon{
-  display:inline-flex !important;
-  align-items:center;
-  justify-content:center;
-  font-size:0 !important;
-  width:auto;
-  height:auto;
-  color:#242424 !important;
+  display:none !important;
 }
-
-.card details summary .summary-icon::before{
+.card details summary::after{
   content:"↓";
   font-size:18px;
   line-height:1;
   font-weight:900;
 }
-
 .card details[open] summary span:first-child{
   font-size:0 !important;
 }
-
 .card details[open] summary span:first-child::after{
-  content:"Kevesebb";
+  content:"Bezárás";
   font-size:11.5px;
   line-height:1;
 }
-
-.card details[open] summary .summary-icon::before{
+.card details[open] summary::after{
   content:"↑";
 }
-
 .card details[open] .detail-block{
   clear:both;
-  margin-top:18px !important;
-  padding-top:16px !important;
-  border-top:1px solid #dedede !important;
+  margin-top:12px !important;
+  padding-top:0 !important;
+  border-top:0 !important;
   background:transparent !important;
   box-shadow:none !important;
 }
-
 .card.is-open .detail-section{
-  margin-top:0 !important;
-  padding:0 0 16px !important;
+  margin:0 !important;
+  padding:0 0 10px !important;
   border-top:0 !important;
   background:transparent !important;
 }
-
 .card.is-open .detail-section + .detail-section,
 .card.is-open .technical-group + .technical-group{
-  border-top:1px solid #e4e4e4 !important;
-  padding-top:14px !important;
+  border-top:0 !important;
+  padding-top:0 !important;
 }
-
 .card.is-open .technical-data{
   background:#f5f5f5 !important;
   margin:0 -16px -16px !important;
-  padding:16px !important;
-  border-top:1px solid #dedede !important;
+  padding:14px 16px 16px !important;
+  border-top:0 !important;
 }
-
+.card.is-open .detail-section h4,
+.card.is-open .technical-subheading{
+  margin-top:0 !important;
+}
+.card.is-open p,
+.card.is-open .field,
+.card.is-open .tag-list,
+.card.is-open .source-list{
+  margin-top:0 !important;
+}
 @media (max-width:900px){
   .card.is-open{
     grid-column:1 / -1;
