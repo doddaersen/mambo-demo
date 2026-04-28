@@ -1,5 +1,5 @@
 (() => {
-  const iconVersion = '?v=png-icons-szines-2';
+  const iconVersion = '?v=format-double-dot-fix-1';
   const categories = {
     'könyvforma': {
       title: 'Könyvformátum',
