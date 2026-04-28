@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/css/quick-search.css?v=base-1" />
 
   <!-- Clean branch: all current layout/UI decisions should go here. -->
-  <link rel="stylesheet" href="assets/css/mambo-clean.css?v=clean-4" />
+  <link rel="stylesheet" href="assets/css/mambo-clean.css?v=clean-5" />
 </head>
 <body>
   <header>
@@ -46,24 +46,24 @@
       <section>
         <section class="quick-search" aria-label="Keresés a szótárban">
           <label class="quick-search-label" for="quickSearchInput">Keresés a szótárban</label>
+          <p class="quick-search-help">
+            Kereshetsz magyar vagy angol elnevezésre, névvariációkra és kapcsolódó fogalmakra is.
+          </p>
           <div class="quick-search-box">
             <input
               id="quickSearchInput"
               class="quick-search-input"
               type="search"
-              placeholder="Keresés: kopt kötés, japán fűzés, leporelló, nyitott gerinc…"
+              placeholder="kopt kötés, japán fűzés, leporelló, nyitott gerinc…"
               autocomplete="off"
             />
           </div>
-          <p class="quick-search-help">
-            Magyar és angol megnevezésekre, alternatív címkékre és kapcsolódó fogalmakra is keres.
-          </p>
         </section>
 
         <section class="category-overview" aria-label="Kiindulópontok a szótár böngészéséhez">
           <div class="overview-head">
             <h2 class="category-overview-title">Kategóriák</h2>
-            <p>A kategóriák ugyanannak a könyvtárgynak különböző szerkezeti és használati jellemzőit írják le.</p>
+            <p>A kategóriák a könyvtárgy különböző formai, szerkezeti és használati jellemzői szerint rendezik a szócikkeket.</p>
           </div>
           <div id="categoryFolders" class="folder-grid category-panel-grid"></div>
         </section>
