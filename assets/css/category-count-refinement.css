@@ -1,0 +1,28 @@
+.category-panel-action{
+  justify-self:end;
+  margin-left:auto;
+  align-items:center;
+  gap:6px;
+  padding:5px 9px;
+}
+
+.category-panel-count{
+  font-size:17px;
+  font-weight:760;
+  letter-spacing:-.02em;
+}
+
+.category-panel-label{
+  font-size:9.8px;
+  letter-spacing:.04em;
+}
+
+@media (min-width:1380px){
+  .category-panel-action{justify-self:end;}
+  .category-panel-count{font-size:16px;}
+  .category-panel-label{font-size:9.5px;}
+}
+
+@media (max-width:760px){
+  .category-panel-action{justify-self:end;}
+}
