@@ -17,6 +17,58 @@
   letter-spacing:.04em;
 }
 
+.card .category{
+  color:#333;
+  background:#fff;
+  border-color:#bdbdbd;
+}
+
+.card[data-category="kötésmód"]{
+  background:var(--cat-binding-soft);
+  border-color:#dce2ff;
+}
+.card[data-category="gerincszerkezet"]{
+  background:var(--cat-spine-soft);
+  border-color:#d7eeee;
+}
+.card[data-category="könyvforma"]{
+  background:var(--cat-form-soft);
+  border-color:#f0d9e2;
+}
+.card[data-category="tárolóelem"]{
+  background:var(--cat-storage-soft);
+  border-color:#f3dfc9;
+}
+
+.card[data-category] .card-top,
+.card[data-category] .card-body,
+.card[data-category] .definition{
+  background:transparent;
+}
+
+.card[data-category] summary{
+  background:rgba(255,255,255,.58);
+}
+
+.card[data-category] details{
+  border-top-color:rgba(0,0,0,.08);
+}
+
+.card[data-category]:hover .card-top,
+.card[data-category].is-open .card-top,
+.card[data-category]:has(details[open]) .card-top{
+  background:transparent;
+}
+
+.card[data-category]:hover{
+  background-color:inherit;
+}
+
+.card[data-category].is-open,
+.card[data-category]:has(details[open]){
+  background-color:inherit;
+}
+
 @media (min-width:1380px){
   .category-panel-action{justify-self:end;}
   .category-panel-count{font-size:16px;}
