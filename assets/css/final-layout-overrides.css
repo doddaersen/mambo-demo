@@ -9,6 +9,11 @@ header h1{
   text-transform:none;
 }
 
+header h1::after{
+  width:100%;
+  max-width:100%;
+}
+
 .lead-subtitle{
   font-size:16px;
   color:#333;
@@ -97,22 +102,109 @@ header h1{
   align-self:end;
 }
 
-@media (max-width:900px){
-  .layout{
-    display:flex;
-    flex-direction:column;
+@media (max-width:900px), (hover:none) and (pointer:coarse){
+  html,
+  body{
+    overflow-x:hidden;
   }
 
-  .layout > section{
-    order:1;
+  header{
+    padding:34px 20px 24px;
+  }
+
+  main{
+    padding:20px 20px 44px;
+  }
+
+  .wrap{
+    max-width:100%;
+  }
+
+  .layout{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:20px;
   }
 
   .layout > aside{
     order:2;
+    position:static;
+    width:100%;
+    box-shadow:none;
+  }
+
+  .layout > section{
+    order:1;
+    width:100%;
+  }
+
+  .quick-search,
+  .category-overview{
+    margin-bottom:20px;
+  }
+
+  .folder-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .grid,
+  .grid.list-view{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    column-count:initial !important;
+    column-gap:0 !important;
+    gap:14px !important;
+  }
+
+  .card,
+  .grid.list-view .card,
+  .card.is-open,
+  .card:has(details[open]){
+    display:grid !important;
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+    break-inside:auto !important;
+    margin:0 !important;
+  }
+
+  .card-top,
+  .card-body,
+  details,
+  summary,
+  .detail-block{
+    min-width:0;
+  }
+
+  .card details[open] .detail-block,
+  .grid.list-view .card details[open] .detail-block{
+    position:static !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    z-index:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+    border:0 !important;
+    box-shadow:none !important;
+    padding:12px 14px 28px !important;
   }
 }
 
-@media (max-width:760px){
+@media (max-width:760px), (hover:none) and (pointer:coarse){
+  header h1{
+    font-size:clamp(34px,11vw,46px);
+    line-height:.98;
+    letter-spacing:-.06em;
+  }
+
+  .lead-subtitle{
+    font-size:14px;
+    line-height:1.35;
+  }
+
   .category-panel{
     grid-template-columns:76px minmax(0,1fr);
   }
@@ -121,5 +213,85 @@ header h1{
   .category-panel-media img{
     width:72px;
     height:72px;
+  }
+}
+
+@media (max-width:560px), (hover:none) and (pointer:coarse){
+  body{
+    font-size:14px;
+  }
+
+  header{
+    padding:28px 16px 22px;
+  }
+
+  main{
+    padding:16px 16px 38px;
+  }
+
+  header h1{
+    font-size:clamp(31px,13vw,40px);
+    line-height:.98;
+    letter-spacing:-.055em;
+  }
+
+  header h1::after{
+    margin-top:12px;
+  }
+
+  .lead-subtitle{
+    max-width:310px;
+  }
+
+  aside,
+  .quick-search,
+  .category-overview{
+    border-color:var(--line-dark);
+  }
+
+  .quick-search-label,
+  h2{
+    font-size:21px;
+    line-height:1.08;
+  }
+
+  .quick-search-input,
+  .search{
+    font-size:14px;
+  }
+
+  .overview-head{
+    gap:8px;
+    margin-bottom:14px;
+  }
+
+  .folder-grid{
+    grid-template-columns:1fr;
+  }
+
+  .category-panel{
+    grid-template-columns:64px minmax(0,1fr);
+    min-height:0;
+    column-gap:14px;
+    padding:14px;
+  }
+
+  .category-panel-media,
+  .category-panel-media img{
+    width:60px;
+    height:60px;
+  }
+
+  .topline{
+    align-items:flex-start;
+  }
+
+  .tools{
+    width:100%;
+    justify-content:space-between;
+  }
+
+  .view-toggle{
+    flex-shrink:0;
   }
 }
