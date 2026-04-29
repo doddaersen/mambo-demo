@@ -1,8 +1,22 @@
-/* Single final layer for the public MAMBO demo. */
+/* Final visual layer for the public MAMBO demo.
+   This file intentionally overrides the earlier experimental CSS layers. */
+
+:root{
+  --display-font:"Coco Gothic", "Inter Tight", "Arial Narrow", Inter, system-ui, sans-serif;
+  --text-font:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body{
+  font-family:var(--text-font);
+  font-size:15px;
+  line-height:1.55;
+  color:#111;
+}
 
 .site-header{
   padding:24px 24px 8px;
   border-bottom:0;
+  background:#fff;
 }
 
 .site-header .wrap{
@@ -15,16 +29,47 @@
   height:auto;
 }
 
-header h1{
+h1,
+h2,
+h3,
+.panel-title,
+.quick-search-label,
+.category-panel-title,
+.project-kicker,
+.view-button,
+summary,
+.detail-section h4,
+.technical-data h4,
+.technical-heading,
+.technical-subheading{
+  font-family:var(--display-font);
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:.015em;
+}
+
+h1{
   font-size:clamp(34px,4.8vw,60px);
   line-height:1.02;
-  letter-spacing:-.055em;
-  font-weight:780;
+  letter-spacing:-.045em;
   text-transform:none;
 }
 
+h1::after,
 header h1::after{
   display:none;
+}
+
+h2{
+  font-size:24px;
+  line-height:1.05;
+  letter-spacing:-.02em;
+}
+
+h3{
+  font-size:15.5px;
+  line-height:1.12;
+  letter-spacing:.01em;
 }
 
 .lead-subtitle{
@@ -36,49 +81,6 @@ header h1::after{
   min-width:0;
 }
 
-.grid{
-  display:grid !important;
-  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-  column-count:initial !important;
-  column-gap:0 !important;
-  gap:14px !important;
-  align-items:start;
-}
-
-.grid.list-view{
-  grid-template-columns:1fr !important;
-}
-
-.card{
-  display:flex !important;
-  width:100%;
-  height:238px;
-  min-height:238px;
-  margin:0 !important;
-  break-inside:auto;
-  -webkit-column-break-inside:auto;
-  page-break-inside:auto;
-}
-
-.card.is-open,
-.card:has(details[open]){
-  grid-column:auto !important;
-  width:100% !important;
-  height:auto;
-  min-height:0;
-  z-index:2;
-}
-
-.card-body{
-  min-width:0;
-}
-
-.detail-block,
-.technical-data{
-  position:relative;
-  z-index:1;
-}
-
 .project-intro{
   margin:0 0 18px;
   padding:0 0 16px;
@@ -88,17 +90,15 @@ header h1::after{
 .project-kicker{
   margin:0 0 6px;
   font-size:11px;
-  font-weight:800;
   letter-spacing:.12em;
-  text-transform:uppercase;
 }
 
 .project-intro h2{
   margin:0 0 10px;
   font-size:15px;
-  line-height:1.2;
-  letter-spacing:-.02em;
-  text-transform:none;
+  line-height:1.15;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
 }
 
 .project-intro p:last-child{
@@ -112,6 +112,12 @@ header h1::after{
   width:100%;
   max-width:none;
   margin:0 0 18px;
+}
+
+.quick-search-label{
+  font-size:21px;
+  line-height:1.1;
+  letter-spacing:-.02em;
 }
 
 .quick-search-help{
@@ -162,7 +168,6 @@ header h1::after{
   font-size:15.5px;
   line-height:1.08;
   letter-spacing:-.01em;
-  font-weight:800;
   color:#242424 !important;
   overflow-wrap:normal;
   word-break:normal;
@@ -231,13 +236,48 @@ header h1::after{
   color:#242424 !important;
 }
 
-.category,
-.category[data-category],
-.folder-category[data-category],
-.folder-title[data-category]{
-  color:#242424 !important;
-  background:#fff !important;
-  border-color:#bdbdbd !important;
+.grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  column-count:initial !important;
+  column-gap:0 !important;
+  gap:14px !important;
+  align-items:start;
+}
+
+.grid.list-view{
+  grid-template-columns:1fr !important;
+}
+
+.card{
+  display:flex !important;
+  flex-direction:column;
+  width:100%;
+  height:238px;
+  min-height:238px;
+  margin:0 !important;
+  break-inside:auto;
+  -webkit-column-break-inside:auto;
+  page-break-inside:auto;
+  border-color:#c4bfbc;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.025);
+}
+
+.card:hover{
+  border-color:#8a8a8a;
+  box-shadow:0 1px 8px rgba(0,0,0,.055);
+}
+
+.card.is-open,
+.card:has(details[open]){
+  grid-column:auto !important;
+  width:100% !important;
+  height:auto;
+  min-height:0;
+  z-index:2;
+  border-color:#9b9b9b;
+  box-shadow:0 0 0 2px rgba(0,0,0,.045), 0 2px 12px rgba(0,0,0,.055);
 }
 
 .card .card-top,
@@ -248,6 +288,133 @@ header h1::after{
 .card[data-category].is-open .card-top,
 .card[data-category]:has(details[open]) .card-top{
   background:#fff !important;
+}
+
+.card-top{
+  padding:14px 14px 8px;
+  border-bottom:0;
+}
+
+.card-top .category{
+  align-self:flex-start;
+  font-family:var(--display-font);
+  font-size:9.5px;
+  padding:2px 5px;
+}
+
+.en{
+  margin:0;
+  font-size:12px;
+  line-height:1.25;
+  color:var(--muted);
+  font-style:italic;
+}
+
+.card-body{
+  min-width:0;
+  padding:0;
+  display:flex;
+  flex:1;
+  flex-direction:column;
+}
+
+.definition{
+  display:block;
+  overflow:visible;
+  margin:0;
+  padding:6px 14px 12px;
+  min-height:0;
+  font-size:12.8px;
+  line-height:1.36;
+}
+
+details{
+  margin-top:auto;
+  border-top:1px solid var(--line);
+}
+
+summary{
+  min-height:34px;
+  padding:9px 12px;
+  line-height:1.1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  color:#424242;
+  background:#f7f7f7;
+  font-size:12px;
+  letter-spacing:.06em;
+}
+
+summary::before{
+  content:none;
+}
+
+.card:hover summary,
+.card.is-open summary,
+.card:has(details[open]) summary{
+  background:#f1f1f1;
+  color:#242424;
+}
+
+.detail-block,
+.technical-data{
+  position:relative;
+  z-index:1;
+}
+
+.detail-block{
+  display:grid;
+  gap:12px;
+  padding:12px 14px 0;
+}
+
+.detail-section{
+  border-top:1px solid var(--line);
+  padding-top:10px;
+}
+
+.detail-section:first-child{
+  border-top:0;
+  padding-top:0;
+}
+
+.detail-section h4,
+.technical-data h4{
+  margin:0 0 8px;
+  color:#292929;
+  font-size:11px;
+  line-height:1.2;
+  letter-spacing:.07em;
+}
+
+.detail-paragraph{
+  margin:0;
+  color:#262626;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.technical-data{
+  border-top:1px solid var(--line-dark);
+  margin-top:0;
+  padding:10px 0 0;
+  background:#fafafa;
+}
+
+.technical-data h4{
+  padding-left:10px;
+  color:var(--muted);
+}
+
+.category,
+.category[data-category],
+.folder-category[data-category],
+.folder-title[data-category]{
+  color:#242424 !important;
+  background:#fff !important;
+  border-color:#bdbdbd !important;
 }
 
 .browse-group,
