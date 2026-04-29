@@ -2,7 +2,7 @@
    This file intentionally overrides the earlier experimental CSS layers. */
 
 :root{
-  --display-font:"Coco Gothic", "Arial Black", Impact, Haettenschweiler, "Arial Narrow Bold", Inter, system-ui, sans-serif;
+  --display-font:"Coco Gothic", "Inter Tight", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --text-font:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -11,6 +11,7 @@ body{
   font-size:15px;
   line-height:1.55;
   color:#111;
+  letter-spacing:-.006em;
 }
 
 .site-header{
@@ -44,14 +45,14 @@ summary,
 .technical-subheading{
   font-family:var(--display-font) !important;
   text-transform:uppercase;
-  font-weight:900;
-  letter-spacing:.015em;
+  font-weight:760;
+  letter-spacing:.035em;
 }
 
 h1{
   font-size:clamp(34px,4.8vw,60px);
   line-height:1.02;
-  letter-spacing:-.045em;
+  letter-spacing:-.035em;
   text-transform:none;
 }
 
@@ -61,15 +62,17 @@ header h1::after{
 }
 
 h2{
-  font-size:24px;
-  line-height:1.05;
-  letter-spacing:-.02em;
+  font-size:23px;
+  line-height:1.08;
+  letter-spacing:.005em;
+  font-weight:780;
 }
 
 h3{
-  font-size:15.5px;
-  line-height:1.12;
-  letter-spacing:.01em;
+  font-size:15px;
+  line-height:1.15;
+  letter-spacing:.028em;
+  font-weight:760;
 }
 
 .lead-subtitle{
@@ -90,15 +93,17 @@ h3{
 .project-kicker{
   margin:0 0 6px;
   font-size:11px;
-  letter-spacing:.12em;
+  letter-spacing:.13em;
+  font-weight:780;
 }
 
 .project-intro h2{
   margin:0 0 10px;
   font-size:15px;
-  line-height:1.15;
-  letter-spacing:-.01em;
+  line-height:1.18;
+  letter-spacing:.02em;
   text-transform:uppercase;
+  font-weight:760;
 }
 
 .project-intro p:last-child{
@@ -108,6 +113,12 @@ h3{
   line-height:1.45;
 }
 
+.panel-title{
+  font-size:11.5px;
+  letter-spacing:.11em;
+  font-weight:760;
+}
+
 .quick-search{
   width:100%;
   max-width:none;
@@ -115,9 +126,10 @@ h3{
 }
 
 .quick-search-label{
-  font-size:21px;
-  line-height:1.1;
-  letter-spacing:-.02em;
+  font-size:20px;
+  line-height:1.12;
+  letter-spacing:.01em;
+  font-weight:760;
 }
 
 .quick-search-help{
@@ -126,6 +138,10 @@ h3{
 
 .category-overview{
   overflow:hidden;
+}
+
+.overview-head h2{
+  margin:0;
 }
 
 .category-panel-grid{
@@ -165,9 +181,10 @@ h3{
   order:1;
   min-height:34px;
   margin:0 0 10px;
-  font-size:15.5px;
-  line-height:1.08;
-  letter-spacing:-.01em;
+  font-size:15px;
+  line-height:1.1;
+  letter-spacing:.02em;
+  font-weight:760;
   color:#242424 !important;
   overflow-wrap:normal;
   word-break:normal;
@@ -200,7 +217,7 @@ h3{
   margin:0;
   max-width:100%;
   font-size:11.5px;
-  line-height:1.32;
+  line-height:1.35;
   color:#404040;
   overflow-wrap:normal;
   word-break:normal;
@@ -223,8 +240,8 @@ h3{
 .category-panel-count{
   font-size:18px;
   line-height:1;
-  font-weight:800;
-  letter-spacing:-.04em;
+  font-weight:760;
+  letter-spacing:-.02em;
   color:#242424 !important;
 }
 
@@ -232,7 +249,7 @@ h3{
   font-size:9.5px;
   line-height:1;
   font-weight:650;
-  letter-spacing:.03em;
+  letter-spacing:.04em;
   color:#242424 !important;
 }
 
@@ -259,14 +276,14 @@ h3{
   break-inside:auto;
   -webkit-column-break-inside:auto;
   page-break-inside:auto;
-  border-color:#c4bfbc;
+  border-color:#c8c4c0;
   background:#fff;
-  box-shadow:0 10px 30px rgba(0,0,0,.025);
+  box-shadow:0 8px 24px rgba(0,0,0,.018);
 }
 
 .card:hover{
-  border-color:#8a8a8a;
-  box-shadow:0 1px 8px rgba(0,0,0,.055);
+  border-color:#8f8f8f;
+  box-shadow:0 1px 8px rgba(0,0,0,.045);
 }
 
 .card.is-open,
@@ -276,8 +293,8 @@ h3{
   height:auto;
   min-height:0;
   z-index:2;
-  border-color:#9b9b9b;
-  box-shadow:0 0 0 2px rgba(0,0,0,.045), 0 2px 12px rgba(0,0,0,.055);
+  border-color:#999;
+  box-shadow:0 0 0 1px rgba(0,0,0,.04), 0 2px 10px rgba(0,0,0,.045);
 }
 
 .card .card-top,
@@ -298,7 +315,8 @@ h3{
 .card-top .category{
   align-self:flex-start;
   font-family:var(--display-font) !important;
-  font-size:9.5px;
+  font-size:9.2px;
+  letter-spacing:.06em;
   padding:2px 5px;
 }
 
@@ -325,7 +343,7 @@ h3{
   padding:6px 14px 12px;
   min-height:0;
   font-size:12.8px;
-  line-height:1.36;
+  line-height:1.38;
 }
 
 details{
@@ -342,9 +360,10 @@ summary{
   justify-content:space-between;
   gap:12px;
   color:#424242;
-  background:#f7f7f7;
-  font-size:12px;
-  letter-spacing:.06em;
+  background:#f8f8f8;
+  font-size:11.5px;
+  letter-spacing:.08em;
+  font-weight:720;
 }
 
 summary::before{
@@ -354,7 +373,7 @@ summary::before{
 .card:hover summary,
 .card.is-open summary,
 .card:has(details[open]) summary{
-  background:#f1f1f1;
+  background:#f2f2f2;
   color:#242424;
 }
 
@@ -384,9 +403,10 @@ summary::before{
 .technical-data h4{
   margin:0 0 8px;
   color:#292929;
-  font-size:11px;
+  font-size:10.5px;
   line-height:1.2;
-  letter-spacing:.07em;
+  letter-spacing:.08em;
+  font-weight:740;
 }
 
 .detail-paragraph{
