@@ -11,7 +11,7 @@
 
 .site-header-image{
   display:block;
-  width:min(100%,620px);
+  width:min(100%,310px);
   height:auto;
 }
 
@@ -62,7 +62,8 @@ header h1::after{
 
 .card.is-open,
 .card:has(details[open]){
-  grid-column:1 / -1;
+  grid-column:auto !important;
+  width:100% !important;
   height:auto;
   min-height:0;
   z-index:2;
