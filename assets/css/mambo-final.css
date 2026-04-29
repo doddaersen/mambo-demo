@@ -2,7 +2,7 @@
    This file intentionally overrides the earlier experimental CSS layers. */
 
 :root{
-  --display-font:"Coco Gothic", "Inter Tight", "Arial Narrow", Inter, system-ui, sans-serif;
+  --display-font:"Coco Gothic", "Arial Black", Impact, Haettenschweiler, "Arial Narrow Bold", Inter, system-ui, sans-serif;
   --text-font:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -42,9 +42,9 @@ summary,
 .technical-data h4,
 .technical-heading,
 .technical-subheading{
-  font-family:var(--display-font);
+  font-family:var(--display-font) !important;
   text-transform:uppercase;
-  font-weight:800;
+  font-weight:900;
   letter-spacing:.015em;
 }
 
@@ -297,7 +297,7 @@ h3{
 
 .card-top .category{
   align-self:flex-start;
-  font-family:var(--display-font);
+  font-family:var(--display-font) !important;
   font-size:9.5px;
   padding:2px 5px;
 }
