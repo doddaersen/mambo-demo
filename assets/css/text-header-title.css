@@ -1,21 +1,44 @@
+.text-header{
+  padding-top:34px;
+  padding-bottom:22px;
+}
+
 .text-header .site-title{
   font-family:var(--display-font) !important;
   text-transform:uppercase;
-  font-size:clamp(34px,4.8vw,60px);
+  font-size:clamp(32px,4.3vw,54px);
   line-height:1.02;
-  letter-spacing:.005em;
-  font-weight:780;
+  letter-spacing:.012em;
+  font-weight:760;
+  margin-bottom:8px;
 }
 
 .text-header .site-title::after{
   display:block;
-  margin-top:14px;
+  margin-top:12px;
+  height:1px;
+}
+
+.text-header .lead-subtitle{
+  font-size:14px;
+  line-height:1.35;
+  color:#555;
+  max-width:760px;
 }
 
 @media (max-width:760px){
+  .text-header{
+    padding-top:26px;
+    padding-bottom:18px;
+  }
+
   .text-header .site-title{
-    font-size:clamp(28px,9.2vw,40px);
-    line-height:1.04;
-    letter-spacing:.002em;
+    font-size:clamp(27px,8.4vw,38px);
+    line-height:1.05;
+    letter-spacing:.006em;
+  }
+
+  .text-header .lead-subtitle{
+    font-size:12.5px;
   }
 }
