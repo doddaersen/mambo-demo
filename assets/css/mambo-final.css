@@ -38,7 +38,7 @@ header h1::after{
 
 .grid{
   display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
   column-count:initial !important;
   column-gap:0 !important;
   gap:14px !important;
@@ -302,6 +302,10 @@ header h1::after{
 
   .layout > aside{
     order:2;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   }
 }
 
