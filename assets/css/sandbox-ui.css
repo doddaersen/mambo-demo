@@ -556,7 +556,7 @@ details>summary{
     min-height:120px !important;
     grid-template-columns:88px minmax(0,1fr) auto;
     padding:16px !important;
-    align-items:center !important;
+    align-items:start !important;
   }
 
   .category-panel-title{
@@ -602,13 +602,21 @@ details>summary{
 
   .category-panel{
     grid-template-columns:84px minmax(0,1fr) auto;
-    min-height:116px !important;
+    grid-template-areas:
+      "title title action"
+      "media text action";
+    column-gap:14px;
+    row-gap:10px;
+    min-height:0 !important;
     padding:16px !important;
+    align-items:start !important;
   }
 
   .category-panel-media{
+    grid-area:media;
     width:84px !important;
     height:84px !important;
+    align-self:start !important;
   }
 
   .category-panel-media img{
@@ -616,12 +624,27 @@ details>summary{
     max-height:84px !important;
   }
 
+  .category-panel-text{
+    grid-area:text;
+    align-self:start !important;
+  }
+
   .category-panel-title{
-    font-size:14px !important;
+    grid-area:title;
+    font-size:18px !important;
+    line-height:1.1 !important;
+    margin:0 !important;
   }
 
   .category-panel-description{
-    font-size:11.5px !important;
+    font-size:15px !important;
+    line-height:1.35 !important;
+  }
+
+  .category-panel-action{
+    grid-area:action;
+    align-self:end !important;
+    justify-self:end !important;
   }
 
   .term-summary{
