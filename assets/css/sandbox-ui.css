@@ -64,6 +64,7 @@
   border-radius:8px !important;
   background:#fff !important;
   box-shadow:none !important;
+  text-align:left !important;
 }
 
 .category-panel:hover,
@@ -93,6 +94,7 @@
   display:block !important;
   grid-column:2;
   min-width:0;
+  text-align:left !important;
 }
 
 .category-panel-title{
@@ -100,6 +102,7 @@
   margin:0 0 5px !important;
   font-size:14px !important;
   line-height:1.1 !important;
+  text-align:left !important;
 }
 
 .category-panel-description{
@@ -107,6 +110,7 @@
   font-size:11.5px !important;
   line-height:1.32 !important;
   color:#555 !important;
+  text-align:left !important;
 }
 
 .category-panel-action{
@@ -116,6 +120,7 @@
   align-self:end;
   justify-self:end;
   white-space:nowrap;
+  text-align:right !important;
 }
 
 .category-panel-count{
@@ -465,6 +470,18 @@ details>summary{
 }
 
 @media(max-width:900px){
+  .layout{
+    display:block !important;
+  }
+
+  .layout>aside{
+    display:none !important;
+  }
+
+  .layout>section{
+    width:100% !important;
+  }
+
   .quick-search,
   .category-overview,
   .topline,
@@ -492,6 +509,32 @@ details>summary{
   .overview-head p{
     margin-top:6px !important;
     max-width:none !important;
+    text-align:left !important;
+  }
+
+  .category-panel{
+    min-height:108px !important;
+    grid-template-columns:76px minmax(0,1fr) auto;
+    padding:13px 14px !important;
+    align-items:center !important;
+  }
+
+  .category-panel-media{
+    width:76px !important;
+    height:76px !important;
+  }
+
+  .category-panel-media img{
+    max-width:76px !important;
+    max-height:76px !important;
+  }
+
+  .category-panel-title{
+    font-size:15px !important;
+  }
+
+  .category-panel-description{
+    font-size:12px !important;
   }
 
   .term-summary{
@@ -516,18 +559,6 @@ details>summary{
 }
 
 @media(max-width:560px){
-  .layout{
-    display:block !important;
-  }
-
-  .layout>aside{
-    display:none !important;
-  }
-
-  .layout>section{
-    width:100% !important;
-  }
-
   .grid{
     gap:14px !important;
   }
@@ -540,17 +571,27 @@ details>summary{
   }
 
   .category-panel{
-    grid-template-columns:64px minmax(0,1fr) auto;
+    grid-template-columns:72px minmax(0,1fr) auto;
+    min-height:104px !important;
+    padding:12px 14px !important;
   }
 
   .category-panel-media{
-    width:64px !important;
-    height:64px !important;
+    width:72px !important;
+    height:72px !important;
   }
 
   .category-panel-media img{
-    max-width:64px !important;
-    max-height:64px !important;
+    max-width:72px !important;
+    max-height:72px !important;
+  }
+
+  .category-panel-title{
+    font-size:14px !important;
+  }
+
+  .category-panel-description{
+    font-size:11.5px !important;
   }
 
   .term-summary{
