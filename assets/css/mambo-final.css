@@ -493,6 +493,12 @@ summary::before{
   color:#242424 !important;
 }
 
+/* sandbox step 1: only remove closed card icon background */
+.card:not(.is-open) .card-top,
+.card:not(:has(details[open])) .card-top{
+  background:#fff !important;
+}
+
 @media (max-width:1180px){
   .category-panel-grid{
     grid-template-columns:repeat(2,minmax(0,1fr)) !important;
