@@ -7,7 +7,7 @@ const categoryKeyMap={'könyvforma':'formátum','formátum':'formátum','fűzés
 const pilotCounts={'formátum':9,'fűzésmód':11,'kötésmód':11,'gerincszerkezet':6,'záródás':6,'tárolóelem':6};
 const iconBase='assets/icons/';
 const categoryMeta={
-  'formátum':{title:'Formátum',description:'A könyv térbeli, szerkezeti vagy hordozói formája.',icon:iconBase+'kategoria-formatum.png'},
+  'formátum':{title:'Formátum',description:'A könyv térbeli, szerkezeti vagy hordozói formája.',icon:iconBase+'kategoria-formatum-v2.png'},
   'fűzésmód':{title:'Fűzésmód',description:'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',icon:iconBase+'kategoria-fuzes.png'},
   'kötésmód':{title:'Kötésmód',description:'A lapok, ívek vagy könyvtestek borítószerkezettel való összekapcsolásának technikai módja.',icon:iconBase+'kategoria-kotes.png'},
   'gerincszerkezet':{title:'Gerincszerkezet',description:'A könyvgerinc kialakítása, láthatósága és működése.',icon:iconBase+'kategoria-gerinc.png'},
