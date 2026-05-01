@@ -1,1 +1,81 @@
-(()=>{const categoryIcons={'formátum':'assets/szotar_ikon_formatum_szines..png?v=format-double-dot-fix-1','könyvforma':'assets/szotar_ikon_formatum_szines..png?v=format-double-dot-fix-1','fűzésmód':'assets/szotar_ikon_kotes_szines.png?v=format-double-dot-fix-1','kötésmód':'assets/szotar_ikon_kotes_szines.png?v=format-double-dot-fix-1','gerincszerkezet':'assets/szotar_ikon_gerinc_szines.png?v=format-double-dot-fix-1','záródás':'assets/szotar_ikon_tarolo_szines.png?v=format-double-dot-fix-1','tárolóelem':'assets/szotar_ikon_tarolo_szines.png?v=format-double-dot-fix-1'};const fixedIcons={'mambo:form-001':['assets/icons/leporello.png','assets/icons/formatum-leporello.png'],'mambo:form-002':['assets/icons/kodexv2.png'],'mambo:form-035':['assets/icons/forma-flag.png'],'mambo:form-037':['assets/icons/popupv2.png'],'mambo:form-038':['assets/icons/tunnelv2.png'],'mambo:form-042':['assets/icons/formatum-dosados.png'],'mambo:form-043':['assets/icons/formatum-tetebeche.png'],'mambo:bind-002':['assets/icons/fuzes-japan.png'],'mambo:bind-003':['assets/icons/fuzes-cerna.png'],'mambo:bind-004':['assets/icons/fuzes-irka.png'],'mambo:bind-009':['assets/icons/kotes-spiral.png'],'mambo:bind-028':['assets/icons/kotes-belga.png'],'mambo:bind-029':['assets/icons/kotes-csavaros.png'],'mambo:bind-030':['assets/icons/kotes-gyurus.png']};const aliases={'alagútkönyv':['tunnelv2','tunnel','alagutkonyv','tunnel-book'],'kódex-formátum':['kodexv2','kodex-formatum','kodex','codex-formatum','codex'],'pop-up könyv':['popupv2','popup','pop-up-konyv','popup-konyv','pop-up-book'],'concertina / leporelló':['leporello','formatum-leporello','accordion','concertina-leporello','concertina','accordion-fold'],'dos-à-dos':['formatum-dosados','dos-a-dos'],'tekercs':['formatum-scroll','tekercs','scroll'],'tête-bêche':['formatum-tetebeche','tete-beche'],'zászlókönyv':['forma-flag','zaszlokonyv','flag-book'],'füzet':['formatum-fuzet','fuzet','booklet'],'cérnafűzés':['fuzes-cerna','cernafuzes'],'irka-fűzés':['fuzes-irka','irkafuzes','irka-fuzes'],'japán fűzés':['fuzes-japan','japan-fuzes','japanese-stab-binding'],'kelet-ázsiai oldalfűzés / japán fűzés':['fuzes-japan','japan-fuzes','japanese-stab-binding'],'gyűrűs dosszié':['kotes-gyurus','gyurus-dosszie','ring-binder'],'spirálkötés':['kotes-spiral','spiral-kotes'],'csavaros album':['kotes-csavaros','csavaros-album','csavaros-kotes'],'csavaros kötés':['kotes-csavaros','csavaros-kotes'],'titkos belga kötés':['kotes-belga','titkos-belga-kotes','secret-belgian-binding'],'secret belgian binding [titkos belga kötés]':['kotes-belga','titkos-belga-kotes','secret-belgian-binding']};function slug(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/à/g,'a').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}function uniq(a){return[...new Set(a.flat().filter(Boolean))]}function pathsFromNames(names){return names.flatMap(n=>[`assets/icons/${n}.png`,`assets/icons/${n}v2.png`,`assets/icons/${n}-v2.png`])}function getIconCandidates(c){const cat=c.dataset.category||'formátum',id=c.dataset.termId||'',top=c.querySelector('.card-top'),hu=top?.querySelector('h3')?.textContent||'',en=top?.querySelector('.en')?.textContent||'',idSlug=id.replace(/^mambo:/,'').replace(/[:_]/g,'-'),huKey=hu.toLowerCase(),base=[slug(hu),slug(en),idSlug],alias=aliases[huKey]||[];return uniq([fixedIcons[id]||[],...pathsFromNames([...alias,...base]),categoryIcons[cat],categoryIcons['formátum']])}function fallback(img){const list=(img.dataset.candidates||'').split('|');let i=Number(img.dataset.index||0)+1;if(i<list.length){img.dataset.index=i;img.src=list[i]}}function setOpen(c,o){const d=c.querySelector('details'),h=c.querySelector('.open-hint');c.classList.toggle('is-open',o);if(d)d.open=o;if(h)h.textContent=o?'Bezárás':'Részletek'}function closeOthers(a){document.querySelectorAll('#termList .card.is-open').forEach(c=>{if(c!==a)setOpen(c,false)})}function toggle(c){const o=!c.classList.contains('is-open');closeOthers(c);setOpen(c,o)}function normalize(c){const t=c.querySelector('.technical-data');if(!t||c.dataset.detailsNormalized==='1')return;c.dataset.detailsNormalized='1';const lab=document.createElement('div');lab.className='technical-label';lab.textContent='Technikai adatok';t.insertBefore(lab,t.firstChild)}function build(c){if(c.dataset.horizontalEnhanced==='1')return;const top=c.querySelector('.card-top'),body=c.querySelector('.card-body'),def=c.querySelector('.definition'),det=c.querySelector('details');if(!top||!body||!def||!det)return;c.dataset.horizontalEnhanced='1';normalize(c);const candidates=getIconCandidates(c),sum=document.createElement('div');sum.className='term-summary';sum.tabIndex=0;sum.innerHTML=`<div class="term-icon"><img src="${candidates[0]}" data-candidates="${candidates.join('|')}" data-index="0" alt=""></div><div class="term-content"></div><span class="open-hint">Részletek</span>`;const img=sum.querySelector('img');img.addEventListener('error',()=>fallback(img));const cont=sum.querySelector('.term-content');cont.appendChild(top);sum.insertBefore(def,sum.querySelector('.open-hint'));c.insertBefore(sum,body);sum.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggle(c)});sum.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();toggle(c)});setOpen(c,false)}function enhance(){document.querySelectorAll('#termList .card').forEach(build)}window.addEventListener('DOMContentLoaded',()=>{const list=document.querySelector('#termList');if(list)new MutationObserver(enhance).observe(list,{childList:true});enhance();setTimeout(enhance,300);setTimeout(enhance,900)})})();
+(()=>{
+const iconBase='assets/icons/';
+const categoryIcons={
+  'formátum':iconBase+'kategoria-formatum-v2.png','könyvforma':iconBase+'kategoria-formatum-v2.png',
+  'fűzésmód':iconBase+'kategoria-fuzes.png','kötésmód':iconBase+'kategoria-kotes-2.png',
+  'gerincszerkezet':iconBase+'kategoria-gerinc.png','záródás':iconBase+'kategoria-zarodas-2.png','tárolóelem':iconBase+'kategoria-tarolo.png'
+};
+const fixedIcons={
+  'mambo:form-001':['formatum-leporello','leporello','concertina-leporello','accordion'],
+  'mambo:form-002':['formatum-kodex','kodexv2','kodex-formatum','kodex','codex'],
+  'mambo:form-003':['formatum-dobozkonyv','dobozkonyv','box-book'],
+  'mambo:form-004':['formatum-scroll','formatum-tekercs','tekercs','scroll'],
+  'mambo:form-035':['forma-flag','formatum-zaszlokonyv','zaszlokonyv','flag-book'],
+  'mambo:form-037':['popupv2','formatum-popup','pop-up-konyv','popup-konyv','popup'],
+  'mambo:form-038':['tunnelv2','formatum-alagutkonyv','alagutkonyv','tunnel-book','tunnel'],
+  'mambo:form-042':['formatum-dosados','dos-a-dos','dosados'],
+  'mambo:form-043':['formatum-tetebeche','tete-beche','tetebeche'],
+  'mambo:bind-002':['fuzes-japan','japan-fuzes','japanese-stab-binding'],
+  'mambo:bind-003':['fuzes-cerna','cernafuzes','sewn-binding'],
+  'mambo:bind-004':['fuzes-irka','irkafuzes','saddle-stitch'],
+  'mambo:bind-005':['kotes-ragasztokotes','ragasztokotes','ragasztott-kotes','perfect-binding'],
+  'mambo:bind-009':['kotes-spiral','spiral-kotes','spiral'],
+  'mambo:bind-026':['kotes-kopt','kopt-kotes','coptic-binding'],
+  'mambo:bind-028':['kotes-belga','titkos-belga-kotes','secret-belgian-binding'],
+  'mambo:bind-029':['kotes-csavaros','csavaros-album','csavaros-kotes','screw-post-binding'],
+  'mambo:bind-030':['kotes-gyurus','gyurus-dosszie','ring-binder'],
+  'mambo:bind-031':['kotes-hosszoltés','kotes-hosszoltes','hosszolteses-kotes','long-stitch-binding','longstitch'],
+  'mambo:bind-032':['kotes-szalag','szalaggal-kotott','ribbon-tied-binding','ribbon-binding'],
+  'mambo:spine-001':['gerinc-nyitott','nyitott-gerinc','open-spine'],
+  'mambo:spine-002':['gerinc-fedett','fedett-gerinc','covered-spine'],
+  'mambo:spine-003':['gerinc-ureges','hollow-back','ureges-gerinc'],
+  'mambo:spine-004':['gerinc-feszes','tight-back','feszes-gerinc'],
+  'mambo:spine-005':['gerinc-zsinoros','zsinoros-fuzes','sewing-on-cords'],
+  'mambo:spine-006':['gerinc-textilpantos','textilpantos','tape-supported'],
+  'mambo:storage-001':['tarolo-tok','tok','slipcase'],
+  'mambo:storage-002':['tarolo-doboz','doboz','box'],
+  'mambo:storage-003':['tarolo-mappa','mappa','folder','portfolio'],
+  'mambo:storage-004':['tarolo-archivalis-doboz','tarolo-archivalo-doboz','archival-box','archivalis-doboz'],
+  'mambo:storage-005':['tarolo-talcas-tok','talcas-tok','clamshell-box'],
+  'mambo:storage-006':['tarolo-disztok','disztok','presentation-box']
+};
+const aliases={
+  'alagútkönyv':['formatum-alagutkonyv','tunnelv2','tunnel','alagutkonyv','tunnel-book'],
+  'kódex-formátum':['formatum-kodex','kodexv2','kodex-formatum','kodex','codex-formatum','codex'],
+  'pop-up könyv':['formatum-popup','popupv2','popup','pop-up-konyv','popup-konyv','pop-up-book'],
+  'concertina / leporelló':['formatum-leporello','leporello','accordion','concertina-leporello','concertina','accordion-fold'],
+  'dos-à-dos':['formatum-dosados','dos-a-dos','dosados'],'tekercs':['formatum-scroll','formatum-tekercs','tekercs','scroll'],
+  'tête-bêche':['formatum-tetebeche','tete-beche','tetebeche'],'zászlókönyv':['forma-flag','formatum-zaszlokonyv','zaszlokonyv','flag-book'],
+  'füzet':['formatum-fuzet','fuzet','booklet'],'cérnafűzés':['fuzes-cerna','cernafuzes'],'irka-fűzés':['fuzes-irka','irkafuzes','irka-fuzes'],
+  'japán fűzés':['fuzes-japan','japan-fuzes','japanese-stab-binding'],'kelet-ázsiai oldalfűzés / japán fűzés':['fuzes-japan','japan-fuzes','japanese-stab-binding'],
+  'kopt kötés':['kotes-kopt','kopt-kotes','coptic-binding'],'ragasztókötés':['kotes-ragasztokotes','ragasztokotes','ragasztott-kotes','perfect-binding'],
+  'gyűrűs dosszié':['kotes-gyurus','gyurus-dosszie','ring-binder'],'spirálkötés':['kotes-spiral','spiral-kotes'],
+  'csavaros album':['kotes-csavaros','csavaros-album','csavaros-kotes'],'csavaros kötés':['kotes-csavaros','csavaros-kotes'],
+  'titkos belga kötés':['kotes-belga','titkos-belga-kotes','secret-belgian-binding'],'secret belgian binding [titkos belga kötés]':['kotes-belga','titkos-belga-kotes','secret-belgian-binding'],
+  'hosszöltéses kötés':['kotes-hosszoltes','hosszolteses-kotes','long-stitch-binding'],'szalaggal kötött':['kotes-szalag','szalaggal-kotott','ribbon-binding'],
+  'nyitott gerinc':['gerinc-nyitott','nyitott-gerinc','open-spine'],'fedett gerinc':['gerinc-fedett','fedett-gerinc','covered-spine'],
+  'hollow back [üreges gerinc]':['gerinc-ureges','hollow-back','ureges-gerinc'],'tight back [feszes gerinc]':['gerinc-feszes','tight-back','feszes-gerinc'],
+  'zsinóros fűzés':['gerinc-zsinoros','zsinoros-fuzes','sewing-on-cords'],'textilpántos':['gerinc-textilpantos','textilpantos','tape-supported']
+};
+function slug(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/à/g,'a').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function uniq(a){return[...new Set(a.flat().filter(Boolean))]}
+function pathVariants(name){return[`${iconBase}${name}.png`,`${iconBase}${name}v2.png`,`${iconBase}${name}-v2.png`,`${iconBase}${name}_v2.png`]}
+function makeCandidates(names,zoomable){return uniq(names).flatMap(n=>pathVariants(n).map(src=>({src,zoomable})))}
+function getIconCandidates(c){
+  const cat=c.dataset.category||'formátum',id=c.dataset.termId||'',top=c.querySelector('.card-top'),hu=top?.querySelector('h3')?.textContent||'',en=top?.querySelector('.en')?.textContent||'',idSlug=id.replace(/^mambo:/,'').replace(/[:_]/g,'-'),huKey=hu.toLowerCase();
+  const realNames=uniq([fixedIcons[id]||[],aliases[huKey]||[],slug(hu),slug(en),idSlug]);
+  const fallbackNames=[`placeholder-${cat}`,`placeholder`,categoryIcons[cat],categoryIcons['formátum']].filter(Boolean);
+  const real=makeCandidates(realNames,true);
+  const fallback=fallbackNames.flatMap(item=>String(item).startsWith('assets/')?[{src:item,zoomable:false}]:pathVariants(item).map(src=>({src,zoomable:false})));
+  return uniq([...real,...fallback].map(item=>`${item.src}@@${item.zoomable?'1':'0'}`)).map(item=>{const [src,zoomable]=item.split('@@');return{src,zoomable:zoomable==='1'}});
+}
+function syncIconState(img){const list=(img.dataset.zoomableCandidates||'').split('|');const i=Number(img.dataset.index||0);img.dataset.iconReal=list[i]==='1'?'1':'0'}
+function fallback(img){const list=(img.dataset.candidates||'').split('|');let i=Number(img.dataset.index||0)+1;if(i<list.length){img.dataset.index=i;syncIconState(img);img.src=list[i];}}
+function setOpen(c,o){const d=c.querySelector('details'),h=c.querySelector('.open-hint');c.classList.toggle('is-open',o);if(d)d.open=o;if(h)h.textContent=o?'Bezárás':'Részletek'}
+function closeOthers(a){document.querySelectorAll('#termList .card.is-open').forEach(c=>{if(c!==a)setOpen(c,false)})}
+function toggle(c){const o=!c.classList.contains('is-open');closeOthers(c);setOpen(c,o)}
+function normalize(c){const t=c.querySelector('.technical-data');if(!t||c.dataset.detailsNormalized==='1')return;c.dataset.detailsNormalized='1';const lab=document.createElement('div');lab.className='technical-label';lab.textContent='Technikai adatok';t.insertBefore(lab,t.firstChild)}
+function build(c){if(c.dataset.horizontalEnhanced==='1')return;const top=c.querySelector('.card-top'),body=c.querySelector('.card-body'),def=c.querySelector('.definition'),det=c.querySelector('details');if(!top||!body||!def||!det)return;c.dataset.horizontalEnhanced='1';normalize(c);const candidates=getIconCandidates(c),srcs=candidates.map(x=>x.src),zoomables=candidates.map(x=>x.zoomable?'1':'0'),sum=document.createElement('div');sum.className='term-summary';sum.tabIndex=0;sum.innerHTML=`<div class="term-icon"><img src="${srcs[0]}" data-candidates="${srcs.join('|')}" data-zoomable-candidates="${zoomables.join('|')}" data-index="0" data-icon-real="${zoomables[0]}" alt=""></div><div class="term-content"></div><span class="open-hint">Részletek</span>`;const img=sum.querySelector('img');img.addEventListener('error',()=>fallback(img));img.addEventListener('load',()=>syncIconState(img));const cont=sum.querySelector('.term-content');cont.appendChild(top);sum.insertBefore(def,sum.querySelector('.open-hint'));c.insertBefore(sum,body);sum.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggle(c)});sum.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();toggle(c)});setOpen(c,false)}
+function enhance(){document.querySelectorAll('#termList .card').forEach(build)}
+window.addEventListener('DOMContentLoaded',()=>{const list=document.querySelector('#termList');if(list)new MutationObserver(enhance).observe(list,{childList:true});enhance();setTimeout(enhance,300);setTimeout(enhance,900)})
+})();
