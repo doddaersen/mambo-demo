@@ -1,20 +1,23 @@
 .text-header{
-  padding-top:22px;
-  padding-bottom:16px;
+  padding-top:18px;
+  padding-bottom:12px;
 }
 
 .site-title-block{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
-  gap:8px;
+  gap:6px;
 }
 
 .logo-link{
   display:block;
   width:min(100%, 760px);
+  height:118px;
   line-height:0;
   text-decoration:none;
+  overflow:hidden;
+  cursor:pointer;
 }
 
 .site-logo-image{
@@ -22,6 +25,7 @@
   width:100%;
   max-width:760px;
   height:auto;
+  transform:translateY(-38px);
 }
 
 .text-header .site-title{
@@ -111,20 +115,22 @@
 
 @media (max-width:760px){
   .text-header{
-    padding-top:20px;
-    padding-bottom:15px;
+    padding-top:16px;
+    padding-bottom:11px;
   }
 
   .site-title-block{
-    gap:8px;
+    gap:6px;
   }
 
   .logo-link{
     width:min(100%, 520px);
+    height:82px;
   }
 
   .site-logo-image{
     max-width:520px;
+    transform:translateY(-26px);
   }
 
   .text-header .site-title{
