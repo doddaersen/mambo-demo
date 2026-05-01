@@ -32,7 +32,7 @@
 .grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important;align-items:start;overflow:visible;}
 .grid.list-view{grid-template-columns:1fr!important;}
 
-.card{height:auto!important;min-height:0!important;max-width:none;margin:0!important;border:1px solid #d5d5d5!important;border-radius:9px!important;background:#fff!important;box-shadow:0 4px 14px rgba(0,0,0,.035)!important;overflow:visible!important;position:relative;transition:border-color .15s ease,box-shadow .15s ease;}
+.card{height:auto!important;min-height:0!important;max-width:none;margin:0!important;border:1px solid #d5d5d5!important;border-radius:0!important;background:#fff!important;box-shadow:0 4px 14px rgba(0,0,0,.035)!important;overflow:visible!important;position:relative;transition:border-color .15s ease,box-shadow .15s ease;}
 .card:hover{border-color:#b9b9b9!important;box-shadow:0 7px 20px rgba(0,0,0,.055)!important;}
 .card.is-open,.card:has(details[open]){grid-column:auto!important;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.07)!important;}
 
@@ -47,23 +47,23 @@
   background:#fff;
   cursor:pointer;
   position:relative;
-  border-radius:9px;
+  border-radius:0!important;
 }
-.card.is-open .term-summary,.card:has(details[open]) .term-summary{border-radius:9px 9px 0 0;border-bottom:0!important;}
-.term-icon{grid-area:icon;width:98px!important;height:98px!important;background:none!important;display:flex;align-items:flex-start;justify-content:center;}
-.term-icon img{max-width:98px!important;max-height:98px!important;object-fit:contain;display:block;}
+.card.is-open .term-summary,.card:has(details[open]) .term-summary{border-radius:0!important;border-bottom:0!important;}
+.term-icon{grid-area:icon;width:98px!important;height:98px!important;background:none!important;display:flex;align-items:flex-start;justify-content:center;padding-top:3px;box-sizing:border-box;}
+.term-icon img{max-width:98px!important;max-height:95px!important;object-fit:contain;display:block;}
 .term-content{grid-area:head;min-width:0;display:block!important;padding-top:2px;}
 .term-content .card-top{padding:0!important;background:#fff!important;}
-.term-content .category{display:inline-flex;width:max-content;margin:0 0 8px!important;padding:3px 6px;font-size:9.5px!important;line-height:1.1;letter-spacing:.07em;color:#444!important;background:#fff!important;border-color:#c8c8c8!important;}
+.term-content .category{display:inline-flex;width:max-content;margin:0 0 8px!important;padding:4px 7px!important;font-size:9.5px!important;line-height:1.15!important;letter-spacing:.07em;color:#444!important;background:#fff!important;border-color:#c8c8c8!important;}
 .term-content h3{margin:0 0 8px!important;font-size:19px!important;line-height:1.14!important;letter-spacing:.014em;}
 .term-content .en{margin:0;font-size:14px!important;line-height:1.3!important;color:#555;font-style:normal;text-transform:uppercase;}
 .term-summary>.definition{grid-area:def;padding:0!important;margin:0!important;max-width:none;font-size:15px!important;line-height:1.5!important;color:#222;display:block!important;overflow:visible!important;-webkit-line-clamp:unset!important;-webkit-box-orient:initial!important;}
-.open-hint{position:absolute;right:20px;bottom:20px;width:92px;text-align:center;margin:0!important;padding:7px 0;border:2px solid #b8b8b8;border-radius:2px;background:#fff;font-family:var(--display-font);font-size:10.5px!important;line-height:1;letter-spacing:.08em;text-transform:uppercase;color:#222;pointer-events:none;white-space:nowrap;}
+.open-hint{position:absolute;right:20px;bottom:20px;width:96px;text-align:left;margin:0!important;padding:7px 0 7px 9px!important;box-sizing:border-box;border:2px solid #b8b8b8;border-radius:0!important;background:#fff;font-family:var(--display-font);font-size:10.5px!important;line-height:1;letter-spacing:.08em;text-transform:uppercase;color:#222;pointer-events:none;white-space:nowrap;}
 .open-hint::after{content:' ↓';font-size:13px;letter-spacing:0;}
 .card:hover .open-hint{color:#111;border-color:#777;background:#f8f8f8;}
 .card.is-open .open-hint::after,.card:has(details[open]) .open-hint::after{content:' ↑';}
 
-.card-body{display:none!important;position:absolute;top:100%;left:-1px;right:-1px;z-index:30;background:#fff;border:1px solid #d5d5d5;border-top:0!important;border-radius:0 0 9px 9px;box-shadow:0 18px 34px rgba(0,0,0,.13);min-height:0!important;flex:none!important;}
+.card-body{display:none!important;position:absolute;top:100%;left:-1px;right:-1px;z-index:30;background:#fff;border:1px solid #d5d5d5;border-top:0!important;border-radius:0!important;box-shadow:0 18px 34px rgba(0,0,0,.13);min-height:0!important;flex:none!important;}
 .card.is-open .card-body,.card:has(details[open]) .card-body{display:block!important;}
 .card:not(.is-open) details{display:none!important;}
 details{margin:0!important;border-top:0!important;}
@@ -116,7 +116,7 @@ details>summary{display:none!important;}
   .overview-head p{margin-top:8px!important;max-width:none!important;text-align:left!important;}
   .term-summary{grid-template-columns:98px minmax(0,1fr)!important;grid-template-areas:"icon head" "icon def";gap:8px 16px!important;padding:20px 18px 60px!important;}
   .term-icon{width:98px!important;height:98px!important;}
-  .term-icon img{max-width:98px!important;max-height:98px!important;}
+  .term-icon img{max-width:98px!important;max-height:95px!important;}
   .detail-section{padding-right:18px!important;}
 }
 
@@ -131,12 +131,12 @@ details>summary{display:none!important;}
   .category-panel-description{font-size:16px!important;line-height:1.4!important;}
   .category-panel-action{grid-area:action;align-self:end!important;justify-self:end!important;}
   .term-summary{grid-template-columns:78px minmax(0,1fr)!important;grid-template-areas:"icon head" "icon def";gap:8px 14px!important;padding:18px 16px 58px!important;}
-  .term-icon{width:78px!important;height:90px!important;}
-  .term-icon img{max-width:78px!important;max-height:90px!important;}
+  .term-icon{width:78px!important;height:90px!important;padding-top:3px;}
+  .term-icon img{max-width:78px!important;max-height:87px!important;}
   .term-content h3{font-size:19px!important;line-height:1.14!important;}
   .term-content .en{font-size:14px!important;}
   .term-summary>.definition{font-size:15.5px!important;line-height:1.5!important;}
-  .open-hint{right:16px;bottom:18px;width:88px;}
+  .open-hint{right:16px;bottom:18px;width:92px;}
   .detail-section{padding:0 16px 18px 16px!important;}
   .detail-section h4{font-size:12px!important;}
   .detail-paragraph{font-size:15.5px!important;line-height:1.5!important;}
