@@ -1,0 +1,15 @@
+/*
+  MAMBO demo consolidated stylesheet entrypoint.
+  The former separate CSS layers are loaded here in the same cascade order,
+  so index.html only needs one stylesheet link.
+*/
+
+@import url("style.css?v=base-1");
+@import url("quick-search.css?v=quick-4");
+@import url("mambo-final.css?v=final-clean-30");
+@import url("text-header-title.css?v=title-7");
+@import url("sandbox-ui.css?v=6");
+@import url("category-label-overrides.css?v=5");
+@import url("term-card-final.css?v=2");
+@import url("sidebar-panels.css?v=2");
+@import url("ui-enhancements.css?v=2");
