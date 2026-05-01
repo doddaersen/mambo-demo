@@ -10,32 +10,38 @@ body.search-active #termsTopline{
   position:relative;
 }
 
+#termList .term-icon.has-placeholder-icon{
+  cursor:default;
+}
+
 #termList .zoom-btn{
   display:none!important;
   position:absolute;
-  right:0;
-  bottom:0;
-  width:26px;
-  height:26px;
-  border:0;
-  background:transparent;
-  color:#222;
-  font-size:14px;
+  right:-5px;
+  bottom:-5px;
+  width:34px;
+  height:34px;
+  border:1px solid #d0d0d0;
+  border-radius:999px;
+  background:#fff;
+  color:#111;
+  font-size:20px;
   line-height:1;
   cursor:pointer;
-  box-shadow:none;
+  box-shadow:0 3px 10px rgba(0,0,0,.16);
 }
 
-#termList .card.is-open .zoom-btn,
-#termList .card:has(details[open]) .zoom-btn{
+#termList .card.is-open .term-icon.has-real-icon .zoom-btn,
+#termList .card:has(details[open]) .term-icon.has-real-icon .zoom-btn{
   display:flex!important;
   align-items:center;
   justify-content:center;
 }
 
 #termList .zoom-btn:hover{
-  border-color:transparent;
-  background:transparent;
+  border-color:#aaa;
+  background:#fff;
+  box-shadow:0 5px 14px rgba(0,0,0,.2);
 }
 
 .image-zoom-modal{
