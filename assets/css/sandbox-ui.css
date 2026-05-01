@@ -49,7 +49,7 @@
   position:relative;
   border-radius:9px;
 }
-.card.is-open .term-summary,.card:has(details[open]) .term-summary{border-radius:9px 9px 0 0;border-bottom:0;}
+.card.is-open .term-summary,.card:has(details[open]) .term-summary{border-radius:9px 9px 0 0;border-bottom:0!important;}
 .term-icon{grid-area:icon;width:98px!important;height:98px!important;background:none!important;display:flex;align-items:flex-start;justify-content:center;}
 .term-icon img{max-width:98px!important;max-height:98px!important;object-fit:contain;display:block;}
 .term-content{grid-area:head;min-width:0;display:block!important;padding-top:2px;}
@@ -63,14 +63,14 @@
 .card:hover .open-hint{color:#111;border-color:#777;background:#f8f8f8;}
 .card.is-open .open-hint::after,.card:has(details[open]) .open-hint::after{content:' ↑';}
 
-.card-body{display:none!important;position:absolute;top:100%;left:-1px;right:-1px;z-index:30;background:#fff;border:1px solid #d5d5d5;border-top:0;border-radius:0 0 9px 9px;box-shadow:0 18px 34px rgba(0,0,0,.13);min-height:0!important;flex:none!important;}
+.card-body{display:none!important;position:absolute;top:100%;left:-1px;right:-1px;z-index:30;background:#fff;border:1px solid #d5d5d5;border-top:0!important;border-radius:0 0 9px 9px;box-shadow:0 18px 34px rgba(0,0,0,.13);min-height:0!important;flex:none!important;}
 .card.is-open .card-body,.card:has(details[open]) .card-body{display:block!important;}
 .card:not(.is-open) details{display:none!important;}
 details{margin:0!important;border-top:0!important;}
 details>summary{display:none!important;}
-.detail-block{display:block!important;border-top:0;padding:0!important;gap:0!important;background:#fff;}
-.detail-section{display:block!important;margin:0;padding:0 20px 18px 20px!important;border-top:0;background:#fff;}
-.detail-section:first-child{border-top:0;padding-top:0!important;}
+.detail-block{display:block!important;border-top:0!important;padding:0!important;gap:0!important;background:#fff;}
+.detail-section{display:block!important;margin:0;padding:0 20px 18px 20px!important;border-top:0!important;background:#fff;}
+.detail-section:first-child{border-top:0!important;padding-top:0!important;}
 .detail-section h4{margin:0 0 9px!important;font-size:12px!important;line-height:1.25;color:#222;letter-spacing:.07em;}
 .detail-paragraph{margin:0!important;font-size:15px!important;line-height:1.5!important;color:#222;}
 .detail-paragraph+.detail-paragraph{margin-top:0!important;}
