@@ -5,14 +5,14 @@ const sourceCategoryMap={'formátum':['könyvforma','formátum'],'fűzésmód':[
 const categoryLabelMap={'könyvforma':'Formátum','formátum':'Formátum','fűzésmód':'Fűzésmód','kötésmód':'Kötésmód','gerincszerkezet':'Gerincszerkezet','záródás':'Záródás','tárolóelem':'Tárolóelem'};
 const categoryKeyMap={'könyvforma':'formátum','formátum':'formátum','fűzésmód':'fűzésmód','kötésmód':'kötésmód','gerincszerkezet':'gerincszerkezet','záródás':'záródás','tárolóelem':'tárolóelem'};
 const pilotCounts={'formátum':9,'fűzésmód':11,'kötésmód':11,'gerincszerkezet':6,'záródás':6,'tárolóelem':6};
-const iconBase='assets/';
+const iconBase='assets/icons/';
 const categoryMeta={
-  'formátum':{title:'Formátum',description:'A könyv térbeli, szerkezeti vagy hordozói formája.',icon:iconBase+'szotar-ikon_formatum.svg'},
-  'fűzésmód':{title:'Fűzésmód',description:'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',icon:iconBase+'szotar-ikon_kotes.svg'},
-  'kötésmód':{title:'Kötésmód',description:'A lapok, ívek vagy könyvtestek borítószerkezettel való összekapcsolásának technikai módja.',icon:iconBase+'szotar-ikon_kotes.svg'},
-  'gerincszerkezet':{title:'Gerincszerkezet',description:'A könyvgerinc kialakítása, láthatósága és működése.',icon:iconBase+'szotar-ikon_gerinc.svg'},
-  'záródás':{title:'Záródás',description:'A könyv záródását, nyithatóságát vagy összefogását biztosító szerkezeti megoldás.',icon:iconBase+'szotar-ikon_tarolo.svg'},
-  'tárolóelem':{title:'Tárolóelem',description:'A könyvhöz tartozó védő-, hordozó- vagy gyűjteményi elem.',icon:iconBase+'szotar-ikon_tarolo.svg'}
+  'formátum':{title:'Formátum',description:'A könyv térbeli, szerkezeti vagy hordozói formája.',icon:iconBase+'kategoria-formatum.png'},
+  'fűzésmód':{title:'Fűzésmód',description:'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',icon:iconBase+'kategoria-fuzes.png'},
+  'kötésmód':{title:'Kötésmód',description:'A lapok, ívek vagy könyvtestek borítószerkezettel való összekapcsolásának technikai módja.',icon:iconBase+'kategoria-kotes.png'},
+  'gerincszerkezet':{title:'Gerincszerkezet',description:'A könyvgerinc kialakítása, láthatósága és működése.',icon:iconBase+'kategoria-gerinc.png'},
+  'záródás':{title:'Záródás',description:'A könyv záródását, nyithatóságát vagy összefogását biztosító szerkezeti megoldás.',icon:iconBase+'kategoria-zarodas.png'},
+  'tárolóelem':{title:'Tárolóelem',description:'A könyvhöz tartozó védő-, hordozó- vagy gyűjteményi elem.',icon:iconBase+'kategoria-tarolo.png'}
 };
 function escapeHtml(value){return String(value||'').replace(/&/g,'&amp;').replace(/\"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function formatInline(value){return escapeHtml(value).replace(/\[([^\]]+)\]/g,'<span class="bracket-note">[$1]</span>')}
