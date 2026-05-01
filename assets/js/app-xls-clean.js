@@ -6,13 +6,14 @@ const categoryLabelMap={'könyvforma':'Formátum','formátum':'Formátum','fűz�
 const categoryKeyMap={'könyvforma':'formátum','formátum':'formátum','fűzésmód':'fűzésmód','kötésmód':'kötésmód','gerincszerkezet':'gerincszerkezet','záródás':'záródás','tárolóelem':'tárolóelem'};
 const pilotCounts={'formátum':9,'fűzésmód':11,'kötésmód':11,'gerincszerkezet':6,'záródás':6,'tárolóelem':6};
 const iconBase='assets/icons/';
+const iconVersion='?v=cat-20260502';
 const categoryMeta={
-  'formátum':{title:'Formátum',description:'A könyv térbeli, szerkezeti vagy hordozói formája.',icon:iconBase+'kategoria-formatum-v2.png'},
-  'fűzésmód':{title:'Fűzésmód',description:'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',icon:iconBase+'kategoria-fuzes.png'},
-  'kötésmód':{title:'Kötésmód',description:'A lapok, ívek vagy könyvtestek borítószerkezettel való összekapcsolásának technikai módja.',icon:iconBase+'kategoria-kotes-2.png'},
-  'gerincszerkezet':{title:'Gerincszerkezet',description:'A könyvgerinc kialakítása, láthatósága és működése.',icon:iconBase+'kategoria-gerinc.png'},
-  'záródás':{title:'Záródás',description:'A könyv záródását, nyithatóságát vagy összefogását biztosító szerkezeti megoldás.',icon:iconBase+'kategoria-zarodas-2.png'},
-  'tárolóelem':{title:'Tárolóelem',description:'A könyvhöz tartozó védő-, hordozó- vagy gyűjteményi elem.',icon:iconBase+'kategoria-tarolo.png'}
+  'formátum':{title:'Formátum',description:'A könyv térbeli, szerkezeti vagy hordozói formája.',icon:iconBase+'kategoria-formatum-v2.png'+iconVersion},
+  'fűzésmód':{title:'Fűzésmód',description:'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',icon:iconBase+'kategoria-fuzes.png'+iconVersion},
+  'kötésmód':{title:'Kötésmód',description:'A lapok, ívek vagy könyvtestek borítószerkezettel való összekapcsolásának technikai módja.',icon:iconBase+'kategoria-kotes-2.png'+iconVersion},
+  'gerincszerkezet':{title:'Gerincszerkezet',description:'A könyvgerinc kialakítása, láthatósága és működése.',icon:iconBase+'kategoria-gerinc.png'+iconVersion},
+  'záródás':{title:'Záródás',description:'A könyv záródását, nyithatóságát vagy összefogását biztosító szerkezeti megoldás.',icon:iconBase+'kategoria-zarodas-2.png'+iconVersion},
+  'tárolóelem':{title:'Tárolóelem',description:'A könyvhöz tartozó védő-, hordozó- vagy gyűjteményi elem.',icon:iconBase+'kategoria-tarolo.png'+iconVersion}
 };
 function escapeHtml(value){return String(value||'').replace(/&/g,'&amp;').replace(/\"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function formatInline(value){return escapeHtml(value).replace(/\[([^\]]+)\]/g,'<span class="bracket-note">[$1]</span>')}
