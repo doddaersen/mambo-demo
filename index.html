@@ -20,6 +20,18 @@
     body.search-active #termsTopline{
       margin-top:0!important;
     }
+
+    @media(max-width:900px){
+      #termList.grid,
+      #termList.grid.list-view{
+        display:grid!important;
+        grid-template-columns:1fr!important;
+      }
+
+      #termsTopline .view-toggle{
+        display:none!important;
+      }
+    }
   </style>
 </head>
 <body>
