@@ -1,0 +1,107 @@
+body.search-active .category-overview{
+  display:none!important;
+}
+
+body.search-active #termsTopline{
+  margin-top:0!important;
+}
+
+#termList .term-icon{
+  position:relative;
+}
+
+#termList .zoom-btn{
+  display:none!important;
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:26px;
+  height:26px;
+  border:0;
+  background:transparent;
+  color:#222;
+  font-size:14px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:none;
+}
+
+#termList .card.is-open .zoom-btn,
+#termList .card:has(details[open]) .zoom-btn{
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+}
+
+#termList .zoom-btn:hover{
+  border-color:transparent;
+  background:transparent;
+}
+
+.image-zoom-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+}
+
+.image-zoom-modal.open{
+  display:block;
+}
+
+.image-zoom-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.84);
+  backdrop-filter:blur(2px);
+}
+
+.image-zoom-dialog{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:min(760px,88vw);
+  max-height:86vh;
+  padding:34px;
+  background:#fff;
+  border:1px solid #d0d0d0;
+  box-shadow:0 22px 70px rgba(0,0,0,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.image-zoom-img{
+  display:block;
+  max-width:100%;
+  max-height:72vh;
+  object-fit:contain;
+  cursor:pointer;
+}
+
+.image-zoom-close{
+  position:absolute;
+  right:10px;
+  top:8px;
+  width:28px;
+  height:28px;
+  border:0;
+  background:transparent;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+  color:#222;
+}
+
+@media(max-width:900px){
+  #termList.grid,
+  #termList.grid.list-view{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+  }
+
+  #termsTopline .view-toggle{
+    display:none!important;
+  }
+}
