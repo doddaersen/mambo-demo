@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A könyv anatómiája – könyvművészeti szótár</title>
   <link rel="stylesheet" href="assets/css/style.css?v=base-1" />
-  <link rel="stylesheet" href="assets/css/quick-search.css?v=quick-3" />
+  <link rel="stylesheet" href="assets/css/quick-search.css?v=quick-4" />
   <link rel="stylesheet" href="assets/css/mambo-final.css?v=final-clean-30" />
   <link rel="stylesheet" href="assets/css/text-header-title.css?v=title-3" />
   <link rel="stylesheet" href="assets/css/sandbox-ui.css?v=6" />
@@ -57,15 +57,9 @@
               id="quickSearchInput"
               class="quick-search-input"
               type="search"
-              placeholder="Keress a szótárban…"
+              placeholder="kopt kötés, japán fűzés, leporelló, nyitott gerinc…"
               autocomplete="off"
             />
-          </div>
-          <div class="quick-search-examples" aria-label="Keresési példák">
-            <button type="button" class="quick-search-chip" data-search-term="kopt kötés">kopt kötés</button>
-            <button type="button" class="quick-search-chip" data-search-term="japán fűzés">japán fűzés</button>
-            <button type="button" class="quick-search-chip" data-search-term="leporelló">leporelló</button>
-            <button type="button" class="quick-search-chip" data-search-term="nyitott gerinc">nyitott gerinc</button>
           </div>
         </section>
 
@@ -104,12 +98,6 @@
     const sidebarSearchInput = document.querySelector('#searchInput');
 
     if (quickSearchInput && sidebarSearchInput) {
-      const syncSearch = value => {
-        quickSearchInput.value = value;
-        sidebarSearchInput.value = value;
-        sidebarSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
-      };
-
       quickSearchInput.addEventListener('input', () => {
         sidebarSearchInput.value = quickSearchInput.value;
         sidebarSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
@@ -122,13 +110,6 @@
       });
 
       document.addEventListener('click', event => {
-        const chip = event.target.closest('.quick-search-chip');
-        if (chip) {
-          syncSearch(chip.dataset.searchTerm || chip.textContent.trim());
-          quickSearchInput.focus();
-          return;
-        }
-
         if (!event.target.closest('.tag')) return;
         window.setTimeout(() => {
           quickSearchInput.value = sidebarSearchInput.value;
