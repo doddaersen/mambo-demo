@@ -24,7 +24,7 @@ body.search-active #termsTopline{
   border:1px solid #d0d0d0;
   border-radius:999px;
   background:#fff;
-  color:#111;
+  color:#333;
   font-size:20px;
   line-height:1;
   cursor:pointer;
@@ -41,6 +41,7 @@ body.search-active #termsTopline{
 #termList .zoom-btn:hover{
   border-color:#aaa;
   background:#fff;
+  color:#222;
   box-shadow:0 5px 14px rgba(0,0,0,.2);
 }
 
@@ -97,7 +98,123 @@ body.search-active #termsTopline{
   font-size:26px;
   line-height:1;
   cursor:pointer;
-  color:#222;
+  color:#333;
+}
+
+/* Final tone corrections: restore the softer grayscale and category accents after the older black-heavy layers. */
+body{
+  color:#2b2b2b!important;
+}
+
+h2,
+h3,
+.panel-title,
+.quick-search-label,
+.category-panel-title,
+.sidebar-panel-title,
+.project-kicker,
+.view-button,
+summary,
+.detail-section h4,
+.technical-data h4,
+.technical-heading,
+.technical-subheading{
+  color:#303030!important;
+}
+
+.lead,
+.lead-subtitle,
+.quick-search-help,
+.en,
+.about-text,
+.result-count,
+.count,
+footer,
+.technical-data h4{
+  color:#6b6b6b!important;
+}
+
+.definition,
+.detail-paragraph,
+.detail-block,
+.field,
+.source-item,
+.about-brand,
+.sidebar-browse .browse-toggle,
+.sidebar-browse .browse-term{
+  color:#333!important;
+}
+
+.about-brand span,
+.term-id,
+.site-subtitle{
+  color:#6a6a6a!important;
+}
+
+.category-panel-title,
+.category-panel-action,
+.category-panel-count,
+.category-panel-label{
+  color:#383838!important;
+}
+
+.card:hover summary,
+.card.is-open summary,
+.card:has(details[open]) summary,
+.browse-toggle.open,
+.browse-toggle:hover,
+.browse-term:hover,
+.browse-term.active,
+.view-button.active,
+.view-button:hover,
+.tag:hover{
+  color:#333!important;
+}
+
+.term-content .category[data-category="formátum"],
+.term-content .category[data-category="könyvforma"]{
+  color:#6f2f42!important;
+  background:rgba(224,169,186,.75)!important;
+  border-color:rgba(208,147,167,.9)!important;
+}
+
+.term-content .category[data-category="fűzésmód"],
+.term-content .category[data-category="kötésmód"]{
+  color:#3f4b91!important;
+  background:rgba(197,204,242,.75)!important;
+  border-color:rgba(174,183,231,.9)!important;
+}
+
+.term-content .category[data-category="gerincszerkezet"]{
+  color:#2d716f!important;
+  background:rgba(136,198,195,.75)!important;
+  border-color:rgba(111,183,179,.9)!important;
+}
+
+.term-content .category[data-category="záródás"],
+.term-content .category[data-category="tárolóelem"]{
+  color:#7a5224!important;
+  background:rgba(238,203,164,.75)!important;
+  border-color:rgba(224,185,130,.9)!important;
+}
+
+.browse-toggle[data-category="formátum"],
+.browse-toggle[data-category="könyvforma"]{
+  border-left:3px solid rgba(208,147,167,.9)!important;
+}
+
+.browse-toggle[data-category="fűzésmód"],
+.browse-toggle[data-category="kötésmód"]{
+  border-left:3px solid rgba(174,183,231,.9)!important;
+}
+
+.browse-toggle[data-category="gerincszerkezet"]{
+  border-left:3px solid rgba(111,183,179,.9)!important;
+}
+
+.browse-toggle[data-category="záródás"],
+.browse-toggle[data-category="tárolóelem"]{
+  border-left:3px solid rgba(224,185,130,.9)!important;
 }
 
 @media(max-width:900px){
