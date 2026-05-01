@@ -4,7 +4,7 @@
   margin:0 0 24px;
   padding:20px 22px 22px;
   border:1px solid #d8d8d8;
-  background:#f7f7f5;
+  background:#fafafa;
   box-shadow:0 10px 28px rgba(0,0,0,.025);
 }
 
@@ -47,8 +47,8 @@
 .quick-search-input{
   width:100%;
   min-height:54px;
-  border:1px solid #cfcfcf;
-  background:#fff;
+  border:1px solid #d8d8d8;
+  background:#fdfdfd;
   color:var(--text);
   padding:15px 16px 15px 42px;
   font:inherit;
