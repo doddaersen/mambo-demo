@@ -12,6 +12,15 @@
   <link rel="stylesheet" href="assets/css/category-label-overrides.css?v=5" />
   <link rel="stylesheet" href="assets/css/term-card-final.css?v=2" />
   <link rel="stylesheet" href="assets/css/sidebar-panels.css?v=1" />
+  <style>
+    body.search-active .category-overview{
+      display:none!important;
+    }
+
+    body.search-active #termsTopline{
+      margin-top:0!important;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header text-header">
@@ -96,25 +105,42 @@
   <script>
     const quickSearchInput = document.querySelector('#quickSearchInput');
     const sidebarSearchInput = document.querySelector('#searchInput');
+    const categoryOverview = document.querySelector('.category-overview');
+
+    function syncSearchMode() {
+      const quickValue = quickSearchInput ? quickSearchInput.value : '';
+      const sidebarValue = sidebarSearchInput ? sidebarSearchInput.value : '';
+      const hasSearch = `${quickValue}${sidebarValue}`.trim().length > 0;
+
+      document.body.classList.toggle('search-active', hasSearch);
+      if (categoryOverview) {
+        categoryOverview.hidden = hasSearch;
+      }
+    }
 
     if (quickSearchInput && sidebarSearchInput) {
       quickSearchInput.addEventListener('input', () => {
         sidebarSearchInput.value = quickSearchInput.value;
         sidebarSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        syncSearchMode();
       });
 
       sidebarSearchInput.addEventListener('input', () => {
         if (document.activeElement !== quickSearchInput) {
           quickSearchInput.value = sidebarSearchInput.value;
         }
+        syncSearchMode();
       });
 
       document.addEventListener('click', event => {
         if (!event.target.closest('.tag')) return;
         window.setTimeout(() => {
           quickSearchInput.value = sidebarSearchInput.value;
+          syncSearchMode();
         }, 0);
       });
+
+      syncSearchMode();
     }
   </script>
 </body>
