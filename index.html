@@ -21,6 +21,93 @@
       margin-top:0!important;
     }
 
+    #termList .term-icon{
+      position:relative;
+    }
+
+    #termList .zoom-btn{
+      display:none!important;
+      position:absolute;
+      right:0;
+      bottom:0;
+      width:26px;
+      height:26px;
+      border:1px solid #bdbdbd;
+      background:#fff;
+      color:#222;
+      font-size:14px;
+      line-height:1;
+      cursor:pointer;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+
+    #termList .card.is-open .zoom-btn,
+    #termList .card:has(details[open]) .zoom-btn{
+      display:flex!important;
+      align-items:center;
+      justify-content:center;
+    }
+
+    #termList .zoom-btn:hover{
+      border-color:#777;
+      background:#f8f8f8;
+    }
+
+    .image-zoom-modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:9999;
+    }
+
+    .image-zoom-modal.open{
+      display:block;
+    }
+
+    .image-zoom-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,.84);
+      backdrop-filter:blur(2px);
+    }
+
+    .image-zoom-dialog{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:min(760px,88vw);
+      max-height:86vh;
+      padding:34px;
+      background:#fff;
+      border:1px solid #d0d0d0;
+      box-shadow:0 22px 70px rgba(0,0,0,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .image-zoom-img{
+      display:block;
+      max-width:100%;
+      max-height:72vh;
+      object-fit:contain;
+    }
+
+    .image-zoom-close{
+      position:absolute;
+      right:10px;
+      top:8px;
+      width:28px;
+      height:28px;
+      border:0;
+      background:transparent;
+      font-size:26px;
+      line-height:1;
+      cursor:pointer;
+      color:#222;
+    }
+
     @media(max-width:900px){
       #termList.grid,
       #termList.grid.list-view{
@@ -154,6 +241,86 @@
 
       syncSearchMode();
     }
+  </script>
+  <script>
+    function ensureImageZoomModal() {
+      let modal = document.querySelector('#imageZoomModal');
+      if (modal) return modal;
+
+      modal = document.createElement('div');
+      modal.id = 'imageZoomModal';
+      modal.className = 'image-zoom-modal';
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = `
+        <div class="image-zoom-backdrop" data-close="true"></div>
+        <div class="image-zoom-dialog" role="dialog" aria-modal="true" aria-label="Nagyított szócikkábra">
+          <button class="image-zoom-close" type="button" aria-label="Bezárás">×</button>
+          <img class="image-zoom-img" alt="">
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      modal.addEventListener('click', event => {
+        if (event.target.dataset.close || event.target.closest('.image-zoom-close')) {
+          closeImageZoomModal();
+        }
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeImageZoomModal();
+      });
+
+      return modal;
+    }
+
+    function openImageZoomModal(src, alt) {
+      const modal = ensureImageZoomModal();
+      const img = modal.querySelector('.image-zoom-img');
+      img.src = src;
+      img.alt = alt || 'Nagyított szócikkábra';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeImageZoomModal() {
+      const modal = document.querySelector('#imageZoomModal');
+      if (!modal) return;
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    function addImageZoomButtons() {
+      document.querySelectorAll('#termList .card').forEach(card => {
+        const icon = card.querySelector('.term-icon');
+        const img = icon ? icon.querySelector('img') : null;
+        if (!icon || !img || icon.querySelector('.zoom-btn')) return;
+
+        const button = document.createElement('button');
+        button.className = 'zoom-btn';
+        button.type = 'button';
+        button.setAttribute('aria-label', 'Ábra nagyítása');
+        button.textContent = '⌕';
+        button.addEventListener('click', event => {
+          event.preventDefault();
+          event.stopPropagation();
+          const title = card.querySelector('h3')?.textContent || 'Szócikkábra';
+          openImageZoomModal(img.currentSrc || img.src, title);
+        });
+
+        icon.appendChild(button);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      ensureImageZoomModal();
+      const termList = document.querySelector('#termList');
+      if (termList) {
+        new MutationObserver(addImageZoomButtons).observe(termList, { childList: true, subtree: true });
+      }
+      addImageZoomButtons();
+      window.setTimeout(addImageZoomButtons, 300);
+      window.setTimeout(addImageZoomButtons, 900);
+    });
   </script>
 </body>
 </html>
