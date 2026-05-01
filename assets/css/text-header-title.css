@@ -10,6 +10,20 @@
   gap:8px;
 }
 
+.logo-link{
+  display:block;
+  width:min(100%, 760px);
+  line-height:0;
+  text-decoration:none;
+}
+
+.site-logo-image{
+  display:block;
+  width:100%;
+  max-width:760px;
+  height:auto;
+}
+
 .text-header .site-title{
   display:flex;
   align-items:center;
@@ -103,6 +117,14 @@
 
   .site-title-block{
     gap:8px;
+  }
+
+  .logo-link{
+    width:min(100%, 520px);
+  }
+
+  .site-logo-image{
+    max-width:520px;
   }
 
   .text-header .site-title{
