@@ -1,6 +1,6 @@
 .text-header{
-  padding-top:18px;
-  padding-bottom:12px;
+  padding-top:24px;
+  padding-bottom:14px;
 }
 
 .site-title-block{
@@ -13,10 +13,10 @@
 .logo-link{
   display:block;
   width:min(100%, 760px);
-  height:118px;
+  height:auto;
   line-height:0;
   text-decoration:none;
-  overflow:hidden;
+  overflow:visible;
   cursor:pointer;
 }
 
@@ -25,7 +25,7 @@
   width:100%;
   max-width:760px;
   height:auto;
-  transform:translateY(-38px);
+  transform:none;
 }
 
 .text-header .site-title{
@@ -115,8 +115,8 @@
 
 @media (max-width:760px){
   .text-header{
-    padding-top:16px;
-    padding-bottom:11px;
+    padding-top:20px;
+    padding-bottom:12px;
   }
 
   .site-title-block{
@@ -125,12 +125,13 @@
 
   .logo-link{
     width:min(100%, 520px);
-    height:82px;
+    height:auto;
+    overflow:visible;
   }
 
   .site-logo-image{
     max-width:520px;
-    transform:translateY(-26px);
+    transform:none;
   }
 
   .text-header .site-title{
