@@ -1,11 +1,25 @@
 /* Final source of truth for sandbox term-card layout */
 
+#termList.grid{
+  display:block!important;
+  columns:2 360px;
+  column-gap:22px;
+  overflow:visible;
+}
+#termList.grid.list-view{
+  columns:1!important;
+}
 #termList .card{
-  height:320px!important;
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  margin:0 0 22px!important;
+  break-inside:avoid;
+  page-break-inside:avoid;
 }
 #termList .card.is-open,
 #termList .card:has(details[open]){
-  height:auto!important;
+  break-inside:avoid;
 }
 #termList .term-summary{
   display:grid!important;
@@ -13,15 +27,16 @@
   grid-template-areas:
     "icon head"
     "def def"!important;
-  grid-template-rows:98px 1fr!important;
+  grid-template-rows:auto auto!important;
   gap:6px 18px!important;
-  height:320px!important;
+  height:auto!important;
+  min-height:0!important;
   padding:14px 20px 48px!important;
 }
 #termList .card.is-open .term-summary,
 #termList .card:has(details[open]) .term-summary{
   height:auto!important;
-  min-height:230px!important;
+  min-height:0!important;
 }
 #termList .term-icon{
   grid-area:icon!important;
@@ -47,9 +62,18 @@
   filter:none!important;
 }
 
+@media(max-width:900px){
+  #termList.grid{
+    columns:1!important;
+  }
+}
 @media(max-width:560px){
+  #termList.grid{
+    columns:1!important;
+  }
   #termList .card{
     height:auto!important;
+    margin-bottom:16px!important;
   }
   #termList .term-summary{
     height:auto!important;
