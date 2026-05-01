@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 190" role="img" aria-labelledby="title desc">
+  <title id="title">KÖNYVANATÓMIA</title>
+  <desc id="desc">KÖNYVANATÓMIA wordmark with a needle and magenta thread.</desc>
+  <style>
+    .word{font-family:Inter,Arial Black,Arial,sans-serif;font-size:118px;font-weight:900;letter-spacing:3px;fill:#181818;dominant-baseline:alphabetic;}
+    .needle{fill:none;stroke:#202020;stroke-linecap:round;stroke-linejoin:round;}
+    .thread{fill:none;stroke:#f72464;stroke-width:4.8;stroke-linecap:round;stroke-linejoin:round;}
+  </style>
+  <text class="word" x="0" y="133">KÖNYV</text>
+  <g transform="translate(463 14) rotate(12 43 82)">
+    <path class="needle" d="M44 8 L22 160" stroke-width="8" />
+    <path class="needle" d="M46 8 C62 14 60 43 43 51 C31 43 34 16 46 8 Z" stroke-width="6" />
+  </g>
+  <path class="thread" d="M418 18 C447 42 494 39 524 27 C557 14 590 31 558 48 C531 62 570 68 614 70 C668 73 704 88 686 103 C667 118 641 111 630 101" />
+  <text class="word" x="565" y="133">ANATÓMIA</text>
+</svg>
