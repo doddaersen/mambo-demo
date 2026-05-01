@@ -1,19 +1,20 @@
 /* Final source of truth for sandbox term-card layout */
 
 #termList.grid{
-  display:block!important;
-  columns:2 360px;
-  column-gap:22px;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  column-gap:22px!important;
+  row-gap:22px!important;
   overflow:visible;
 }
 #termList.grid.list-view{
-  columns:1!important;
+  grid-template-columns:1fr!important;
 }
 #termList .card{
   display:block!important;
   width:100%!important;
   height:auto!important;
-  margin:0 0 22px!important;
+  margin:0!important;
   break-inside:avoid;
   page-break-inside:avoid;
 }
@@ -63,17 +64,22 @@
 }
 
 @media(max-width:900px){
-  #termList.grid{
-    columns:1!important;
+  #termList.grid,
+  #termList.grid.list-view{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    row-gap:16px!important;
   }
 }
 @media(max-width:560px){
-  #termList.grid{
-    columns:1!important;
+  #termList.grid,
+  #termList.grid.list-view{
+    grid-template-columns:1fr!important;
+    row-gap:16px!important;
   }
   #termList .card{
     height:auto!important;
-    margin-bottom:16px!important;
+    margin-bottom:0!important;
   }
   #termList .term-summary{
     height:auto!important;
