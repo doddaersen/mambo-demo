@@ -14,6 +14,12 @@ body.search-active #termsTopline{
   cursor:default;
 }
 
+#termList .term-icon.has-placeholder-icon img,
+#termList .term-icon img[data-icon-real="0"]{
+  filter:grayscale(1)!important;
+  opacity:.5!important;
+}
+
 #termList .zoom-btn{
   display:none!important;
   position:absolute;
