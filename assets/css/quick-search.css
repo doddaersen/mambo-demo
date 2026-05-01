@@ -7,12 +7,22 @@
 
 .quick-search-label{
   display:block;
-  margin-bottom:8px;
-  font-size:11px;
-  font-weight:760;
-  letter-spacing:.12em;
+  margin:0 0 8px;
+  font-family:var(--display-font);
+  font-size:26px;
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:.01em;
   text-transform:uppercase;
-  color:#333;
+  color:#111;
+}
+
+.quick-search-help{
+  max-width:720px;
+  margin:0 0 14px;
+  color:#666;
+  font-size:14px;
+  line-height:1.45;
 }
 
 .quick-search-box{
@@ -53,17 +63,12 @@
   box-shadow:0 0 0 3px rgba(0,0,0,.06);
 }
 
-.quick-search-help{
-  max-width:720px;
-  margin:8px 0 0;
-  color:#8a8a8a;
-  font-size:13px;
-  line-height:1.45;
-}
-
 @media (max-width:560px){
   .quick-search{
     margin-top:22px;
     padding-top:18px;
+  }
+  .quick-search-label{
+    font-size:24px;
   }
 }
