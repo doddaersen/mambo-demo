@@ -68,34 +68,6 @@
   box-shadow:0 0 0 3px rgba(0,0,0,.055);
 }
 
-.quick-search-examples{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-top:12px;
-}
-
-.quick-search-chip{
-  appearance:none;
-  border:1px solid #d0d0d0;
-  background:#fff;
-  padding:5px 8px;
-  font:inherit;
-  font-size:12px;
-  line-height:1.1;
-  color:#555;
-  cursor:pointer;
-  border-radius:0;
-}
-
-.quick-search-chip:hover,
-.quick-search-chip:focus{
-  border-color:#999;
-  color:#111;
-  background:#fdfdfd;
-  outline:none;
-}
-
 @media (max-width:560px){
   .quick-search{
     margin:0 0 22px;
