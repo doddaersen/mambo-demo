@@ -60,13 +60,28 @@
     modal.setAttribute('aria-hidden', 'true');
   }
 
+  function isRealIcon(img){
+    return img && img.dataset.iconReal === '1';
+  }
+
   function addImageZoomButtons(){
     document.querySelectorAll('#termList .card').forEach(card=>{
       const icon = card.querySelector('.term-icon');
       const img = icon ? icon.querySelector('img') : null;
-      if(!icon || !img || icon.querySelector('.zoom-btn')) return;
+      if(!icon || !img) return;
 
-      const button = document.createElement('button');
+      let button = icon.querySelector('.zoom-btn');
+      const real = isRealIcon(img);
+      icon.classList.toggle('has-real-icon', real);
+      icon.classList.toggle('has-placeholder-icon', !real);
+
+      if(!real){
+        if(button) button.remove();
+        return;
+      }
+
+      if(button) return;
+      button = document.createElement('button');
       button.className = 'zoom-btn';
       button.type = 'button';
       button.setAttribute('aria-label', 'Ábra nagyítása');
@@ -74,6 +89,7 @@
       button.addEventListener('click', event=>{
         event.preventDefault();
         event.stopPropagation();
+        if(!isRealIcon(img)) return;
         const title = card.querySelector('h3')?.textContent || 'Szócikkábra';
         openImageZoomModal(img.currentSrc || img.src, title);
       });
@@ -111,7 +127,7 @@
     ensureImageZoomModal();
     const termList = document.querySelector('#termList');
     if(termList){
-      new MutationObserver(addImageZoomButtons).observe(termList, { childList:true, subtree:true });
+      new MutationObserver(addImageZoomButtons).observe(termList, { childList:true, subtree:true, attributes:true, attributeFilter:['src','data-icon-real'] });
     }
     addImageZoomButtons();
     window.setTimeout(addImageZoomButtons, 300);
