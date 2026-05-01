@@ -51,9 +51,9 @@
   padding-bottom:10px!important;
 }
 
-/* Keep the description aligned with the text block, not under the icon */
+/* Description runs under the icon, as planned */
 .term-summary{
-  grid-template-areas:"icon head" ". def"!important;
+  grid-template-areas:"icon head" "icon def"!important;
 }
 .term-summary>.definition{
   align-self:start!important;
@@ -76,7 +76,7 @@
   .term-summary{
     padding-top:14px!important;
     padding-bottom:48px!important;
-    grid-template-areas:"icon head" ". def"!important;
+    grid-template-areas:"icon head" "icon def"!important;
   }
   .open-hint{bottom:14px!important;}
 }
