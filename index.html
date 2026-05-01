@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="assets/css/sandbox-ui.css?v=6" />
   <link rel="stylesheet" href="assets/css/category-label-overrides.css?v=5" />
   <link rel="stylesheet" href="assets/css/term-card-final.css?v=2" />
+  <link rel="stylesheet" href="assets/css/sidebar-panels.css?v=1" />
 </head>
 <body>
   <header class="site-header text-header">
@@ -25,19 +26,24 @@
   <main>
     <div class="wrap layout">
       <aside>
-        <section class="project-intro" aria-label="Projektleírás">
-          <p class="project-kicker">MAMBO</p>
-          <h2>MOME Artists’ Book Ontology</h2>
-          <p>
+        <section class="sidebar-panel sidebar-about" aria-label="About">
+          <p class="sidebar-panel-title">ABOUT</p>
+          <p class="about-brand">
+            <strong>MAMBO</strong>
+            <span>MOME Artists’ Book Ontology</span>
+          </p>
+          <p class="about-text">
             A művészkönyvek formai és szerkezeti leírásához készült böngészhető fogalmi rendszer.
             A szócikkek külön leírási rétegekben teszik kereshetővé a könyvtárgy technikai,
             tárgyi és használati jellemzőit.
           </p>
         </section>
 
-        <p class="panel-title">Böngészés kategória szerint</p>
-        <input id="searchInput" class="search" type="search" placeholder="Keresés névre, definícióra…" />
-        <div id="filters" class="filters browse-list"></div>
+        <section class="sidebar-panel sidebar-browse" aria-label="Böngészés">
+          <p class="sidebar-panel-title">BÖNGÉSZÉS</p>
+          <input id="searchInput" class="search" type="search" placeholder="Keresés névre, definícióra…" />
+          <div id="filters" class="filters browse-list"></div>
+        </section>
       </aside>
 
       <section>
