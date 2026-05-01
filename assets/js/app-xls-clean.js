@@ -9,9 +9,9 @@ const iconBase='assets/icons/';
 const categoryMeta={
   'formátum':{title:'Formátum',description:'A könyv térbeli, szerkezeti vagy hordozói formája.',icon:iconBase+'kategoria-formatum-v2.png'},
   'fűzésmód':{title:'Fűzésmód',description:'A lapok, ívek vagy könyvtestek összekapcsolásának technikai módja.',icon:iconBase+'kategoria-fuzes.png'},
-  'kötésmód':{title:'Kötésmód',description:'A lapok, ívek vagy könyvtestek borítószerkezettel való összekapcsolásának technikai módja.',icon:iconBase+'kategoria-kotes.png'},
+  'kötésmód':{title:'Kötésmód',description:'A lapok, ívek vagy könyvtestek borítószerkezettel való összekapcsolásának technikai módja.',icon:iconBase+'kategoria-kotes-2.png'},
   'gerincszerkezet':{title:'Gerincszerkezet',description:'A könyvgerinc kialakítása, láthatósága és működése.',icon:iconBase+'kategoria-gerinc.png'},
-  'záródás':{title:'Záródás',description:'A könyv záródását, nyithatóságát vagy összefogását biztosító szerkezeti megoldás.',icon:iconBase+'kategoria-zarodas.png'},
+  'záródás':{title:'Záródás',description:'A könyv záródását, nyithatóságát vagy összefogását biztosító szerkezeti megoldás.',icon:iconBase+'kategoria-zarodas-2.png'},
   'tárolóelem':{title:'Tárolóelem',description:'A könyvhöz tartozó védő-, hordozó- vagy gyűjteményi elem.',icon:iconBase+'kategoria-tarolo.png'}
 };
 function escapeHtml(value){return String(value||'').replace(/&/g,'&amp;').replace(/\"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
