@@ -1,24 +1,31 @@
+.category[data-category="formátum"],
+.category[data-category="könyvforma"],
 .term-content .category[data-category="formátum"],
 .term-content .category[data-category="könyvforma"]{
   background:rgba(224,169,186,.75)!important;
   border-color:rgba(208,147,167,.9)!important;
 }
+.category[data-category="fűzésmód"],
 .term-content .category[data-category="fűzésmód"]{
   background:#c2c9ef!important;
   border-color:#aeb7df!important;
 }
+.category[data-category="kötésmód"],
 .term-content .category[data-category="kötésmód"]{
   background:#dbb8e3!important;
   border-color:#caa2d5!important;
 }
+.category[data-category="gerincszerkezet"],
 .term-content .category[data-category="gerincszerkezet"]{
   background:rgba(136,198,195,.75)!important;
   border-color:rgba(111,183,179,.9)!important;
 }
+.category[data-category="záródás"],
 .term-content .category[data-category="záródás"]{
   background:#c4ca4e!important;
   border-color:#aeb439!important;
 }
+.category[data-category="tárolóelem"],
 .term-content .category[data-category="tárolóelem"]{
   background:rgba(238,203,164,.75)!important;
   border-color:rgba(224,185,130,.9)!important;
