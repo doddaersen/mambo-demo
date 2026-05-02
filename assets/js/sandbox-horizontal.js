@@ -86,12 +86,11 @@ function uniq(a){return[...new Set(a.flat().filter(Boolean))]}
 function pathVariants(name){return[`${iconBase}${name}.png`,`${iconBase}${name}v2.png`,`${iconBase}${name}-v2.png`,`${iconBase}${name}_v2.png`]}
 function makeCandidates(names,zoomable){return uniq(names).flatMap(n=>pathVariants(n).map(src=>({src,zoomable})))}
 function getIconCandidates(c){
-  const cat=c.dataset.category||'formátum',id=c.dataset.termId||'',top=c.querySelector('.card-top'),hu=top?.querySelector('h3')?.textContent||'',en=top?.querySelector('.en')?.textContent||'',idSlug=id.replace(/^mambo:/,'').replace(/[:_]/g,'-'),huKey=hu.toLowerCase();
+  const id=c.dataset.termId||'',top=c.querySelector('.card-top'),hu=top?.querySelector('h3')?.textContent||'',en=top?.querySelector('.en')?.textContent||'',idSlug=id.replace(/^mambo:/,'').replace(/[:_]/g,'-'),huKey=hu.toLowerCase();
   const realNames=uniq([fixedIcons[id]||[],aliases[huKey]||[],slug(hu),slug(en),idSlug]);
-  const fallbackNames=[`placeholder-${cat}`,'placeholder',categoryIcons[cat],categoryIcons['formátum']].filter(Boolean);
   const real=makeCandidates(realNames,true);
-  const fallback=fallbackNames.flatMap(item=>String(item).startsWith('assets/')?[{src:item,zoomable:false}]:pathVariants(item).map(src=>({src,zoomable:false})));
-  return uniq([...real,...fallback].map(item=>`${item.src}@@${item.zoomable?'1':'0'}`)).map(item=>{const [src,zoomable]=item.split('@@');return{src,zoomable:zoomable==='1'}});
+  const placeholder=[{src:iconBase+'kephamarosan.png',zoomable:false}];
+  return uniq([...real,...placeholder].map(item=>`${item.src}@@${item.zoomable?'1':'0'}`)).map(item=>{const [src,zoomable]=item.split('@@');return{src,zoomable:zoomable==='1'}});
 }
 function syncIconState(img){const list=(img.dataset.zoomableCandidates||'').split('|');const i=Number(img.dataset.index||0);img.dataset.iconReal=list[i]==='1'?'1':'0'}
 function fallback(img){const list=(img.dataset.candidates||'').split('|');let i=Number(img.dataset.index||0)+1;if(i<list.length){img.dataset.index=i;syncIconState(img);img.src=list[i];}}
