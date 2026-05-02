@@ -7,9 +7,11 @@ const categoryIcons={
 };
 const fixedIcons={
   'mambo:form-001':['formatum-leporello','leporello','concertina-leporello','accordion'],
-  'mambo:form-002':['formatum-kodex','kodexv2','kodex-formatum','kodex','codex'],
-  'mambo:form-003':['formatum-dobozkonyv','dobozkonyv','box-book'],
-  'mambo:form-004':['formatum-scroll','formatum-tekercs','tekercs','scroll'],
+  'mambo:form-002':['formatum-dosados','dos-a-dos','dosados'],
+  'mambo:form-003':['formatum-tetebeche','tete-beche','tetebeche'],
+  'mambo:form-004':['forma-flag','formatum-zaszlokonyv','zaszlokonyv','flag-book'],
+  'mambo:form-005':['tunnelv2','formatum-alagutkonyv','alagutkonyv','tunnel-book','tunnel'],
+  'mambo:form-006':['popupv2','formatum-popup','pop-up-konyv','popup-konyv','popup'],
   'mambo:form-007':['formatum-fuzet','fuzet','booklet'],
   'mambo:form-035':['forma-flag','formatum-zaszlokonyv','zaszlokonyv','flag-book'],
   'mambo:form-037':['popupv2','formatum-popup','pop-up-konyv','popup-konyv','popup'],
