@@ -20,7 +20,7 @@
 
 .sidebar-main-title,
 .sidebar-panel-title{
-  margin:0 0 13px;
+  margin:0 0 14px;
   font-family:var(--display-font)!important;
   font-size:11px;
   line-height:1;
@@ -31,23 +31,33 @@
 }
 
 .about-brand{
-  margin:0 0 9px;
-  font-size:14px;
-  line-height:1.25;
+  margin:0 0 3px;
   color:#111;
 }
 
 .about-brand strong{
   display:block;
-  font-weight:780;
-  letter-spacing:.01em;
+  font-size:14px;
+  line-height:1.25;
+  font-weight:680;
+  letter-spacing:0;
+}
+
+.about-acronym{
+  display:block;
+  margin:3px 0 12px;
+  font-size:11px;
+  line-height:1;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--muted);
 }
 
 .about-text{
   margin:0;
   color:var(--muted);
   font-size:12px;
-  line-height:1.48;
+  line-height:1.55;
 }
 
 .sidebar-browse .search{
@@ -62,11 +72,28 @@
 .sidebar-browse .browse-group{
   border:1px solid var(--line-dark)!important;
   background:#fff!important;
+  position:relative;
+  overflow:hidden;
 }
+
+.sidebar-browse .browse-group::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:3px;
+  background:#ddd;
+}
+
+.sidebar-browse .browse-group[data-category="formátum"]::before{background:#e0a9ba;}
+.sidebar-browse .browse-group[data-category="fűzésmód"]::before{background:#c2c9ef;}
+.sidebar-browse .browse-group[data-category="kötésmód"]::before{background:#dbb8e3;}
+.sidebar-browse .browse-group[data-category="gerincszerkezet"]::before{background:#88c6c3;}
+.sidebar-browse .browse-group[data-category="záródás"]::before{background:#c4ca4e;}
+.sidebar-browse .browse-group[data-category="tárolóelem"]::before{background:#eecba4;}
 
 .sidebar-browse .browse-toggle{
   min-height:38px;
-  padding:10px 11px;
+  padding:10px 11px 10px 14px;
   font-family:var(--text-font);
   font-size:13px;
   line-height:1.2;
@@ -74,17 +101,23 @@
   background:#fff!important;
 }
 
-.sidebar-browse .browse-toggle:hover,
-.sidebar-browse .browse-toggle.open{
+.sidebar-browse .browse-group[data-category="formátum"] .browse-toggle.open{background:rgba(224,169,186,.18)!important;}
+.sidebar-browse .browse-group[data-category="fűzésmód"] .browse-toggle.open{background:rgba(194,201,239,.22)!important;}
+.sidebar-browse .browse-group[data-category="kötésmód"] .browse-toggle.open{background:rgba(219,184,227,.22)!important;}
+.sidebar-browse .browse-group[data-category="gerincszerkezet"] .browse-toggle.open{background:rgba(136,198,195,.18)!important;}
+.sidebar-browse .browse-group[data-category="záródás"] .browse-toggle.open{background:rgba(196,202,78,.20)!important;}
+.sidebar-browse .browse-group[data-category="tárolóelem"] .browse-toggle.open{background:rgba(238,203,164,.20)!important;}
+
+.sidebar-browse .browse-toggle:hover{
   background:#f6f6f6!important;
 }
 
 .sidebar-browse .browse-toggle.open{
-  font-weight:680;
+  font-weight:600;
 }
 
 .sidebar-browse .browse-terms{
-  padding:0 8px 9px 10px;
+  padding:0 8px 9px 13px;
   background:#fff!important;
 }
 
