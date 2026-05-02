@@ -4,42 +4,42 @@
 #termList .card .category[data-category="könyvforma"],
 .category[data-category="formátum"],
 .category[data-category="könyvforma"]{
-  background:#e0a9ba!important;
+  background:rgba(224,169,186,.5)!important;
   border-color:#d093a7!important;
   color:#242424!important;
 }
 
 #termList .card .category[data-category="fűzésmód"],
 .category[data-category="fűzésmód"]{
-  background:#c2c9ef!important;
+  background:rgba(194,201,239,.5)!important;
   border-color:#aeb7df!important;
   color:#242424!important;
 }
 
 #termList .card .category[data-category="kötésmód"],
 .category[data-category="kötésmód"]{
-  background:#dbb8e3!important;
+  background:rgba(219,184,227,.5)!important;
   border-color:#caa2d5!important;
   color:#242424!important;
 }
 
 #termList .card .category[data-category="gerincszerkezet"],
 .category[data-category="gerincszerkezet"]{
-  background:#88c6c3!important;
+  background:rgba(136,198,195,.5)!important;
   border-color:#6fb7b3!important;
   color:#242424!important;
 }
 
 #termList .card .category[data-category="záródás"],
 .category[data-category="záródás"]{
-  background:#c4ca4e!important;
+  background:rgba(196,202,78,.5)!important;
   border-color:#aeb439!important;
   color:#242424!important;
 }
 
 #termList .card .category[data-category="tárolóelem"],
 .category[data-category="tárolóelem"]{
-  background:#eecba4!important;
+  background:rgba(238,203,164,.5)!important;
   border-color:#e0b982!important;
   color:#242424!important;
 }
