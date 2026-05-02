@@ -4,12 +4,12 @@
   border-color:rgba(208,147,167,.9)!important;
 }
 .term-content .category[data-category="fűzésmód"]{
-  background:rgba(210,226,166,.78)!important;
-  border-color:rgba(188,207,133,.95)!important;
+  background:#c2c9ef!important;
+  border-color:#aeb7df!important;
 }
 .term-content .category[data-category="kötésmód"]{
-  background:#c2a9f1!important;
-  border-color:#b095e7!important;
+  background:#dbb8e3!important;
+  border-color:#caa2d5!important;
 }
 .term-content .category[data-category="gerincszerkezet"]{
   background:rgba(136,198,195,.75)!important;
