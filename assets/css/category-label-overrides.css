@@ -1,34 +1,47 @@
+/* Final category label color layer. Keep this stylesheet last in site.css. */
+
+#termList .card .category[data-category="formátum"],
+#termList .card .category[data-category="könyvforma"],
 .category[data-category="formátum"],
-.category[data-category="könyvforma"],
-.term-content .category[data-category="formátum"],
-.term-content .category[data-category="könyvforma"]{
-  background:rgba(224,169,186,.75)!important;
-  border-color:rgba(208,147,167,.9)!important;
+.category[data-category="könyvforma"]{
+  background:#e0a9ba!important;
+  border-color:#d093a7!important;
+  color:#242424!important;
 }
-.category[data-category="fűzésmód"],
-.term-content .category[data-category="fűzésmód"]{
+
+#termList .card .category[data-category="fűzésmód"],
+.category[data-category="fűzésmód"]{
   background:#c2c9ef!important;
   border-color:#aeb7df!important;
+  color:#242424!important;
 }
-.category[data-category="kötésmód"],
-.term-content .category[data-category="kötésmód"]{
+
+#termList .card .category[data-category="kötésmód"],
+.category[data-category="kötésmód"]{
   background:#dbb8e3!important;
   border-color:#caa2d5!important;
+  color:#242424!important;
 }
-.category[data-category="gerincszerkezet"],
-.term-content .category[data-category="gerincszerkezet"]{
-  background:rgba(136,198,195,.75)!important;
-  border-color:rgba(111,183,179,.9)!important;
+
+#termList .card .category[data-category="gerincszerkezet"],
+.category[data-category="gerincszerkezet"]{
+  background:#88c6c3!important;
+  border-color:#6fb7b3!important;
+  color:#242424!important;
 }
-.category[data-category="záródás"],
-.term-content .category[data-category="záródás"]{
+
+#termList .card .category[data-category="záródás"],
+.category[data-category="záródás"]{
   background:#c4ca4e!important;
   border-color:#aeb439!important;
+  color:#242424!important;
 }
-.category[data-category="tárolóelem"],
-.term-content .category[data-category="tárolóelem"]{
-  background:rgba(238,203,164,.75)!important;
-  border-color:rgba(224,185,130,.9)!important;
+
+#termList .card .category[data-category="tárolóelem"],
+.category[data-category="tárolóelem"]{
+  background:#eecba4!important;
+  border-color:#e0b982!important;
+  color:#242424!important;
 }
 
 /* Flatten cards slightly */
@@ -66,7 +79,6 @@
   padding-bottom:10px!important;
 }
 
-/* Description runs under the icon, as planned */
 .term-summary{
   grid-template-areas:"icon head" "icon def"!important;
 }
@@ -74,7 +86,6 @@
   align-self:start!important;
 }
 
-/* Generic category fallback icons inside term cards */
 .term-icon img[src*="szotar_ikon_"]{
   opacity:.5!important;
   filter:grayscale(1)!important;
