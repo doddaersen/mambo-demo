@@ -44,6 +44,11 @@
   color:#242424!important;
 }
 
+#termList .card .category,
+.category{
+  font-weight:400!important;
+}
+
 /* Flatten cards slightly */
 .category-panel{
   min-height:170px!important;
