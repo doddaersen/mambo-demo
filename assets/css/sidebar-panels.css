@@ -1,4 +1,4 @@
-/* Sidebar panels: ABOUT + BÖNGÉSZÉS */
+/* Sidebar panels: INTRO + BÖNGÉSZÉS */
 
 .layout > aside{
   background:transparent!important;
@@ -18,21 +18,7 @@
   margin-top:20px;
 }
 
-.sidebar-subtitle{
-  padding:14px 16px 13px;
-}
-
-.sidebar-subtitle p{
-  margin:0;
-  font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size:12px;
-  font-weight:600;
-  line-height:1.15;
-  letter-spacing:.11em;
-  text-transform:uppercase;
-  color:#333;
-}
-
+.sidebar-main-title,
 .sidebar-panel-title{
   margin:0 0 13px;
   font-family:var(--display-font)!important;
@@ -55,14 +41,6 @@
   display:block;
   font-weight:780;
   letter-spacing:.01em;
-}
-
-.about-brand span{
-  display:block;
-  margin-top:2px;
-  color:#333;
-  font-size:12px;
-  line-height:1.25;
 }
 
 .about-text{
