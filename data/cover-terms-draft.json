@@ -1,0 +1,171 @@
+{
+  "status": "draft",
+  "note": "Draft cover and cover-structure vocabulary. Not loaded by the live interface yet. Scope is contemporary MAMBO use, not historical leather subtype taxonomy.",
+  "terms": [
+    {
+      "id": "mambo:cover-001",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Keménytáblás",
+      "prefLabelEn": "Hardback / case-bound cover",
+      "altLabels": ["hardcover", "casebound", "hard binding"],
+      "definitionHu": "Merev táblával készült borítószerkezet, amelyben a könyvtestet kemény fedél védi; a borító anyaga külön mezőben írható le.",
+      "exactMatch": "",
+      "source": "Roberts & Etherington 1982; Mentsik 1950; Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-002",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Puhafedeles",
+      "prefLabelEn": "Softcover / paperback",
+      "altLabels": ["softcover", "limp cover", "paperback"],
+      "definitionHu": "Rugalmas papír- vagy vékony kartonborítóval ellátott könyvforma, amelynél a borító nem alkot merev táblás szerkezetet.",
+      "exactMatch": "",
+      "source": "Roberts & Etherington 1982",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-003",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Flexibound",
+      "prefLabelEn": "Flexibound / semi-rigid cover",
+      "altLabels": ["semi-stiff cover", "semi-flexible cover", "flexible board"],
+      "definitionHu": "Félig merev, hajlékony táblás borítószerkezet, amely a keménytáblás és a puhafedeles megoldások közötti átmeneti forma.",
+      "exactMatch": "",
+      "source": "Roberts & Etherington 1982",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-004",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Borító nélküli",
+      "prefLabelEn": "No cover / uncovered",
+      "altLabels": ["unbound", "uncovered", "no cover"],
+      "definitionHu": "Külső borító vagy fedél nélküli könyvtárgyi forma; a lapok, ívek vagy könyvtest borítószerkezet nélkül jelennek meg.",
+      "exactMatch": "",
+      "source": "MAMBO ext.",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-101",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Papírborítás",
+      "prefLabelEn": "Paper cover / paper-covered boards",
+      "altLabels": ["borítópapír", "paper cover", "paper-covered cover"],
+      "definitionHu": "Papírral borított fedél vagy borítószerkezet; önálló borítóként vagy táblás kötés külső borításaként is megjelenhet.",
+      "exactMatch": "",
+      "source": "Mentsik 1950; Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-102",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Vászonborítás",
+      "prefLabelEn": "Cloth cover / cloth binding",
+      "altLabels": ["vászonkötés", "könyvkötővászon borítás", "cloth binding"],
+      "definitionHu": "Vászonnal vagy könyvkötővászonnal borított fedél vagy gerincborítás.",
+      "exactMatch": "",
+      "source": "Mentsik 1950; Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-103",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Félvászon borítás",
+      "prefLabelEn": "Half-cloth cover / half-cloth binding",
+      "altLabels": ["félvászonkötés", "félvászon borító", "half cloth"],
+      "definitionHu": "Olyan borítási megoldás, amelynél a könyvgerinc és rendszerint a könyvsarkok vászonnal, a könyvfedél nagyobb felülete pedig papírral vagy más borítóanyaggal fedett.",
+      "exactMatch": "",
+      "source": "Mentsik 1950; Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-104",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Egészvászon borítás",
+      "prefLabelEn": "Full cloth cover / full cloth binding",
+      "altLabels": ["egészvászonkötés", "egészvászon borító", "full cloth"],
+      "definitionHu": "Olyan borítási megoldás, amelynél a könyv teljes külső fedele könyvkötővászonnal vagy más vászonalapú borítóanyaggal van bevonva.",
+      "exactMatch": "",
+      "source": "Mentsik 1950; Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-105",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Bőrborítás",
+      "prefLabelEn": "Leather cover / leather binding",
+      "altLabels": ["bőrkötés", "leather binding", "leather cover"],
+      "definitionHu": "Bőrrel borított fedél vagy gerincborítás; a konkrét bőrfajta csak akkor releváns, ha a mű leírásában anyaghasználati szempontból jelentős.",
+      "exactMatch": "",
+      "source": "Gulyás 1904; Mentsik 1950",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-106",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Pergamenborítás",
+      "prefLabelEn": "Parchment / vellum cover",
+      "altLabels": ["pergamenkötés", "vellum cover", "parchment binding"],
+      "definitionHu": "Pergamennel vagy vellummal borított fedél vagy borítószerkezet.",
+      "exactMatch": "",
+      "source": "Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-107",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Műbőr / szintetikus borítás",
+      "prefLabelEn": "Synthetic leather / imitation leather cover",
+      "altLabels": ["műbőr", "vegan leather", "imitation leather"],
+      "definitionHu": "Bőrt utánzó, szintetikus vagy kompozit borítóanyaggal készült fedél vagy gerincborítás.",
+      "exactMatch": "",
+      "source": "MAMBO ext.",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-108",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Átlátszó borítás",
+      "prefLabelEn": "Transparent cover",
+      "altLabels": ["transparent cover", "acetate cover", "plastic cover"],
+      "definitionHu": "Áttetsző vagy átlátszó műanyag, fólia vagy kompozit borító, amely a könyv első rétegét vagy belső lapjait részben láthatóvá teszi.",
+      "exactMatch": "",
+      "source": "MAMBO ext.",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-109",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Fa borítás",
+      "prefLabelEn": "Wooden cover",
+      "altLabels": ["wood cover", "wooden boards"],
+      "definitionHu": "Fából vagy faalapú lemezből készült fedél, amely táblaként, borítóként vagy tárgyi-szerkezeti elemként működik.",
+      "exactMatch": "",
+      "source": "MAMBO ext.",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-110",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Táblázott kötés",
+      "prefLabelEn": "Boarded binding / binding with boards",
+      "altLabels": ["táblázás", "táblás kötés"],
+      "definitionHu": "Olyan kötészeti konstrukció, amelyben a könyvtestet a táblákhoz és a gerincszerkezethez illesztve építik össze; a borító a könyvtesttel együtt kialakított szerkezeti egység.",
+      "exactMatch": "",
+      "source": "Mentsik 1950; Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    },
+    {
+      "id": "mambo:cover-111",
+      "cidoc": "E55 Type",
+      "prefLabelHu": "Beakasztott kötés",
+      "prefLabelEn": "Case binding / cased-in binding",
+      "altLabels": ["beakasztás", "beakasztott könyvtest", "cased-in"],
+      "definitionHu": "Olyan kötészeti konstrukció, amelyben a borító vagy fedél külön készül el, majd a könyvtestet ebbe ragasztják vagy akasztják be.",
+      "exactMatch": "",
+      "source": "Mentsik 1950; Gulyás 1904",
+      "relatedProperty": "P2 has type"
+    }
+  ]
+}
