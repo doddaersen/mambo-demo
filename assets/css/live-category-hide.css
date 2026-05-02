@@ -1,0 +1,5 @@
+/* Temporary live override: terms in these categories are visible, but the top category tiles stay hidden until dedicated category icons are ready. */
+.category-panel[data-category="anyag"],
+.category-panel[data-category="borítószerkezet"]{
+  display:none!important;
+}
