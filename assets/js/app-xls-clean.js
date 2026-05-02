@@ -1,7 +1,7 @@
 const categoryOrder=['formátum','fűzésmód','kötésmód','gerincszerkezet','záródás','tárolóelem'];
 const categoryKeyMap={'könyvforma':'formátum','formátum':'formátum','fűzésmód':'fűzésmód','kötésmód':'kötésmód','gerincszerkezet':'gerincszerkezet','záródás':'záródás','tárolóelem':'tárolóelem'};
 const categoryLabelMap={'formátum':'Formátum','fűzésmód':'Fűzésmód','kötésmód':'Kötésmód','gerincszerkezet':'Gerincszerkezet','záródás':'Záródás','tárolóelem':'Tárolóelem'};
-const categoryColors={'fűzésmód':'#d2e2a6','kötésmód':'#c2a9f1','záródás':'#c4ca4e'};
+const categoryColors={'fűzésmód':'#c2c9ef','kötésmód':'#dbb8e3','záródás':'#c4ca4e'};
 const iconBase='assets/icons/';
 const iconVersion='?v=cat-20260502c';
 const categoryMeta={
