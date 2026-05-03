@@ -11,6 +11,7 @@
       "definition (HU)": "Mechanikus vagy sokszorosított nyomat kézi kifestése vagy színezése.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
+      "relatedTerms": "festés; lakkozás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -22,6 +23,7 @@
       "definition (HU)": "Fényes vagy matt védő- vagy díszítőréteg felvitele a könyv felületére, borítójára vagy nyomtatott részletére.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
+      "relatedTerms": "lakkszórás; szitázott bevonat",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -33,6 +35,7 @@
       "definition (HU)": "Arany- vagy fémhatású bevonat felvitele díszítés céljára, jellemzően borítón, gerincen, metszésen vagy feliraton.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
+      "relatedTerms": "fóliaprégelés; vaknyomás; dombornyomás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -44,6 +47,7 @@
       "definition (HU)": "Pigmenttel történő kézi festés a borítón, lapon, metszésen vagy más könyvtárgyi felületen.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
+      "relatedTerms": "kézi színezés; lakkozás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -55,6 +59,7 @@
       "definition (HU)": "Nyomóforma vagy prés segítségével létrehozott plasztikus, kiemelkedő felület.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
+      "relatedTerms": "vaknyomás; fóliaprégelés; aranyozás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -66,6 +71,7 @@
       "definition (HU)": "Festék vagy fólia nélküli, nyomóformával kialakított felületi díszítés, gyakran borítón vagy gerincen.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
+      "relatedTerms": "dombornyomás; fóliaprégelés; aranyozás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -77,6 +83,7 @@
       "definition (HU)": "Fémes vagy színes fólia hővel és nyomással történő felvitele felirat, motívum vagy felületi díszítés létrehozására.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904; Contemporary practice",
+      "relatedTerms": "aranyozás; vaknyomás; dombornyomás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -88,6 +95,7 @@
       "definition (HU)": "Permetezéssel felvitt védő- vagy díszítőréteg, amely a felület fényét, textúráját vagy tartósságát módosítja.",
       "exactMatch": "",
       "source": "Mentsik 1950; Gulyás 1904; Contemporary practice",
+      "relatedTerms": "lakkozás; szitázott bevonat",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -99,6 +107,7 @@
       "definition (HU)": "Részleges kivágás vagy áttörés, amely díszítő, funkcionális vagy interaktív szerepet kaphat a könyvtárgyban.",
       "exactMatch": "",
       "source": "AAT; Roberts & Etherington 1982; Contemporary book arts",
+      "relatedTerms": "lyukasztás; pop-up könyv",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -110,6 +119,7 @@
       "definition (HU)": "Mechanikus lyukasztással létrehozott nyílás vagy mintázat, amely kötészeti, vizuális vagy használati funkcióval bírhat.",
       "exactMatch": "",
       "source": "Roberts & Etherington 1982; Contemporary book arts",
+      "relatedTerms": "perforálás; japán fűzés",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -121,6 +131,7 @@
       "definition (HU)": "Szitanyomással felvitt strukturált vagy fedő bevonat, amely felületi textúrát, fényhatást vagy réteghatást hozhat létre.",
       "exactMatch": "",
       "source": "AAT; Contemporary book arts",
+      "relatedTerms": "lakkozás; lakkszórás",
       "relatedProperty": "P32 used general technique"
     }
   ]
