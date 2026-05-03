@@ -1,8 +1,8 @@
-/* Prevent opened term details from continuing at the top of another CSS column. */
+/* Keep the established three-column card layout, but prevent opened cards from fragmenting like CSS columns. */
 #termList.grid{
   display:grid!important;
   grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  gap:14px!important;
+  gap:24px 26px!important;
   column-count:initial!important;
   column-gap:normal!important;
   align-items:start!important;
@@ -14,20 +14,28 @@
 
 #termList.grid .card{
   display:block!important;
+  width:100%!important;
   margin:0!important;
   break-inside:auto!important;
   -webkit-column-break-inside:auto!important;
   page-break-inside:auto!important;
 }
 
+#termList.grid .card-body{
+  left:0!important;
+  right:0!important;
+}
+
 @media(max-width:1100px){
   #termList.grid{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:20px!important;
   }
 }
 
 @media(max-width:900px){
   #termList.grid{
     grid-template-columns:1fr!important;
+    gap:16px!important;
   }
 }
