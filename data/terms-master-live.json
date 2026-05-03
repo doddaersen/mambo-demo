@@ -1,0 +1,53 @@
+{
+  "status": "work-in-progress",
+  "purpose": "Consolidated source file for the live MAMBO demo vocabulary before regenerating the production terms-xls-clean-*.json files.",
+  "sourceFiles": {
+    "live": [
+      "data/terms-xls-clean-1.json",
+      "data/terms-xls-clean-2.json",
+      "data/terms-xls-clean-3.json",
+      "data/terms-xls-clean-4.json"
+    ],
+    "draft": [
+      "data/demo-master-draft.json on draft-material-vocabulary",
+      "data/cover-terms-draft.json on draft-material-vocabulary",
+      "data/material-terms-draft.json on draft-material-vocabulary"
+    ]
+  },
+  "schema": {
+    "id": "string",
+    "prefLabelHu": "string",
+    "prefLabelEn": "string",
+    "category": "Formátum | Fűzésmód | Kötésmód | Borítószerkezet | Gerincszerkezet | Anyag | Záródás | Tárolóelem",
+    "tagColor": "string",
+    "class": "string",
+    "property": "string",
+    "cidoc": "string",
+    "altLabelHu": "string[]",
+    "altLabelEn": "string[]",
+    "definition": "string",
+    "usage": "string",
+    "meaning": "string",
+    "relatedTerms": "string[]",
+    "sources": "string[]",
+    "demoStatus": "string"
+  },
+  "categoryOrder": [
+    "Formátum",
+    "Fűzésmód",
+    "Kötésmód",
+    "Borítószerkezet",
+    "Gerincszerkezet",
+    "Anyag",
+    "Záródás",
+    "Tárolóelem"
+  ],
+  "mergeRules": [
+    "Keep existing live normalized keys as the production schema.",
+    "Prefer draft-material-vocabulary terms for updated cover and material vocabularies.",
+    "Keep enriched live usage/meaning fields for storage terms where they already exist.",
+    "Do not expose top category tiles for Anyag and Borítószerkezet until dedicated category icons are ready.",
+    "After review, regenerate terms-xls-clean-1.json through terms-xls-clean-4.json from this master instead of editing them manually."
+  ],
+  "terms": []
+}
