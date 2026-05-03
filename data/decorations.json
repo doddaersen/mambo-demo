@@ -35,7 +35,7 @@
       "definition (HU)": "Arany- vagy fémhatású bevonat felvitele díszítés céljára, jellemzően borítón, gerincen, metszésen vagy feliraton.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
-      "relatedTerms": "fóliaprégelés; vaknyomás; dombornyomás",
+      "relatedTerms": "fóliaprégelés; vaknyomás; dombornyomás; metszésaranyozás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -47,7 +47,7 @@
       "definition (HU)": "Pigmenttel történő kézi festés a borítón, lapon, metszésen vagy más könyvtárgyi felületen.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
-      "relatedTerms": "kézi színezés; lakkozás",
+      "relatedTerms": "kézi színezés; lakkozás; élfestés",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -132,6 +132,66 @@
       "exactMatch": "",
       "source": "AAT; Contemporary book arts",
       "relatedTerms": "lakkozás; lakkszórás",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-012",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Élfestés / metszésfestés",
+      "prefLabel (EN)": "Painted edges / edge painting",
+      "altLabel": "élfestés; metszésfestés; painted edge; edge decoration",
+      "definition (HU)": "A könyv metszésének vagy lapéleinek festéssel történő díszítése, amely egyszínű, mintázott vagy képi jellegű felületet hozhat létre.",
+      "exactMatch": "",
+      "source": "AAT; Mentsik 1950; Gulyás 1904; Roberts & Etherington 1982",
+      "relatedTerms": "festés; metszésaranyozás; márványozott metszés; rejtett metszésfestés",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-013",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Metszésaranyozás",
+      "prefLabel (EN)": "Edge gilding / gilt edges",
+      "altLabel": "aranyozott metszés; gilt edge; gold edges",
+      "definition (HU)": "A könyv metszésének arany- vagy fémhatású réteggel történő díszítése és védelme.",
+      "exactMatch": "",
+      "source": "AAT; Mentsik 1950; Gulyás 1904; Roberts & Etherington 1982",
+      "relatedTerms": "aranyozás; élfestés; márványozott metszés",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-014",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Márványozás",
+      "prefLabel (EN)": "Marbling",
+      "altLabel": "márványozott papír; marbled paper; marbled surface",
+      "definition (HU)": "Festékek víz- vagy nyálkás alapú felületen való úsztatásával és papírra vagy más hordozóra való átvitelével létrehozott mintázó eljárás.",
+      "exactMatch": "",
+      "source": "AAT; Mentsik 1950; Gulyás 1904; Roberts & Etherington 1982",
+      "relatedTerms": "márványozott metszés; festés; papír",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-015",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Márványozott metszés",
+      "prefLabel (EN)": "Marbled edges",
+      "altLabel": "márványozott él; marbled edge; marbled book edges",
+      "definition (HU)": "A könyv metszésén kialakított márványozott mintázat, amely egyszerre felületdíszítés és metszéskezelési eljárás.",
+      "exactMatch": "",
+      "source": "AAT; Mentsik 1950; Gulyás 1904; Roberts & Etherington 1982",
+      "relatedTerms": "márványozás; élfestés; metszésaranyozás",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-016",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Rejtett metszésfestés",
+      "prefLabel (EN)": "Fore-edge painting",
+      "altLabel": "fore-edge painting; hidden fore-edge painting; előmetszésfestés",
+      "definition (HU)": "A könyv előmetszésén kialakított képi vagy díszítő festés, amely gyakran csak a lapok enyhe szétnyitásakor vagy eltolásakor válik láthatóvá.",
+      "exactMatch": "",
+      "source": "AAT; Roberts & Etherington 1982; Contemporary book arts",
+      "relatedTerms": "élfestés; festés; metszésaranyozás",
       "relatedProperty": "P32 used general technique"
     }
   ]
