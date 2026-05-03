@@ -1,6 +1,6 @@
 {
   "status": "draft",
-  "note": "Decoration and surface-treatment terms added as a separate demo data layer.",
+  "note": "Decoration and surface-treatment terms added as a separate demo data layer. Source fields keep years where historical sources are relevant.",
   "terms": [
     {
       "ID": "mambo:decoration-001",
@@ -10,7 +10,7 @@
       "altLabel": "kézzel színezett nyomat; hand-coloured print",
       "definition (HU)": "Mechanikus vagy sokszorosított nyomat kézi kifestése vagy színezése.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Mentsik 1950; Gulyás 1904",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -21,7 +21,7 @@
       "altLabel": "bevonat; védőlakkozás; surface varnish",
       "definition (HU)": "Fényes vagy matt védő- vagy díszítőréteg felvitele a könyv felületére, borítójára vagy nyomtatott részletére.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Mentsik 1950; Gulyás 1904",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -32,7 +32,7 @@
       "altLabel": "aranyfüst; gold leaf; gilt decoration",
       "definition (HU)": "Arany- vagy fémhatású bevonat felvitele díszítés céljára, jellemzően borítón, gerincen, metszésen vagy feliraton.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Mentsik 1950; Gulyás 1904",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -43,7 +43,7 @@
       "altLabel": "kézi festés; painted surface",
       "definition (HU)": "Pigmenttel történő kézi festés a borítón, lapon, metszésen vagy más könyvtárgyi felületen.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Mentsik 1950; Gulyás 1904",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -54,7 +54,7 @@
       "altLabel": "relief; reliefnyomat; plasztikus nyomás",
       "definition (HU)": "Nyomóforma vagy prés segítségével létrehozott plasztikus, kiemelkedő felület.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Mentsik 1950; Gulyás 1904",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -65,7 +65,7 @@
       "altLabel": "reliefnyomás festék nélkül; blind tooling",
       "definition (HU)": "Festék vagy fólia nélküli, nyomóformával kialakított felületi díszítés, gyakran borítón vagy gerincen.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Mentsik 1950; Gulyás 1904",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -76,7 +76,7 @@
       "altLabel": "aranyprég; fóliázás; foil blocking",
       "definition (HU)": "Fémes vagy színes fólia hővel és nyomással történő felvitele felirat, motívum vagy felületi díszítés létrehozására.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Mentsik 1950; Gulyás 1904; Contemporary practice",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -87,7 +87,7 @@
       "altLabel": "permetezett lakkréteg; sprayed coating",
       "definition (HU)": "Permetezéssel felvitt védő- vagy díszítőréteg, amely a felület fényét, textúráját vagy tartósságát módosítja.",
       "exactMatch": "",
-      "source": "Contemporary practice",
+      "source": "Mentsik 1950; Gulyás 1904; Contemporary practice",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -98,7 +98,7 @@
       "altLabel": "áttörés; kivágás; perforated surface",
       "definition (HU)": "Részleges kivágás vagy áttörés, amely díszítő, funkcionális vagy interaktív szerepet kaphat a könyvtárgyban.",
       "exactMatch": "",
-      "source": "AAT",
+      "source": "AAT; Roberts & Etherington 1982; Contemporary book arts",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -109,7 +109,7 @@
       "altLabel": "mechanikus lyukasztás; punched holes",
       "definition (HU)": "Mechanikus lyukasztással létrehozott nyílás vagy mintázat, amely kötészeti, vizuális vagy használati funkcióval bírhat.",
       "exactMatch": "",
-      "source": "Roberts & Etherington 1982",
+      "source": "Roberts & Etherington 1982; Contemporary book arts",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -120,7 +120,7 @@
       "altLabel": "texturált felület; screen-applied coating",
       "definition (HU)": "Szitanyomással felvitt strukturált vagy fedő bevonat, amely felületi textúrát, fényhatást vagy réteghatást hozhat létre.",
       "exactMatch": "",
-      "source": "Contemporary book arts",
+      "source": "AAT; Contemporary book arts",
       "relatedProperty": "P32 used general technique"
     }
   ]
