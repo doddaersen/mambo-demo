@@ -1,0 +1,33 @@
+/* Prevent opened term details from continuing at the top of another CSS column. */
+#termList.grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  column-count:initial!important;
+  column-gap:normal!important;
+  align-items:start!important;
+}
+
+#termList.grid.list-view{
+  grid-template-columns:1fr!important;
+}
+
+#termList.grid .card{
+  display:block!important;
+  margin:0!important;
+  break-inside:auto!important;
+  -webkit-column-break-inside:auto!important;
+  page-break-inside:auto!important;
+}
+
+@media(max-width:1100px){
+  #termList.grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:900px){
+  #termList.grid{
+    grid-template-columns:1fr!important;
+  }
+}
