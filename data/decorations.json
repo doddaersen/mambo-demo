@@ -1,0 +1,127 @@
+{
+  "status": "draft",
+  "note": "Decoration and surface-treatment terms added as a separate demo data layer.",
+  "terms": [
+    {
+      "ID": "mambo:decoration-001",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Kézi színezés",
+      "prefLabel (EN)": "Hand-coloring",
+      "altLabel": "kézzel színezett nyomat; hand-coloured print",
+      "definition (HU)": "Mechanikus vagy sokszorosított nyomat kézi kifestése vagy színezése.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-002",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Lakkozás",
+      "prefLabel (EN)": "Varnishing",
+      "altLabel": "bevonat; védőlakkozás; surface varnish",
+      "definition (HU)": "Fényes vagy matt védő- vagy díszítőréteg felvitele a könyv felületére, borítójára vagy nyomtatott részletére.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-003",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Aranyozás",
+      "prefLabel (EN)": "Gilding",
+      "altLabel": "aranyfüst; gold leaf; gilt decoration",
+      "definition (HU)": "Arany- vagy fémhatású bevonat felvitele díszítés céljára, jellemzően borítón, gerincen, metszésen vagy feliraton.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-004",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Festés",
+      "prefLabel (EN)": "Painting (surface)",
+      "altLabel": "kézi festés; painted surface",
+      "definition (HU)": "Pigmenttel történő kézi festés a borítón, lapon, metszésen vagy más könyvtárgyi felületen.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-005",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Dombornyomás",
+      "prefLabel (EN)": "Embossing",
+      "altLabel": "relief; reliefnyomat; plasztikus nyomás",
+      "definition (HU)": "Nyomóforma vagy prés segítségével létrehozott plasztikus, kiemelkedő felület.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-006",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Vaknyomás",
+      "prefLabel (EN)": "Blind stamping",
+      "altLabel": "reliefnyomás festék nélkül; blind tooling",
+      "definition (HU)": "Festék vagy fólia nélküli, nyomóformával kialakított felületi díszítés, gyakran borítón vagy gerincen.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-007",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Fóliaprégelés",
+      "prefLabel (EN)": "Foil stamping",
+      "altLabel": "aranyprég; fóliázás; foil blocking",
+      "definition (HU)": "Fémes vagy színes fólia hővel és nyomással történő felvitele felirat, motívum vagy felületi díszítés létrehozására.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-008",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Lakkszórás",
+      "prefLabel (EN)": "Spray coating",
+      "altLabel": "permetezett lakkréteg; sprayed coating",
+      "definition (HU)": "Permetezéssel felvitt védő- vagy díszítőréteg, amely a felület fényét, textúráját vagy tartósságát módosítja.",
+      "exactMatch": "",
+      "source": "Contemporary practice",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-009",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Perforálás",
+      "prefLabel (EN)": "Perforation",
+      "altLabel": "áttörés; kivágás; perforated surface",
+      "definition (HU)": "Részleges kivágás vagy áttörés, amely díszítő, funkcionális vagy interaktív szerepet kaphat a könyvtárgyban.",
+      "exactMatch": "",
+      "source": "AAT",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-010",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Lyukasztás",
+      "prefLabel (EN)": "Punching",
+      "altLabel": "mechanikus lyukasztás; punched holes",
+      "definition (HU)": "Mechanikus lyukasztással létrehozott nyílás vagy mintázat, amely kötészeti, vizuális vagy használati funkcióval bírhat.",
+      "exactMatch": "",
+      "source": "Roberts & Etherington 1982",
+      "relatedProperty": "P32 used general technique"
+    },
+    {
+      "ID": "mambo:decoration-011",
+      "CIDOC": "E55 Type",
+      "prefLabel (HU)": "Szitázott bevonat",
+      "prefLabel (EN)": "Screen coating",
+      "altLabel": "texturált felület; screen-applied coating",
+      "definition (HU)": "Szitanyomással felvitt strukturált vagy fedő bevonat, amely felületi textúrát, fényhatást vagy réteghatást hozhat létre.",
+      "exactMatch": "",
+      "source": "Contemporary book arts",
+      "relatedProperty": "P32 used general technique"
+    }
+  ]
+}
