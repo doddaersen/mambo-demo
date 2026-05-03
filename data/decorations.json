@@ -47,7 +47,7 @@
       "definition (HU)": "Pigmenttel történő kézi festés a borítón, lapon, metszésen vagy más könyvtárgyi felületen.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904",
-      "relatedTerms": "kézi színezés; lakkozás; élfestés",
+      "relatedTerms": "kézi színezés; lakkozás; metszésdíszítés",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -137,10 +137,10 @@
     {
       "ID": "mambo:decoration-012",
       "CIDOC": "E55 Type",
-      "prefLabel (HU)": "Élfestés / metszésfestés",
-      "prefLabel (EN)": "Painted edges / edge painting",
-      "altLabel": "élfestés; metszésfestés; painted edge; edge decoration",
-      "definition (HU)": "A könyv metszésének vagy lapéleinek festéssel történő díszítése, amely egyszínű, mintázott vagy képi jellegű felületet hozhat létre.",
+      "prefLabel (HU)": "Metszésdíszítés",
+      "prefLabel (EN)": "Edge decoration",
+      "altLabel": "élfestés; metszésfestés; lapéldíszítés; painted edge; edge painting; edge treatment",
+      "definition (HU)": "A könyv metszésén vagy lapélein alkalmazott díszítő felületkezelések összefoglaló fogalma. Ide tartozhat többek között a metszésfestés, a metszésaranyozás, a márványozott metszés és a rejtett metszésfestés.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904; Roberts & Etherington 1982",
       "relatedTerms": "festés; metszésaranyozás; márványozott metszés; rejtett metszésfestés",
@@ -155,7 +155,7 @@
       "definition (HU)": "A könyv metszésének arany- vagy fémhatású réteggel történő díszítése és védelme.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904; Roberts & Etherington 1982",
-      "relatedTerms": "aranyozás; élfestés; márványozott metszés",
+      "relatedTerms": "aranyozás; metszésdíszítés; márványozott metszés",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -179,7 +179,7 @@
       "definition (HU)": "A könyv metszésén kialakított márványozott mintázat, amely egyszerre felületdíszítés és metszéskezelési eljárás.",
       "exactMatch": "",
       "source": "AAT; Mentsik 1950; Gulyás 1904; Roberts & Etherington 1982",
-      "relatedTerms": "márványozás; élfestés; metszésaranyozás",
+      "relatedTerms": "márványozás; metszésdíszítés; metszésaranyozás",
       "relatedProperty": "P32 used general technique"
     },
     {
@@ -191,7 +191,7 @@
       "definition (HU)": "A könyv előmetszésén kialakított képi vagy díszítő festés, amely gyakran csak a lapok enyhe szétnyitásakor vagy eltolásakor válik láthatóvá.",
       "exactMatch": "",
       "source": "AAT; Roberts & Etherington 1982; Contemporary book arts",
-      "relatedTerms": "élfestés; festés; metszésaranyozás",
+      "relatedTerms": "metszésdíszítés; festés; metszésaranyozás",
       "relatedProperty": "P32 used general technique"
     }
   ]
