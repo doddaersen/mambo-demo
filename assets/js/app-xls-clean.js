@@ -21,7 +21,9 @@ function asArray(value){if(!value)return[];if(Array.isArray(value))return value.
 function displayCategory(category){return categoryKeyMap[String(category||'').toLowerCase()]||String(category||'').toLowerCase()}
 function getAltLabels(term){return[...asArray(term.altLabelHu),...asArray(term.altLabelEn),...asArray(term.altLabels)]}
 function getSearchText(term){return normalize([term.id,term.prefLabelHu,term.prefLabelEn,term.category,term.class,term.property,term.cidoc,term.definition,term.usage,term.meaning,term.demoStatus,...getAltLabels(term),...asArray(term.relatedTerms),...asArray(term.sources)].join(' '))}
-function byCategoryThenLabel(a,b){const diff=categoryOrder.indexOf(displayCategory(a.category))-categoryOrder.indexOf(displayCategory(b.category));return diff||String(a.prefLabelHu).localeCompare(String(b.prefLabelHu),'hu')}
+function isKnownCategory(term){return categoryOrder.includes(displayCategory(term.category))}
+function byLabel(a,b){return String(a.prefLabelHu).localeCompare(String(b.prefLabelHu),'hu')}
+function byCategoryThenLabel(a,b){const ai=categoryOrder.indexOf(displayCategory(a.category));const bi=categoryOrder.indexOf(displayCategory(b.category));const aKnown=ai>=0,bKnown=bi>=0;if(state.search.trim())return byLabel(a,b);if(aKnown!==bKnown)return aKnown?-1:1;const diff=(aKnown?ai:999)-(bKnown?bi:999);return diff||byLabel(a,b)}
 function getVisibleTerms(){const query=normalize(state.search.trim());return state.terms.filter(term=>!query||getSearchText(term).includes(query)).sort(byCategoryThenLabel)}
 function getCategoryTerms(category){return getVisibleTerms().filter(term=>displayCategory(term.category)===category)}
 function getFilteredTerms(){const visible=getVisibleTerms();return state.selectedCategory==='összes'?visible:visible.filter(term=>displayCategory(term.category)===state.selectedCategory)}
