@@ -52,7 +52,7 @@
 #termList.grid{
   display:block!important;
   column-count:3!important;
-  column-gap:14px!important;
+  column-gap:24px!important;
   grid-template-columns:none!important;
   gap:normal!important;
 }
@@ -64,16 +64,21 @@
 #termList.grid .card{
   display:inline-flex!important;
   width:100%!important;
-  margin:0 0 14px!important;
+  margin:0 0 22px!important;
   break-inside:avoid!important;
   -webkit-column-break-inside:avoid!important;
   page-break-inside:avoid!important;
 }
 
 @media(max-width:1100px){
-  #termList.grid{column-count:2!important;}
+  #termList.grid{
+    column-count:2!important;
+    column-gap:24px!important;
+  }
 }
 
 @media(max-width:900px){
-  #termList.grid{column-count:1!important;}
+  #termList.grid{
+    column-count:1!important;
+  }
 }
