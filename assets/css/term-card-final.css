@@ -2,7 +2,7 @@
 
 #termList.grid{
   display:block!important;
-  columns:2 360px;
+  columns:3 260px;
   column-gap:22px;
   overflow:visible;
 }
@@ -76,6 +76,11 @@
   filter:none!important;
 }
 
+@media(max-width:1180px){
+  #termList.grid{
+    columns:2 300px!important;
+  }
+}
 @media(max-width:900px){
   #termList.grid{
     columns:1!important;
