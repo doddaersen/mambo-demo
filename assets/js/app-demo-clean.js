@@ -1,4 +1,4 @@
-const categoryOrder = ['formátum','fűzésmód','kötésmód','borítószerkezet','gerincszerkezet','anyag','díszítés','záródás','tárolóelem'];
+const categoryOrder = ['formátum','kötésmód','fűzésmód','gerincszerkezet','záródás','tárolóelem','borítószerkezet','anyag','díszítés'];
 
 const categoryKeyMap = {
   'könyvforma':'formátum','formátum':'formátum',
