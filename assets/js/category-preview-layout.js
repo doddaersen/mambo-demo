@@ -1,9 +1,9 @@
 (()=>{
   const primaryCategories = [
     {key:'formátum', title:'Formátum', count:7, icon:'assets/icons/kategoria-formatum-v2.png?v=preview-cats'},
-    {key:'kötésmód', title:'Kötés és fűzés', count:10, icon:'assets/icons/kategoria-fuzes.png?v=preview-cats', combined:['kötésmód','fűzésmód']},
-    {key:'borítószerkezet', title:'Borítószerkezet', count:15, icon:'assets/icons/kategoria-kotes-2.png?v=preview-cats'},
-    {key:'gerincszerkezet', title:'Gerincszerkezet', count:2, icon:'assets/icons/kategoria-gerinc.png?v=preview-cats'},
+    {key:'kötésmód', title:'Kötés- és fűzés', count:10, icon:'assets/icons/kategoria-fuzes.png?v=preview-cats', combined:['kötésmód','fűzésmód']},
+    {key:'borítószerkezet', title:'Borító', count:15, icon:'assets/icons/kategoria-kotes-2.png?v=preview-cats'},
+    {key:'gerincszerkezet', title:'Gerinc', count:2, icon:'assets/icons/kategoria-gerinc.png?v=preview-cats'},
     {key:'díszítés', title:'Díszítés', count:12, icon:'assets/icons/kephamarosan.png?v=preview-cats'}
   ];
 
