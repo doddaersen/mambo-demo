@@ -3,15 +3,31 @@
   const sidebarSearchInput = document.querySelector('#searchInput');
   const categoryOverview = document.querySelector('.category-overview');
 
-  function syncSearchMode(){
+  function hasSearchValue(){
     const quickValue = quickSearchInput ? quickSearchInput.value : '';
     const sidebarValue = sidebarSearchInput ? sidebarSearchInput.value : '';
-    const hasSearch = `${quickValue}${sidebarValue}`.trim().length > 0;
+    return `${quickValue}${sidebarValue}`.trim().length > 0;
+  }
+
+  function isSpecificCategoryActive(){
+    return Boolean(document.querySelector('.category-panel.active'));
+  }
+
+  function updateDefaultHomepageTerms(){
+    const defaultHomepageView = !hasSearchValue() && !isSpecificCategoryActive();
+    document.querySelectorAll('#termList .card[data-category="anyag"]').forEach(card=>{
+      card.hidden = defaultHomepageView && !card.classList.contains('is-open');
+    });
+  }
+
+  function syncSearchMode(){
+    const hasSearch = hasSearchValue();
 
     document.body.classList.toggle('search-active', hasSearch);
     if(categoryOverview){
       categoryOverview.hidden = hasSearch;
     }
+    updateDefaultHomepageTerms();
   }
 
   function ensureImageZoomModal(){
@@ -96,6 +112,7 @@
 
       icon.appendChild(button);
     });
+    updateDefaultHomepageTerms();
   }
 
   if(quickSearchInput && sidebarSearchInput){
@@ -113,7 +130,7 @@
     });
 
     document.addEventListener('click', event=>{
-      if(!event.target.closest('.tag')) return;
+      if(!event.target.closest('.tag, .category-panel, .browse-term')) return;
       window.setTimeout(()=>{
         quickSearchInput.value = sidebarSearchInput.value;
         syncSearchMode();
@@ -127,10 +144,15 @@
     ensureImageZoomModal();
     const termList = document.querySelector('#termList');
     if(termList){
-      new MutationObserver(addImageZoomButtons).observe(termList, { childList:true, subtree:true, attributes:true, attributeFilter:['src','data-icon-real'] });
+      new MutationObserver(()=>{
+        addImageZoomButtons();
+        updateDefaultHomepageTerms();
+      }).observe(termList, { childList:true, subtree:true, attributes:true, attributeFilter:['src','data-icon-real','class'] });
     }
     addImageZoomButtons();
+    updateDefaultHomepageTerms();
     window.setTimeout(addImageZoomButtons, 300);
     window.setTimeout(addImageZoomButtons, 900);
+    window.setTimeout(updateDefaultHomepageTerms, 1200);
   });
 })();
