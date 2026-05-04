@@ -130,7 +130,12 @@
 }
 
 .preview-category-card.primary .preview-category-title{
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  line-height: .94;
 }
 
 .preview-category-card.secondary .preview-category-title{
@@ -203,9 +208,12 @@
   .preview-category-title,
   .preview-category-card.primary .preview-category-title,
   .preview-category-card.secondary .preview-category-title{
+    min-height: 0;
+    display: block;
     align-self: end;
     text-align: left;
     font-size: 16px;
+    line-height: 1;
   }
 
   .preview-category-count,
