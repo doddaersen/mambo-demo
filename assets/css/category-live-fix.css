@@ -1,0 +1,7 @@
+.preview-category-layout > .category-panel{
+  display:none !important;
+}
+
+.preview-category-layout{
+  display:block !important;
+}
