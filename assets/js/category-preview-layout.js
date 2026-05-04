@@ -14,7 +14,7 @@
   ];
 
   function escapeHtml(value){
-    return String(value || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return String(value || '').replace(/&/g,'&amp;').replace(/\"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
   function getTargets(item){
@@ -49,20 +49,26 @@
     root.querySelectorAll('[data-preview-targets]').forEach(button => {
       button.addEventListener('click', () => {
         const targets = (button.dataset.previewTargets || '').split('|').filter(Boolean);
-        const cards = [...document.querySelectorAll('#termList .card')];
-        cards.forEach(card => {
-          const visible = targets.includes(card.dataset.category);
-          card.style.display = visible ? '' : 'none';
-        });
-        const count = document.querySelector('#count');
-        if(count){
-          const visibleCount = cards.filter(card => card.style.display !== 'none').length;
-          count.textContent = `${visibleCount} / 80 szócikk`;
+        const targetCategory = targets[0] || '';
+        const originalButton = [...document.querySelectorAll('.category-panel[data-category]')]
+          .find(panel => panel.dataset.category === targetCategory);
+
+        if(originalButton){
+          originalButton.click();
+        }else{
+          const cards = [...document.querySelectorAll('#termList .card')];
+          cards.forEach(card => {
+            const visible = targets.includes(card.dataset.category);
+            card.style.display = visible ? '' : 'none';
+          });
+          const count = document.querySelector('#count');
+          if(count){
+            const visibleCount = cards.filter(card => card.style.display !== 'none').length;
+            count.textContent = `${visibleCount} / 80 szócikk`;
+          }
+          const top = document.querySelector('#termsTopline');
+          if(top) top.scrollIntoView({behavior:'smooth', block:'start'});
         }
-        document.querySelectorAll('.preview-category-card.active').forEach(card => card.classList.remove('active'));
-        button.classList.add('active');
-        const top = document.querySelector('#termsTopline');
-        if(top) top.scrollIntoView({behavior:'smooth', block:'start'});
       });
     });
   }
