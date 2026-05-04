@@ -91,19 +91,7 @@
 }
 
 .preview-category-icon::before{
-  content: "";
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  border-radius: 999px;
-  background: #f1eadf;
-  opacity: .72;
-  z-index: 0;
-}
-
-.preview-category-card.secondary .preview-category-icon::before{
-  width: 42px;
-  height: 42px;
+  content: none;
 }
 
 .preview-category-icon img{
