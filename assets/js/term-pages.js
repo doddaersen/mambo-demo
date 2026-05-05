@@ -46,15 +46,26 @@
       .join('');
   }
 
-  function occurrenceCards(items){
-    return (items || []).map(item => `
-      <article class="mambo-occurrence-card">
-        <h6>${escapeHtml(item.title)}</h6>
-        <p class="mambo-occurrence-meta">${escapeHtml(item.creator)}${item.year ? ` · ${escapeHtml(item.year)}` : ''}</p>
-        <p class="mambo-occurrence-field">${escapeHtml(item.field)}</p>
-        <div class="mambo-linked-values">${linkedValues(item.linkedValues)}</div>
-      </article>
-    `).join('');
+  function occurrenceList(items){
+    return `
+      <ul class="mambo-occurrence-list">
+        ${(items || []).map(item => `
+          <li class="mambo-occurrence-item">
+            <div class="mambo-occurrence-line">
+              <span class="mambo-occurrence-title">${escapeHtml(item.title)}</span>
+              <span class="mambo-occurrence-separator">·</span>
+              <span>${escapeHtml(item.creator)}</span>
+              ${item.year ? `<span class="mambo-occurrence-separator">·</span><span>${escapeHtml(item.year)}</span>` : ''}
+            </div>
+            <details class="mambo-occurrence-details">
+              <summary>Kapcsolódó jellemzők</summary>
+              <p class="mambo-occurrence-field">${escapeHtml(item.field)}</p>
+              <div class="mambo-linked-values">${linkedValues(item.linkedValues)}</div>
+            </details>
+          </li>
+        `).join('')}
+      </ul>
+    `;
   }
 
   function renderPage(data){
@@ -71,7 +82,7 @@
         <div class="mambo-subsection">
           <h5>Előfordul a mintában</h5>
           <p class="detail-paragraph mambo-occurrence-summary">${escapeHtml(data.occurrenceSummary)}</p>
-          <div class="mambo-occurrence-grid">${occurrenceCards(data.occurrences)}</div>
+          ${occurrenceList(data.occurrences)}
         </div>
 
         <div class="mambo-subsection">
