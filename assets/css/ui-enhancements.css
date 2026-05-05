@@ -303,37 +303,68 @@ footer,
 }
 
 .mambo-occurrence-summary{
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
-.mambo-occurrence-grid{
+.mambo-occurrence-list{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
+  gap:0;
+  margin:8px 0 0;
+  padding:0;
+  list-style:none;
+  border-top:1px solid #e5e5e5;
 }
 
-.mambo-occurrence-card{
-  padding:10px;
-  border:1px solid #e3e3e3;
-  background:#fff;
+.mambo-occurrence-item{
+  padding:9px 0;
+  border-bottom:1px solid #e5e5e5;
 }
 
-.mambo-occurrence-card h6{
-  margin:0 0 4px;
+.mambo-occurrence-line{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  align-items:baseline;
   font-size:13px;
-  font-weight:700;
+  line-height:1.35;
+  color:#555;
+}
+
+.mambo-occurrence-title{
+  font-weight:650;
   color:#303030;
 }
 
-.mambo-occurrence-meta,
+.mambo-occurrence-separator{
+  color:#aaa;
+}
+
+.mambo-occurrence-details{
+  margin-top:5px;
+}
+
+.mambo-occurrence-details summary{
+  display:inline-flex;
+  cursor:pointer;
+  font-size:11px;
+  line-height:1.25;
+  color:#666!important;
+  text-transform:none;
+  letter-spacing:0;
+}
+
+.mambo-occurrence-details summary:hover{
+  color:#333!important;
+}
+
+.mambo-occurrence-details[open] summary{
+  margin-bottom:6px;
+}
+
 .mambo-occurrence-field{
   margin:0 0 7px;
   font-size:12px;
   line-height:1.35;
-  color:#666;
-}
-
-.mambo-occurrence-field{
   color:#444;
 }
 
@@ -361,8 +392,7 @@ footer,
 }
 
 @media (max-width:760px){
-  .mambo-meta-list div,
-  .mambo-occurrence-grid{
+  .mambo-meta-list div{
     grid-template-columns:1fr;
   }
 }
