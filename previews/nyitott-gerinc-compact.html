@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyitott gerinc – kompakt szócikk-preview</title>
+  <style>
+    :root{--text:#2b2b2b;--muted:#666;--line:#e3e3e3;--soft:#fafafa;--accent:#88c6c3;}
+    *{box-sizing:border-box;}
+    body{margin:0;padding:28px 14px;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:#f7f7f5;}
+    main{max-width:920px;margin:0 auto;}
+    .card{background:#fff;border:1px solid #dedede;box-shadow:0 12px 34px rgba(0,0,0,.06);}
+    .head{display:grid;grid-template-columns:132px minmax(0,1fr);gap:20px;padding:24px;border-bottom:1px solid var(--line);}
+    .icon{display:flex;align-items:center;justify-content:center;min-height:120px;border:1px solid #ececec;background:#fff;}
+    .icon img{width:96px;max-height:96px;object-fit:contain;}
+    .category{display:inline-flex;width:max-content;margin-bottom:10px;padding:4px 9px;border:1px solid rgba(111,183,179,.9);background:rgba(136,198,195,.75);color:#2d716f;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+    h1{margin:0;font-size:32px;line-height:1.05;font-weight:650;}
+    .en{margin-top:6px;color:#777;font-size:16px;}
+    .definition{margin:14px 0 0;max-width:680px;font-size:15px;line-height:1.55;}
+    .body{padding:24px;}
+    .section{padding:18px 0;border-top:1px solid var(--line);}
+    .section:first-child{padding-top:0;border-top:0;}
+    h2{margin:0 0 12px;font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:#303030;}
+    h3{margin:0 0 8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#444;}
+    .mambo{margin-top:8px;padding:18px;border:1px solid #e1e1e1;background:#fcfcfc;box-shadow:0 8px 24px rgba(0,0,0,.04);}
+    .sub + .sub{margin-top:16px;padding-top:16px;border-top:1px solid #e7e7e7;}
+    .meta{margin:0;display:grid;gap:7px;}
+    .meta div{display:grid;grid-template-columns:165px minmax(0,1fr);gap:10px;}
+    dt{font-size:11px;color:#666;text-transform:uppercase;letter-spacing:.05em;}
+    dd{margin:0;font-size:13px;color:#222;word-break:break-word;}
+    p{font-size:14px;line-height:1.5;}
+    .note{margin:10px 0 0;color:#333;}
+    .occ-list{margin:8px 0 0;padding:0;list-style:none;border-top:1px solid #e5e5e5;}
+    .occ-item{padding:9px 0;border-bottom:1px solid #e5e5e5;}
+    .occ-line{display:flex;flex-wrap:wrap;gap:5px;align-items:baseline;font-size:13px;line-height:1.35;color:#555;}
+    .occ-title{font-weight:650;color:#303030;}
+    .sep{color:#aaa;}
+    details{margin-top:5px;}
+    summary{display:inline-flex;cursor:pointer;font-size:11px;line-height:1.25;color:#666;}
+    summary:hover{color:#333;}
+    details[open] summary{margin-bottom:6px;}
+    .field{margin:0 0 7px;font-size:12px;line-height:1.35;color:#444;}
+    .chips{display:flex;flex-wrap:wrap;gap:5px;}
+    .chip{display:inline-flex;gap:4px;align-items:baseline;padding:3px 6px;border:1px solid #dedede;background:#fff;font-size:11px;line-height:1.25;color:#333;}
+    .chip strong{font-weight:600;color:#666;}
+    @media(max-width:760px){body{padding:12px;}.head{grid-template-columns:1fr;padding:18px;gap:14px;}.icon{min-height:96px;}.icon img{width:82px;}.body{padding:18px;}h1{font-size:27px;}.meta div{grid-template-columns:1fr;gap:3px;}.mambo{padding:14px;}.occ-line{font-size:12.5px;}}
+  </style>
+</head>
+<body>
+  <main>
+    <article class="card">
+      <header class="head">
+        <div class="icon"><img src="../assets/icons/gerinc-nyitott.png" alt="Nyitott gerinc ikon" /></div>
+        <div>
+          <span class="category">Gerincszerkezet</span>
+          <h1>Nyitott gerinc</h1>
+          <div class="en">Open spine</div>
+          <p class="definition">Olyan gerincszerkezeti megoldás, amelyben a könyvtest fűzése, ívszerkezete vagy kötészeti kapcsolata a könyv külső nézetében is látható marad.</p>
+        </div>
+      </header>
+
+      <section class="body">
+        <section class="section">
+          <h2>Technikai adatok</h2>
+          <p class="note">Ez maradhat a jelenlegi kártyalogikában: azonosító, MAMBO-osztály, property, CIDOC-megfeleltetés, források.</p>
+        </section>
+
+        <section class="mambo">
+          <h2>MAMBO-adatnézet</h2>
+
+          <div class="sub">
+            <h3>Ontológiai helye</h3>
+            <dl class="meta">
+              <div><dt>Leírási réteg</dt><dd>Gerincszerkezet</dd></div>
+              <div><dt>MAMBO-osztály</dt><dd>mambo:E14_SpineType</dd></div>
+              <div><dt>MAMBO-property</dt><dd>mambo:P18_hasSpineType</dd></div>
+              <div><dt>CIDOC CRM-osztály</dt><dd>E55_Type</dd></div>
+              <div><dt>CIDOC CRM-kapcsolat</dt><dd>P2_has_type</dd></div>
+              <div><dt>Domain</dt><dd>mambo:E1_WorkOfBookArt</dd></div>
+              <div><dt>Range</dt><dd>mambo:E14_SpineType</dd></div>
+            </dl>
+            <p class="note">A nyitott gerinc nem önálló kötésmód, hanem gerincszerkezeti jellemző: külön mezőben rögzíthető a kötésmódtól és a könyvformától.</p>
+          </div>
+
+          <div class="sub">
+            <h3>Előfordul a mintában</h3>
+            <p class="note">6 esettanulmányban fordul elő.</p>
+            <ul class="occ-list">
+              <li class="occ-item"><div class="occ-line"><span class="occ-title">A tenger hősei</span><span class="sep">·</span><span>Kiss Benedek Kristóf</span><span class="sep">·</span><span>2020</span></div><details><summary>Kapcsolódó jellemzők</summary><p class="field">Gerinc láthatósága</p><div class="chips"><span class="chip"><strong>Formátum</strong>könyv</span><span class="chip"><strong>Kötésmód</strong>cérnafűzés</span><span class="chip"><strong>Tárolóelem</strong>tok</span><span class="chip"><strong>Záródás</strong>pánt; tépőzár</span></div></details></li>
+              <li class="occ-item"><div class="occ-line"><span class="occ-title">A konstruált tér poétikája</span><span class="sep">·</span><span>Venekei Dóra</span><span class="sep">·</span><span>2023</span></div><details><summary>Kapcsolódó jellemzők</summary><p class="field">Gerinc láthatósága</p><div class="chips"><span class="chip"><strong>Formátum</strong>könyv</span><span class="chip"><strong>Kötésmód</strong>cérnafűzés</span><span class="chip"><strong>Borító</strong>keménytáblás</span><span class="chip"><strong>Interaktivitás</strong>moduláris</span></div></details></li>
+              <li class="occ-item"><div class="occ-line"><span class="occ-title">Versképek</span><span class="sep">·</span><span>Jáger Tímea</span><span class="sep">·</span><span>2015</span></div><details><summary>Kapcsolódó jellemzők</summary><p class="field">Gerinc láthatósága</p><div class="chips"><span class="chip"><strong>Formátum</strong>könyv</span><span class="chip"><strong>Kötésmód</strong>cérnafűzés</span><span class="chip"><strong>Borító</strong>puhatáblás</span></div></details></li>
+              <li class="occ-item"><div class="occ-line"><span class="occ-title">_BEOBACHTUNG BABY</span><span class="sep">·</span><span>Pálhegyi Flóra</span><span class="sep">·</span><span>2016</span></div><details><summary>Kapcsolódó jellemzők</summary><p class="field">Gerinc láthatósága</p><div class="chips"><span class="chip"><strong>Formátum</strong>könyv</span><span class="chip"><strong>Kötésmód</strong>cérnafűzés</span><span class="chip"><strong>Borító</strong>puhatáblás</span></div></details></li>
+              <li class="occ-item"><div class="occ-line"><span class="occ-title">Álmoskönyv – újragondolva</span><span class="sep">·</span><span>Makk Lilla Orsolya</span><span class="sep">·</span><span>2017</span></div><details><summary>Kapcsolódó jellemzők</summary><p class="field">Gerinc láthatósága</p><div class="chips"><span class="chip"><strong>Formátum</strong>könyv</span><span class="chip"><strong>Kötésmód</strong>cérnafűzés</span><span class="chip"><strong>Borító</strong>puhatáblás</span></div></details></li>
+              <li class="occ-item"><div class="occ-line"><span class="occ-title">Szépség</span><span class="sep">·</span><span>Mitroi Sixtine</span><span class="sep">·</span><span>2018</span></div><details><summary>Kapcsolódó jellemzők</summary><p class="field">Gerinc láthatósága</p><div class="chips"><span class="chip"><strong>Formátum</strong>könyv</span><span class="chip"><strong>Kötésmód</strong>cérnafűzés</span><span class="chip"><strong>Borító</strong>puhatáblás</span></div></details></li>
+            </ul>
+          </div>
+
+          <div class="sub">
+            <h3>Kapcsolódó mezők</h3>
+            <div class="chips"><span class="chip">Kötésmód</span><span class="chip">Gerincszerkezet</span><span class="chip">Formátum</span><span class="chip">Borítószerkezet</span><span class="chip">Tárolóelem</span><span class="chip">Záródás</span></div>
+          </div>
+
+          <div class="sub">
+            <h3>Adatforrás</h3>
+            <p class="note">Forrás: mambo_szocikk_adatlap_javitott_3_mintaszocikk.xlsx / term_occurrences + case_studies + ontology_mapping.</p>
+          </div>
+        </section>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
