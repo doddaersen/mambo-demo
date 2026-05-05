@@ -1,0 +1,139 @@
+{
+  "terms": {
+    "mambo:auto-gerincszerkezet-nyitott-gerinc": "nyitott-gerinc",
+    "mambo:spine-001": "nyitott-gerinc",
+    "mambo:bind-001": "nyitott-gerinc"
+  },
+  "labels": {
+    "nyitott gerinc": "nyitott-gerinc",
+    "open spine": "nyitott-gerinc"
+  },
+  "pages": {
+    "nyitott-gerinc": {
+      "termLabelHu": "nyitott gerinc",
+      "termLabelEn": "open spine",
+      "termIds": [
+        "mambo:auto-gerincszerkezet-nyitott-gerinc",
+        "mambo:spine-001",
+        "mambo:bind-001"
+      ],
+      "ontology": {
+        "category": "Gerincszerkezet",
+        "mamboClass": "mambo:E14_SpineType",
+        "mamboProperty": "mambo:P18_hasSpineType",
+        "cidocClass": "E55_Type",
+        "cidocProperty": "P2_has_type",
+        "domain": "mambo:E1_WorkOfBookArt",
+        "range": "mambo:E14_SpineType"
+      },
+      "interpretiveNote": "A nyitott gerinc nem önálló kötésmód, hanem gerincszerkezeti jellemző: külön mezőben rögzíthető a kötésmódtól és a könyvformától.",
+      "occurrenceSummary": "6 esettanulmányban fordul elő a mintában.",
+      "occurrences": [
+        {
+          "workId": "mambo:object_id=002",
+          "title": "A tenger hősei",
+          "creator": "Kiss Benedek Kristóf",
+          "year": 2020,
+          "field": "Gerinc láthatósága (nyitott gerinc; részben látható gerinc; láthatatlan gerinc; nincs gerinc)",
+          "value": "nyitott gerinc",
+          "sourceSheet": "formai",
+          "linkedValues": [
+            { "label": "Formátum", "value": "könyv" },
+            { "label": "Kötésmód", "value": "cérnafűzés" },
+            { "label": "Gerincszerkezet", "value": "nyitott gerinc" },
+            { "label": "Borítószerkezet", "value": "keménytáblás" },
+            { "label": "Tárolóelem", "value": "tok" },
+            { "label": "Záródás", "value": "pánt: heveder; tépőzár" }
+          ]
+        },
+        {
+          "workId": "mambo:object_id=003",
+          "title": "A konstruált tér poétikája",
+          "creator": "Venekei Dóra",
+          "year": 2023,
+          "field": "Gerinc láthatósága (nyitott gerinc; részben látható gerinc; láthatatlan gerinc; nincs gerinc)",
+          "value": "nyitott gerinc",
+          "sourceSheet": "formai",
+          "linkedValues": [
+            { "label": "Formátum", "value": "könyv" },
+            { "label": "Kötésmód", "value": "cérnafűzés" },
+            { "label": "Gerincszerkezet", "value": "nyitott gerinc" },
+            { "label": "Borítószerkezet", "value": "keménytáblás" },
+            { "label": "Interaktivitás", "value": "moduláris" }
+          ]
+        },
+        {
+          "workId": "mambo:object_id=004",
+          "title": "Versképek",
+          "creator": "Jáger Tímea",
+          "year": 2015,
+          "field": "Gerinc láthatósága (nyitott gerinc; részben látható gerinc; láthatatlan gerinc; nincs gerinc)",
+          "value": "nyitott gerinc",
+          "sourceSheet": "formai",
+          "linkedValues": [
+            { "label": "Formátum", "value": "könyv" },
+            { "label": "Kötésmód", "value": "cérnafűzés" },
+            { "label": "Gerincszerkezet", "value": "nyitott gerinc" },
+            { "label": "Borítószerkezet", "value": "puhatáblás" },
+            { "label": "Tárolóelem", "value": "tok" }
+          ]
+        },
+        {
+          "workId": "mambo:object_id=005",
+          "title": "_BEOBACHTUNG BABY",
+          "creator": "Pálhegyi Flóra",
+          "year": 2016,
+          "field": "Gerinc láthatósága (nyitott gerinc; részben látható gerinc; láthatatlan gerinc; nincs gerinc)",
+          "value": "nyitott gerinc",
+          "sourceSheet": "formai",
+          "linkedValues": [
+            { "label": "Formátum", "value": "könyv" },
+            { "label": "Kötésmód", "value": "cérnafűzés" },
+            { "label": "Gerincszerkezet", "value": "nyitott gerinc" },
+            { "label": "Borítószerkezet", "value": "puhatáblás" }
+          ]
+        },
+        {
+          "workId": "mambo:object_id=008",
+          "title": "Álmoskönyv – újragondolva",
+          "creator": "Makk Lilla Orsolya",
+          "year": 2017,
+          "field": "Gerinc láthatósága (nyitott gerinc; részben látható gerinc; láthatatlan gerinc; nincs gerinc)",
+          "value": "nyitott gerinc",
+          "sourceSheet": "formai",
+          "linkedValues": [
+            { "label": "Formátum", "value": "könyv" },
+            { "label": "Kötésmód", "value": "cérnafűzés" },
+            { "label": "Gerincszerkezet", "value": "nyitott gerinc" },
+            { "label": "Borítószerkezet", "value": "puhatáblás" }
+          ]
+        },
+        {
+          "workId": "mambo:object_id=009",
+          "title": "Szépség",
+          "creator": "Mitroi Sixtine",
+          "year": 2018,
+          "field": "Gerinc láthatósága (nyitott gerinc; részben látható gerinc; láthatatlan gerinc; nincs gerinc)",
+          "value": "nyitott gerinc",
+          "sourceSheet": "formai",
+          "linkedValues": [
+            { "label": "Formátum", "value": "könyv" },
+            { "label": "Kötésmód", "value": "cérnafűzés" },
+            { "label": "Gerincszerkezet", "value": "nyitott gerinc" },
+            { "label": "Borítószerkezet", "value": "puhatáblás" }
+          ]
+        }
+      ],
+      "relatedFields": [
+        "Kötésmód",
+        "Gerincszerkezet",
+        "Formátum",
+        "Borítószerkezet",
+        "Tárolóelem",
+        "Záródás"
+      ],
+      "dataSourceNote": "Forrás: mambo_szocikk_adatlap_javitott_3_mintaszocikk.xlsx / term_occurrences + case_studies + ontology_mapping.",
+      "status": "adatból azonosított / ellenőrzendő"
+    }
+  }
+}
