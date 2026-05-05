@@ -32,12 +32,14 @@
   gap:6px 18px!important;
   height:320px!important;
   min-height:0!important;
-  padding:14px 20px 48px!important;
+  padding:14px 20px 58px!important;
+  overflow:hidden!important;
 }
 #termList .card.is-open .term-summary,
 #termList .card:has(details[open]) .term-summary{
   height:auto!important;
   min-height:230px!important;
+  overflow:visible!important;
 }
 #termList .term-icon{
   grid-area:icon!important;
@@ -58,12 +60,39 @@
 }
 #termList .term-content{
   grid-area:head!important;
+  min-width:0!important;
+  overflow:hidden!important;
+}
+#termList .term-content h3{
+  display:-webkit-box!important;
+  -webkit-line-clamp:2!important;
+  -webkit-box-orient:vertical!important;
+  overflow:hidden!important;
+  margin-bottom:6px!important;
+}
+#termList .term-content .en{
+  display:-webkit-box!important;
+  -webkit-line-clamp:2!important;
+  -webkit-box-orient:vertical!important;
+  overflow:hidden!important;
 }
 #termList .term-summary > .definition{
   grid-area:def!important;
   width:100%!important;
   margin:0!important;
   align-self:start!important;
+  display:-webkit-box!important;
+  -webkit-line-clamp:6!important;
+  -webkit-box-orient:vertical!important;
+  overflow:hidden!important;
+  max-height:9em!important;
+}
+#termList .card.is-open .term-summary > .definition,
+#termList .card:has(details[open]) .term-summary > .definition{
+  display:block!important;
+  -webkit-line-clamp:unset!important;
+  max-height:none!important;
+  overflow:visible!important;
 }
 #termList .open-hint{
   bottom:14px!important;
@@ -104,7 +133,7 @@
       "def def"!important;
     grid-template-rows:auto auto!important;
     gap:8px 14px!important;
-    padding:14px 16px 48px!important;
+    padding:14px 16px 58px!important;
   }
   #termList .term-icon{
     width:78px!important;
