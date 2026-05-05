@@ -3,24 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A könyv anatómiája – integrált sandbox</title>
+  <title>A könyv anatómiája – tiszta sandbox</title>
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/term-card-final.css">
   <link rel="stylesheet" href="assets/css/sandbox-ui.css">
+  <link rel="stylesheet" href="assets/css/ui-enhancements.css">
 </head>
 <body>
-  <main>
-    <header>
-      <h1>A könyv anatómiája</h1>
-      <p>Könyvművészeti szótár – integrált sandbox</p>
+  <main class="page-shell">
+    <header class="site-hero">
+      <div class="site-title-block">
+        <h1 class="site-title">A könyv anatómiája</h1>
+        <p class="site-subtitle">Könyvművészeti szótár</p>
+      </div>
+      <p class="site-intro">Tiszta sandbox-változat: meglévő kártyaadatok, használati leírások és új terminológiai kapcsolatok egy felületen.</p>
     </header>
-    <section>
-      <label for="termSearch">Keresés</label>
-      <input id="termSearch" type="search" placeholder="kopt kötés, japán fűzés, leporelló…">
+    <section class="search-panel">
+      <label class="search-label" for="termSearch">Keresés</label>
+      <input id="termSearch" class="search-input" type="search" placeholder="kopt kötés, japán fűzés, leporelló…">
+      <p class="search-help">Magyar, angol és alternatív megnevezésekre, címkékre és kapcsolódó fogalmakra is kereshetsz.</p>
     </section>
-    <p id="status">Adatok betöltése…</p>
-    <section id="termList"></section>
+    <p id="status" class="status-note">Adatok betöltése…</p>
+    <section id="termList" class="term-list"></section>
   </main>
-  <script src="assets/js/app-integrated.js?v=1"></script>
+  <script src="assets/js/app-integrated.js?v=2"></script>
 </body>
 </html>
