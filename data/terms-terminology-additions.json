@@ -1,0 +1,229 @@
+{
+  "metadata": {
+    "purpose": "Terminology-only additions for existing demo cards",
+    "scope": "Adds altLabel/variantOf/broader/narrower/related/structureLogic data only; no hierarchy rendering or layout changes.",
+    "usage_note": "Merge into existing card JSON only where the matching prefLabel_HU already exists. Do not create new visible cards from variant-only entries."
+  },
+  "terms": [
+    {
+      "prefLabel_HU": "Formátum",
+      "prefLabel_EN": "Book format",
+      "altLabel": ["book form", "codex format"],
+      "variantOf": [],
+      "broader": ["könyvtárgy szerkezeti alapkategóriája"],
+      "narrower": ["füzet", "leporelló", "tekercs", "kódex"],
+      "related": ["hajtás", "ív", "ívfüzet", "könyvtest", "kötésmód"],
+      "structureLogic": ["hajtott", "tekercselt", "moduláris"]
+    },
+    {
+      "prefLabel_HU": "Füzet",
+      "prefLabel_EN": "Pamphlet / booklet",
+      "altLabel": ["brochure", "single-section book", "brosúra"],
+      "variantOf": [],
+      "broader": ["formátum"],
+      "narrower": [],
+      "related": ["irkafűzés", "tűzés", "ívfüzet", "saddle sewing"],
+      "structureLogic": ["hajtott", "fűzött", "tűzött"]
+    },
+    {
+      "prefLabel_HU": "Leporelló",
+      "prefLabel_EN": "Accordion book",
+      "altLabel": ["concertina", "orihon", "hajtogatott könyv"],
+      "variantOf": [],
+      "broader": ["formátum"],
+      "narrower": ["orihon"],
+      "related": ["tekercs", "hajtás", "butterfly binding", "whirlwind binding"],
+      "structureLogic": ["hajtott", "moduláris"]
+    },
+    {
+      "prefLabel_HU": "Tekercs",
+      "prefLabel_EN": "Scroll",
+      "altLabel": ["handscroll", "makimono", "kansubon"],
+      "variantOf": [],
+      "broader": ["formátum"],
+      "narrower": [],
+      "related": ["leporelló", "accordion book", "folded book", "dragon-scale binding", "whirlwind binding"],
+      "structureLogic": ["tekercselt"]
+    },
+    {
+      "prefLabel_HU": "Ívfüzet",
+      "prefLabel_EN": "Section / gathering",
+      "altLabel": ["signature", "quire", "folded section", "quinternion"],
+      "variantOf": [],
+      "broader": ["könyvtest szerkezeti egysége"],
+      "narrower": ["single-section", "multi-section text block"],
+      "related": ["füzet", "cérnafűzés", "irkafűzés", "könyvtest", "gerinc"],
+      "structureLogic": ["hajtott", "fűzött"]
+    },
+    {
+      "prefLabel_HU": "Könyvtest",
+      "prefLabel_EN": "Text block",
+      "altLabel": ["book block", "body of the book"],
+      "variantOf": [],
+      "broader": ["könyvtárgy szerkezeti egysége"],
+      "narrower": ["ívfüzet", "lap", "levél"],
+      "related": ["fűzésmód", "kötésmód", "gerinc", "borító", "tábla"],
+      "structureLogic": ["fűzött", "ragasztott", "oldalfűzött"]
+    },
+    {
+      "prefLabel_HU": "Fűzésmód",
+      "prefLabel_EN": "Sewing method",
+      "altLabel": ["stitching", "sewn attachment", "hand-sewing"],
+      "variantOf": [],
+      "broader": ["lap- és ívrögzítés"],
+      "narrower": ["cérnafűzés", "irkafűzés", "oldalfűzés", "japán fűzés", "long stitch", "végigfűzés", "váltott fűzés"],
+      "related": ["ívfüzet", "könyvtest", "gerinc", "kötésmód", "varrócérna"],
+      "structureLogic": ["fűzött", "oldalfűzött"]
+    },
+    {
+      "prefLabel_HU": "Cérnafűzés",
+      "prefLabel_EN": "Thread sewing",
+      "altLabel": ["thread-stitching", "sewn binding", "xiàn zhuāng", "Fadenheftung"],
+      "variantOf": [],
+      "broader": ["fűzésmód"],
+      "narrower": ["irkafűzés", "oldalfűzés", "japán fűzés", "kopt kötés", "long stitch", "végigfűzés", "váltott fűzés"],
+      "related": ["ívfüzet", "könyvtest", "gerinc", "varrócérna", "kötőszalag"],
+      "structureLogic": ["fűzött"]
+    },
+    {
+      "prefLabel_HU": "Irkafűzés",
+      "prefLabel_EN": "Pamphlet stitch",
+      "altLabel": ["saddle sewing", "center-fold sewing", "figure-eight stitch"],
+      "variantOf": [],
+      "broader": ["cérnafűzés"],
+      "narrower": [],
+      "related": ["füzet", "ívfüzet", "single-section book", "tűzés"],
+      "structureLogic": ["hajtott", "fűzött"]
+    },
+    {
+      "prefLabel_HU": "Tűzés",
+      "prefLabel_EN": "Saddle stitching",
+      "altLabel": ["wire stitching", "stapled binding"],
+      "variantOf": [],
+      "broader": ["mechanikus laprögzítés"],
+      "narrower": [],
+      "related": ["füzet", "irkafűzés", "oldaltűzés", "kapocs"],
+      "structureLogic": ["hajtott", "tűzött"]
+    },
+    {
+      "prefLabel_HU": "Oldalfűzés",
+      "prefLabel_EN": "Side sewing",
+      "altLabel": ["side stitching", "stab sewing", "side-stitched binding"],
+      "variantOf": [],
+      "broader": ["cérnafűzés"],
+      "narrower": ["japán fűzés", "kínai oldalfűzés", "Asian stab binding"],
+      "related": ["könyvtest", "nyitott gerinc", "laprögzítés", "fukuro-toji", "baobei zhuang"],
+      "structureLogic": ["oldalfűzött"]
+    },
+    {
+      "prefLabel_HU": "Japán fűzés",
+      "prefLabel_EN": "Japanese stab binding",
+      "altLabel": ["Japanese sewing", "stab binding", "yotsume toji"],
+      "variantOf": ["oldalfűzés"],
+      "broader": ["oldalfűzés", "cérnafűzés"],
+      "narrower": ["yotsume toji", "asa-no-ha-toji", "kikko-toji", "Kangxi binding / noble binding"],
+      "related": ["fukuro-toji", "kínai oldalfűzés", "double leaf", "pouch binding"],
+      "structureLogic": ["oldalfűzött"]
+    },
+    {
+      "prefLabel_HU": "Long stitch / hosszúöltéses kötés",
+      "prefLabel_EN": "Long-stitch binding",
+      "altLabel": ["long stitch", "longstitch through slotted cover", "long stitch with chain stitch"],
+      "variantOf": [],
+      "broader": ["cérnafűzés", "ragasztás nélküli kötés"],
+      "narrower": ["longstitch through slotted cover", "long stitch with chain stitch"],
+      "related": ["ívfüzet", "fedél", "flexibilis borító", "nyitott gerinc", "chain stitch"],
+      "structureLogic": ["fűzött", "ragasztás nélküli", "nyitott gerincű"]
+    },
+    {
+      "prefLabel_HU": "Kötésmód",
+      "prefLabel_EN": "Binding structure",
+      "altLabel": ["binding method", "book structure"],
+      "variantOf": [],
+      "broader": ["könyvtárgy szerkezeti alapkategóriája"],
+      "narrower": ["ragasztás nélküli kötés", "ragasztókötés", "kopt kötés", "japán fűzés", "belga kötés", "csavaros kötés", "gyűrűs mappa"],
+      "related": ["fűzésmód", "borítószerkezet", "gerincszerkezet", "könyvtest", "tábla", "fedél"],
+      "structureLogic": ["fűzött", "ragasztott", "oldalfűzött", "moduláris"]
+    },
+    {
+      "prefLabel_HU": "Ragasztás nélküli kötés",
+      "prefLabel_EN": "Non-adhesive binding",
+      "altLabel": ["adhesive-free binding"],
+      "variantOf": [],
+      "broader": ["kötésmód"],
+      "narrower": ["cérnafűzés", "long stitch", "kopt kötés", "tape sewing", "sewn boards"],
+      "related": ["fűzésmód", "ívfüzet", "könyvtest", "fedél", "kötőszalag", "nyitott gerinc"],
+      "structureLogic": ["fűzött", "ragasztás nélküli", "szerkezeti"]
+    },
+    {
+      "prefLabel_HU": "Ragasztókötés",
+      "prefLabel_EN": "Adhesive binding",
+      "altLabel": ["perfect binding", "fűzés nélküli kötés", "unsewn binding"],
+      "variantOf": [],
+      "broader": ["kötésmód"],
+      "narrower": ["perfect binding"],
+      "related": ["könyvtest", "gerinc", "paperback", "soft cover", "ragasztó"],
+      "structureLogic": ["ragasztott", "fűzés nélküli"]
+    },
+    {
+      "prefLabel_HU": "Kopt kötés",
+      "prefLabel_EN": "Coptic binding",
+      "altLabel": ["Coptic sewing", "chain-stitch binding"],
+      "variantOf": [],
+      "broader": ["kötésmód", "ragasztás nélküli kötés"],
+      "narrower": [],
+      "related": ["cérnafűzés", "láncöltés", "nyitott gerinc", "ívfüzet"],
+      "structureLogic": ["fűzött", "ragasztás nélküli", "nyitott gerincű"]
+    },
+    {
+      "prefLabel_HU": "Belga kötés",
+      "prefLabel_EN": "Secret Belgian binding",
+      "altLabel": ["criss-cross binding"],
+      "variantOf": [],
+      "broader": ["kötésmód", "ragasztás nélküli kötés"],
+      "narrower": [],
+      "related": ["nyitott gerinc", "moduláris borító", "cérnafűzés", "tábla"],
+      "structureLogic": ["fűzött", "moduláris", "nyitott gerincű"]
+    },
+    {
+      "prefLabel_HU": "Csavaros kötés",
+      "prefLabel_EN": "Screw-post binding",
+      "altLabel": ["post binding", "Chicago screw"],
+      "variantOf": [],
+      "broader": ["kötésmód", "mechanikus rögzítés"],
+      "narrower": [],
+      "related": ["gyűrűs mappa", "loose-leaf", "album", "laprögzítés", "portfólió"],
+      "structureLogic": ["mechanikus", "moduláris"]
+    },
+    {
+      "prefLabel_HU": "Gyűrűs mappa",
+      "prefLabel_EN": "Ring binder",
+      "altLabel": ["loose-leaf binder"],
+      "variantOf": [],
+      "broader": ["kötésmód", "mechanikus rögzítés"],
+      "narrower": [],
+      "related": ["loose-leaf", "csavaros kötés", "mappa", "portfólió", "laprögzítés"],
+      "structureLogic": ["mechanikus", "moduláris"]
+    },
+    {
+      "prefLabel_HU": "Ribbon-tied kötés",
+      "prefLabel_EN": "Ribbon-tied binding",
+      "altLabel": ["tied binding", "ribbon closure"],
+      "variantOf": [],
+      "broader": ["kötésmód", "záródással rokon szerkezet"],
+      "narrower": [],
+      "related": ["záródás", "album", "portfólió", "oldalfűzés", "szalag"],
+      "structureLogic": ["fűzött", "moduláris", "záródó"]
+    },
+    {
+      "prefLabel_HU": "Nyitott gerinc",
+      "prefLabel_EN": "Exposed spine",
+      "altLabel": ["open spine", "visible sewing"],
+      "variantOf": [],
+      "broader": ["gerincszerkezet"],
+      "narrower": [],
+      "related": ["kopt kötés", "long stitch", "japán fűzés", "cérnafűzés", "ragasztás nélküli kötés"],
+      "structureLogic": ["nyitott gerincű", "fűzött", "ragasztás nélküli"]
+    }
+  ]
+}
