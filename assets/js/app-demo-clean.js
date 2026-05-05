@@ -238,6 +238,50 @@ function technicalGroup(title,content){
   return `<div class="technical-group"><div class="technical-subheading">${escapeHtml(title)}</div>${content}</div>`;
 }
 
+function mamboDataView(term){
+  const openSpineIds = ['mambo:bind-001','mambo:spine-001'];
+
+  if(!openSpineIds.includes(term.id)) return '';
+
+  const relatedFields = ['kötésmód','gerincszerkezet','könyvforma'];
+  const relationTags = relatedFields
+    .map(item => `<span class="mambo-field-chip">${escapeHtml(item)}</span>`)
+    .join('');
+
+  return `
+    <section class="detail-section mambo-data-view">
+      <h4>MAMBO-adatnézet</h4>
+
+      <div class="mambo-subsection">
+        <h5>Ontológiai helye</h5>
+        <dl class="mambo-meta-list">
+          <div><dt>Leírási réteg</dt><dd>Gerincszerkezet</dd></div>
+          <div><dt>MAMBO-osztály</dt><dd>SpineType</dd></div>
+          <div><dt>Javasolt property</dt><dd>mambo:has_spine_type</dd></div>
+          <div><dt>CIDOC CRM-osztály</dt><dd>E55 Type</dd></div>
+          <div><dt>CIDOC CRM-kapcsolat</dt><dd>P2 has type</dd></div>
+        </dl>
+        <p class="detail-paragraph">A nyitott gerinc nem önálló kötésmód, hanem gerincszerkezeti jellemző, amely külön mezőben rögzíthető a kötésmódtól.</p>
+      </div>
+
+      <div class="mambo-subsection">
+        <h5>Előfordul a mintában</h5>
+        <p class="detail-note">Esettanulmány-előfordulások: adatfeltöltés alatt.</p>
+      </div>
+
+      <div class="mambo-subsection">
+        <h5>Kapcsolódó mezők</h5>
+        <div class="mambo-field-chips">${relationTags}</div>
+      </div>
+
+      <div class="mambo-subsection">
+        <h5>Miért fontos?</h5>
+        <p class="detail-paragraph">Ez a nézet azt mutatja meg, hogy egy szótári fogalom nem elszigetelt definícióként működik, hanem a műleírás több mezőjéhez és később konkrét esettanulmány-előfordulásokhoz is kapcsolható.</p>
+      </div>
+    </section>
+  `;
+}
+
 function getCardMarkup(term){
   const category = displayCategory(term.category);
   const label = categoryLabelMap[category] || category;
@@ -263,6 +307,7 @@ function getCardMarkup(term){
             ${technicalGroup('Ontológiai kapcsolás',`<div class="ontology-row">${field('MAMBO-osztály',term.class)}${field('MAMBO-property',term.property)}</div>${field('CIDOC',term.cidoc)}`)}
             ${technicalGroup('Leírás forrásai',sourceField('Források',term.sources))}
           </section>
+          ${mamboDataView(term)}
         </div>
       </details>
     </div>
