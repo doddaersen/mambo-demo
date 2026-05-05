@@ -234,3 +234,69 @@ footer,
     display:none!important;
   }
 }
+
+/* MAMBO-adatnézet */
+.mambo-data-view{
+  background:#fcfcfc;
+  border-top:1px solid #e2e2e2;
+}
+
+.mambo-subsection + .mambo-subsection{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid #e7e7e7;
+}
+
+.mambo-subsection h5{
+  margin:0 0 8px;
+  font-size:11px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#444;
+}
+
+.mambo-meta-list{
+  margin:0;
+  display:grid;
+  gap:6px;
+}
+
+.mambo-meta-list div{
+  display:grid;
+  grid-template-columns:160px minmax(0,1fr);
+  gap:8px;
+}
+
+.mambo-meta-list dt{
+  font-size:11px;
+  color:#666;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.mambo-meta-list dd{
+  margin:0;
+  font-size:13px;
+  color:#222;
+}
+
+.mambo-field-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.mambo-field-chip{
+  display:inline-flex;
+  padding:4px 8px;
+  border:1px solid #d8d8d8;
+  font-size:12px;
+  color:#333;
+  background:#fff;
+}
+
+@media (max-width:760px){
+  .mambo-meta-list div{
+    grid-template-columns:1fr;
+  }
+}
