@@ -30,6 +30,85 @@
     updateDefaultHomepageTerms();
   }
 
+  function ensureQuickViewStyles(){
+    if(document.querySelector('#quickViewShapeFixes')) return;
+
+    const style = document.createElement('style');
+    style.id = 'quickViewShapeFixes';
+    style.textContent = `
+      #termList .term-summary{
+        grid-template-columns:98px minmax(0,1fr)!important;
+      }
+
+      #termList .term-icon{
+        width:98px!important;
+        height:98px!important;
+        aspect-ratio:1 / 1!important;
+        padding:7px!important;
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
+        overflow:hidden!important;
+        border:1px solid #dedede!important;
+        background:#fff!important;
+        box-sizing:border-box!important;
+      }
+
+      #termList .term-icon img{
+        width:100%!important;
+        height:100%!important;
+        max-width:none!important;
+        max-height:none!important;
+        object-fit:contain!important;
+        object-position:center center!important;
+        display:block!important;
+      }
+
+      #termList .zoom-btn{
+        right:6px!important;
+        bottom:6px!important;
+        width:32px!important;
+        height:32px!important;
+        padding:0!important;
+      }
+
+      #termList .zoom-btn svg{
+        width:17px!important;
+        height:17px!important;
+        display:block!important;
+      }
+
+      #termList .quickview-alt-labels strong{
+        font-size:11.5px!important;
+        letter-spacing:.06em!important;
+      }
+
+      @media(max-width:560px){
+        #termList .term-summary{
+          grid-template-columns:78px minmax(0,1fr)!important;
+        }
+
+        #termList .term-icon{
+          width:78px!important;
+          height:78px!important;
+          padding:6px!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function normalizeQuickViewLabels(){
+    document.querySelectorAll('#termList .detail-section .field').forEach(field=>{
+      const label = field.querySelector('strong');
+      if(!label) return;
+      if(label.textContent.trim().toLowerCase() === 'alternatív elnevezések'){
+        label.textContent = 'Alternatív elnevezések';
+        field.classList.add('quickview-alt-labels');
+      }
+    });
+  }
+
   function ensureImageZoomModal(){
     let modal = document.querySelector('#imageZoomModal');
     if(modal) return modal;
@@ -101,7 +180,12 @@
       button.className = 'zoom-btn';
       button.type = 'button';
       button.setAttribute('aria-label', 'Ábra nagyítása');
-      button.textContent = '⌕';
+      button.innerHTML = `
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="10.5" cy="10.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="M15 15l4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+      `;
       button.addEventListener('click', event=>{
         event.preventDefault();
         event.stopPropagation();
@@ -112,6 +196,7 @@
 
       icon.appendChild(button);
     });
+    normalizeQuickViewLabels();
     updateDefaultHomepageTerms();
   }
 
@@ -141,18 +226,22 @@
   }
 
   window.addEventListener('DOMContentLoaded', ()=>{
+    ensureQuickViewStyles();
     ensureImageZoomModal();
     const termList = document.querySelector('#termList');
     if(termList){
       new MutationObserver(()=>{
         addImageZoomButtons();
+        normalizeQuickViewLabels();
         updateDefaultHomepageTerms();
       }).observe(termList, { childList:true, subtree:true, attributes:true, attributeFilter:['src','data-icon-real','class'] });
     }
     addImageZoomButtons();
+    normalizeQuickViewLabels();
     updateDefaultHomepageTerms();
     window.setTimeout(addImageZoomButtons, 300);
     window.setTimeout(addImageZoomButtons, 900);
+    window.setTimeout(normalizeQuickViewLabels, 300);
     window.setTimeout(updateDefaultHomepageTerms, 1200);
   });
 })();
